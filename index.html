@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Glance by Ashforde · your Mac at a glance</title>
+<meta name="description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected. For the Mac App Store.">
+<link rel="canonical" href="https://glance.ashforde.org/">
+<meta property="og:title" content="Glance by Ashforde · your Mac at a glance">
+<meta property="og:description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected. For the Mac App Store.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glance by Ashforde">
+<meta property="og:url" content="https://glance.ashforde.org/">
+<meta property="og:image" content="https://glance.ashforde.org/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glance by Ashforde: your Mac at a glance, from the menu bar">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Glance by Ashforde · your Mac at a glance">
+<meta name="twitter:description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected. For the Mac App Store.">
+<meta name="twitter:image" content="https://glance.ashforde.org/img/og.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#FAFBFD">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/ui/site.css">
+<script>
+/* Before the first paint: the appearance chosen on this browser, so nothing flashes. */
+(() => { const d = document.documentElement; let m = null; d.classList.add('js');
+  try { m = localStorage.getItem('glance-mode'); } catch (e) {}
+  d.dataset.scheme = m === 'light' || m === 'dark' ? m : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();
+</script>
+<script src="/ui/site.js" defer></script>
+<link rel="stylesheet" href="/ui/home.css">
+<script src="/ui/home.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance</a>
+    <nav aria-label="Main"><a href="/#panel">Panel</a><a href="/#island">Island</a><a href="/#dashboard">Dashboard</a><a href="/#awake">Stay Awake</a><a href="/#evening">Evening Mode</a><a href="/#storage">Storage</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></nav>
+    <span class="spacer"></span>
+    <button type="button" class="iconbtn" id="theme-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-pop" title="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="sr">Appearance</span></button>
+    <a class="store small" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Coming soon</b></span></a>
+    <button type="button" class="iconbtn menu-btn" id="menu-btn" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+  <div class="theme-pop" id="theme-pop" role="dialog" aria-label="Appearance" hidden>
+    <h2>Appearance</h2>
+    <div class="seg" data-mode-pick role="group" aria-label="Appearance">
+      <button type="button" data-mode="auto">Automatic</button><button type="button" data-mode="light">Light</button><button type="button" data-mode="dark">Dark</button>
+    </div>
+    <p>Kept on this browser only.</p>
+  </div>
+</header>
+<div class="warmth" id="warmth" aria-hidden="true"></div>
+
+<main id="main">
+
+<!-- 1 · Hero -->
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-icon" src="/assets/icon.png" alt="The Glance icon: white rings and a pink pulse on navy" width="156" height="156">
+    <span class="eyebrow"><i></i>Free · for macOS 13 or later</span>
+    <h1 class="display">Glance <span class="by light-text">by Ashforde</span></h1>
+    <p class="lede">Your battery, your day and how your Mac is doing, one click away in the menu bar.</p>
+    <div class="ctas">
+      <a class="store" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Mac App Store</b></span></a>
+      <a class="btn text" href="#panel">See what it does ›</a>
+    </div>
+    <p class="release">No account. No in-app purchases. Nothing collected.</p>
+  </div>
+  <div class="gx-desk rv" role="img" aria-label="A drawn Mac screen: the Island at the top shows Stay Awake, charging and the next meeting in turn, above three rings for battery, processor and memory.">
+    <div class="gx-wall" aria-hidden="true"></div>
+    <div class="gx-mbar" aria-hidden="true">
+      <span><b>Finder</b><span class="x">File</span><span class="x">Edit</span><span class="x">View</span></span>
+      <span><i class="gx-gl"></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><span class="date">Sat 14 Nov</span><span>09:41</span></span>
+    </div>
+    <div class="gx-live" data-live aria-hidden="true"><span class="l"></span><span class="r"></span></div>
+    <div class="gx-rings" aria-hidden="true">
+      <div class="gx-orb" tabindex="-1"><div class="gr" data-v="86" data-text="86%" data-label="3 h 40 m left" data-c="#30d158" data-w="7" data-d="0"></div><span class="lab">Battery<small>Health 97% · 214 cycles</small></span></div>
+      <div class="gx-orb" tabindex="-1"><div class="gr" data-v="18" data-text="18%" data-label="8 cores" data-c="#FF8A5B" data-w="7" data-d="1"></div><span class="lab">Processor<small>Running cool</small></span></div>
+      <div class="gx-orb" tabindex="-1"><div class="gr" data-v="61" data-text="61%" data-label="of 16 GB" data-c="#E8437A" data-w="7" data-d="2"></div><span class="lab">Memory<small>Plenty free</small></span></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="facts rv">
+      <div><b>Free</b><span>No in-app purchases</span></div>
+      <div><b>0</b><span>Accounts or sign-ins</span></div>
+      <div><b>16</b><span>Dashboard pages</span></div>
+      <div><b>6</b><span>Island tabs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Menu bar panel -->
+<section class="s stage" id="panel">
+  <div class="wrap duo">
+    <div class="rv">
+      <span class="eyebrow"><i></i>The menu bar panel</span>
+      <h2 class="h2">Your Mac, <span class="light-text">one click away.</span></h2>
+      <p class="lede">Click Glance’s icon for your battery, your day and how your Mac is doing, with Stay Awake and Evening Mode right there. Try the switches.</p>
+      <ul class="gx-chips sg">
+        <li><svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="21" height="12" rx="3.5"/><rect x="4.5" y="8.5" width="12" height="7" rx="1.4" fill="currentColor" stroke="none"/><path d="M25 10.5v3" stroke-linecap="round"/></svg>Battery, health and cycles</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Your day and reminders</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 18V12M9 18V6M14 18v-8M19 18V9"/></svg>Processor, memory, storage, network</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0-5 5m5-5 5 5"/></svg>Cards that rise when they matter</li>
+      </ul>
+    </div>
+    <div class="panelscene rv">
+      <div class="mbs" aria-hidden="true"><i class="gx-gl"></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><span>Sat 14 Nov 09:41</span></div>
+      <div class="panel" data-panel role="group" aria-label="A working copy of Glance’s menu bar panel">
+        <div class="st"><span><b>Glance</b> · Stay Awake <span data-awake-time>52 min</span></span><span class="dbtn" title="Dashboard" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/></svg></span></div>
+        <div class="tg">
+          <button type="button" class="sw1" data-sw="awake" aria-pressed="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M7 3v2M10 3v2M13 3v2"/></svg></i><span>Stay Awake</span></button>
+          <button type="button" class="sw1" data-sw="evening" aria-pressed="false"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></i><span>Evening</span></button>
+          <button type="button" class="sw1" data-sw="island" aria-pressed="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><rect x="8" y="4" width="8" height="3.5" rx="1.75" fill="currentColor"/></svg></i><span>Island</span></button>
+          <button type="button" class="sw1" data-sw="breaks" aria-pressed="false"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i><span>Breaks</span></button>
+        </div>
+        <div class="cd"><h6>Battery <span>3 h 40 m left</span></h6>
+          <div class="gx-bat"><div class="gr" data-v="86" data-text="86%" data-c="#30d158" data-w="10"></div>
+            <div class="kv"><span>Health <b>97%</b></span><span>Charge cycles <b>214</b></span><span>On battery</span></div></div>
+          <div class="gx-acc"><span>Mouse <b>72%</b><i style="--v:72%"></i></span><span>Keyboard <b>90%</b><i style="--v:90%"></i></span><span>Trackpad <b>55%</b><i style="--v:55%"></i></span></div>
+        </div>
+        <div class="cd"><h6>System <span class="gx-heat">Running cool</span></h6>
+          <div class="gx-sys">
+            <div><div class="gr" data-v="18" data-text="18%" data-c="#FF8A5B" data-w="11" data-d="0"></div>Processor</div>
+            <div><div class="gr" data-v="61" data-text="61%" data-c="#E8437A" data-w="11" data-d="1"></div>Memory</div>
+            <div><div class="gr" data-v="59" data-text="59%" data-c="#5C8FFF" data-w="11" data-d="2"></div>Storage</div>
+            <div><div class="gr" data-v="42" data-text="108" data-c="#64D2FF" data-w="11" data-d="3"></div>Mbit/s</div>
+          </div>
+        </div>
+        <div class="cd"><h6>Today <span>Saturday 14 November</span></h6>
+          <div class="gx-day">
+            <div class="gx-ev" style="--c:#5c8fff"><i></i><span><b>Design review</b><small>Studio 2</small></span><em>10:00</em></div>
+            <div class="gx-ev" style="--c:#30d158"><i></i><span><b>Run with Ana</b><small>Kadriorg</small></span><em>12:30</em></div>
+            <div class="gx-rem">Send the slides</div>
+          </div>
+        </div>
+        <div class="cd gx-smart" aria-live="polite"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i><span><b>Design review in 4 minutes</b><small>A card that shows only when it matters</small></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · The Island -->
+<section class="s stage" id="island" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>The Island</span><h2 class="h2">What’s happening now, <span class="light-text">at the top of your screen.</span></h2>
+      <p class="lede">A small island shows Stay Awake, charging, a timer or a meeting about to start. Rest the pointer on it to peek, click to open it.</p></div>
+    <div class="islandstage rv">
+      <div class="gx-wall" aria-hidden="true"></div>
+      <div class="gx-mbar" aria-hidden="true">
+        <span><b>Finder</b><span class="x">File</span><span class="x">Edit</span></span>
+        <span><i class="gx-gl"></i><span class="date">Sat 14 Nov</span><span>09:41</span></span>
+      </div>
+      <div class="isl" data-isl data-shape="pill" role="region" aria-label="A working copy of the Island" aria-live="polite">
+        <div class="wing"><span class="l"></span><span class="r"></span></div>
+        <div class="body"></div>
+      </div>
+    </div>
+    <p class="islcap-label">Open a tab</p>
+    <div class="islcap" role="group" aria-label="Open the Island on a tab">
+      <button type="button" data-isl-btn="home" aria-pressed="false">Home</button>
+      <button type="button" data-isl-btn="calendar" aria-pressed="false">Calendar</button>
+      <button type="button" data-isl-btn="timer" aria-pressed="false">Timer</button>
+      <button type="button" data-isl-btn="tasks" aria-pressed="false">Tasks</button>
+      <button type="button" data-isl-btn="insights" aria-pressed="false">Insights</button>
+      <button type="button" data-isl-btn="tools" aria-pressed="false">Tools</button>
+    </div>
+    <p class="islcap-label">Or see it live</p>
+    <div class="islcap" role="group" aria-label="Show the Island live">
+      <button type="button" data-isl-btn="awake" aria-pressed="false">Stay Awake</button>
+      <button type="button" data-isl-btn="charging" aria-pressed="false">Charging</button>
+      <button type="button" data-isl-btn="meeting" aria-pressed="false">Meeting soon</button>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Dashboard -->
+<section class="s" id="dashboard">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>The Dashboard</span><h2 class="h2">Every reading, <span class="light-text">at full size.</span></h2>
+      <p class="lede">One window for everything Glance reads. Pick a page from the sidebar.</p></div>
+    <div class="dash rv" data-dash role="group" aria-label="A working copy of Glance’s Dashboard">
+      <div class="side" role="tablist" aria-label="Dashboard pages" aria-orientation="vertical">
+        <div class="tl" aria-hidden="true"><i></i><i></i><i></i></div>
+        <button type="button" role="tab" data-page="overview" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg>Overview</button>
+        <button type="button" role="tab" data-page="battery" aria-selected="false" tabindex="-1"><svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="21" height="12" rx="3.5"/><rect x="4.5" y="8.5" width="12" height="7" rx="1.4" fill="currentColor" stroke="none"/><path d="M25 10.5v3" stroke-linecap="round"/></svg>Battery</button>
+        <button type="button" role="tab" data-page="weather" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.6A3.3 3.3 0 0 0 7 18z"/></svg>Weather</button>
+        <button type="button" role="tab" data-page="time" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Time</button>
+        <p class="more">And twelve more pages, from processor to history.</p>
+      </div>
+      <div class="main" data-main aria-live="polite"></div>
+    </div>
+    <ul class="gx-pages sg" aria-label="Every Dashboard page">
+      <li>Overview</li><li>CPU, each core drawn as your chip</li><li>Memory</li><li>GPU</li><li>Disk</li><li>Network, with a speed test</li><li>Battery</li><li>Sound</li><li>Devices</li><li>Storage</li><li>AI Usage</li><li>Weather</li><li>World clocks</li><li>Today</li><li>Trends</li><li>History</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 · Stay Awake and Evening Mode -->
+<section class="s" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>One click away</span><h2 class="h2">Awake when you need it. <span class="light-text">Warmer when it’s late.</span></h2></div>
+    <div class="gx-pair">
+      <div class="gx-card rv" id="awake" data-awk>
+        <div><span class="k">Stay Awake</span><h3>For an hour, or until the download’s done.</h3>
+          <p class="desc">Keep your Mac awake for as long as you choose, see the time left in the menu bar, and let it stop by itself when the battery runs low.</p></div>
+        <div class="gx-awk">
+          <div class="gr light-ring" data-v="87" data-text="52 min" data-label="left of 1 hour" data-w="8"></div>
+          <div class="gx-opts">
+            <div class="gx-opt"><span>Keep the display on</span><button type="button" class="tog" aria-pressed="false" aria-label="Keep the display on"></button></div>
+            <div class="gx-opt"><span>Time left in the menu bar</span><button type="button" class="tog" aria-pressed="true" aria-label="Show the time left in the menu bar"></button></div>
+            <div class="gx-opt"><span>Stop when the battery is low</span><button type="button" class="tog" aria-pressed="true" aria-label="Stop when the battery is low"></button></div>
+            <div class="gx-opt"><span>Keep me Available</span><button type="button" class="tog" aria-pressed="false" aria-label="Keep me Available in chat apps"></button></div>
+          </div>
+        </div>
+        <div class="pills" role="group" aria-label="How long to stay awake">
+          <button type="button" data-awk-mode="hour" aria-pressed="true">For 1 hour</button>
+          <button type="button" data-awk-mode="until" aria-pressed="false">Until 18:00</button>
+          <button type="button" data-awk-mode="download" aria-pressed="false">While downloading</button>
+          <button type="button" data-awk-mode="always" aria-pressed="false">Until I turn it off</button>
+        </div>
+      </div>
+      <div class="gx-card rv" id="evening" data-eve>
+        <div><span class="k">Evening Mode</span><h3>A warmer screen at night.</h3>
+          <p class="desc">Less blue light on every display. Choose how warm, turn it on by hand or on a schedule, and let it rest while apps where colour matters are in front.</p></div>
+        <div class="gx-eve" aria-hidden="true">
+          <div class="gx-scr"><i></i><span class="tint"></span><small>Built-in display</small></div>
+          <div class="gx-scr"><i></i><span class="tint"></span><small>Second display</small></div>
+        </div>
+        <div>
+          <input type="range" class="slide" min="0" max="100" value="0" aria-label="Evening Mode warmth">
+          <div class="warmrow"><span>Daylight</span><b data-evepct>0%</b><span>Candlelight</span></div>
+        </div>
+        <div class="pills four" role="group" aria-label="Warmth">
+          <button type="button" data-eve-pre="0" aria-pressed="false">Off</button>
+          <button type="button" data-eve-pre="35" aria-pressed="false">Gentle</button>
+          <button type="button" data-eve-pre="65" aria-pressed="false">Warm</button>
+          <button type="button" data-eve-pre="100" aria-pressed="false">Candle</button>
+        </div>
+        <div class="gx-sched"><span>Sunset 16:05</span><span aria-hidden="true">→</span><span>Sunrise 08:21</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Storage -->
+<section class="s" id="storage">
+  <div class="wrap duo">
+    <div class="rv">
+      <span class="eyebrow"><i></i>Storage</span>
+      <h2 class="h2">Find the space. <span class="light-text">Clear it safely.</span></h2>
+      <p class="lede">Choose your home folder once, and Glance finds what’s taking up space and helps you clear it, always to the Bin, so nothing is lost by accident.</p>
+      <ul class="gx-chips sg">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h6l2 2h10v10H3z"/></svg>Your home folder, chosen once</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M7 7v12h10V7M10 7V4h4v3"/></svg>Always to the Bin</li>
+      </ul>
+    </div>
+    <div class="stor-card rv" data-sto>
+      <div class="top2"><b data-stobig>40.4 GB</b><small>you could clear · in your home folder</small></div>
+      <div class="sbar" aria-hidden="true"><i style="--c:#FF8A5B;flex:14.2"></i><i style="--c:#E8437A;flex:9.6"></i><i style="--c:#5C8FFF;flex:7.1"></i><i style="--c:#64D2FF;flex:4.3"></i><i style="--c:#BF5AF2;flex:3.2"></i><i style="--c:#30D158;flex:2.0"></i></div>
+      <div class="sleg">
+        <button type="button" style="--c:#FF8A5B"><i></i><span>Large files</span><em>14.2 GB</em></button>
+        <button type="button" style="--c:#E8437A"><i></i><span>Downloads</span><em>9.6 GB</em></button>
+        <button type="button" style="--c:#5C8FFF"><i></i><span>Caches</span><em>7.1 GB</em></button>
+        <button type="button" style="--c:#64D2FF"><i></i><span>Installers</span><em>4.3 GB</em></button>
+        <button type="button" style="--c:#BF5AF2"><i></i><span>Old files</span><em>3.2 GB</em></button>
+        <button type="button" style="--c:#30D158"><i></i><span>Archives</span><em>2.0 GB</em></button>
+      </div>
+      <div class="sact"><small>Nothing is deleted outright. Change your mind and put it back.</small><span class="btn primary" aria-hidden="true">Move to Bin</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · And more -->
+<section class="s" id="more" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>And more</span><h2 class="h2">The small things, <span class="light-text">done properly.</span></h2></div>
+    <div class="gx-more sg">
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i><b>Meeting Notes</b><p>Record a call and get a transcript, made on your Mac where macOS supports it. On macOS 26, a summary too.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h4"/></svg></i><b>Clipboard history</b><p>Find anything you copied and copy it again. Passwords and other concealed copies are never kept.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 9h8M8 12h8M8 15h5"/></svg></i><b>Text and QR codes</b><p>Pull the text or a QR code out of a picture or a screenshot you’ve copied.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.6A3.3 3.3 0 0 0 7 18z"/></svg></i><b>Weather</b><p>For the places you choose, with no location access needed.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="15" width="18" height="5" rx="2"/><path d="M7 15v-3M12 15V8M17 15v-5"/></svg></i><b>Docks of your own</b><p>Apps, folders, files and small widgets, at any edge of the screen.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i><b>Breaks</b><p>Gentle reminders to rest your eyes, stretch and drink some water.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS
+     Real screenshots go in /img/shots/ (2880 × 1800 from the "Mac screenshots" workflow, edition: glance).
+     For each figure, replace the whole <div class="ph">…</div> with:
+       <img src="/img/shots/01-panel-home.png" width="2880" height="1800" loading="lazy" decoding="async" alt="…">
+     keeping the order and file names below. -->
+<section class="s" id="screenshots">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>On a real Mac</span><h2 class="h2">The real thing. <span class="light-text">Coming soon.</span></h2>
+      <p class="lede">Screenshots of Glance running on a Mac arrive with its App Store release.</p></div>
+    <div class="shots sg">
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">01-panel-home.png</div></div><figcaption>The panel, with Stay Awake on</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">02-island-home.png</div></div><figcaption>The Island, open on Home</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">03-island-calendar.png</div></div><figcaption>The Island’s Calendar</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">04-dashboard-overview.png</div></div><figcaption>The Dashboard’s Overview</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">05-dashboard-weather.png</div></div><figcaption>Weather</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">06-dashboard-time.png</div></div><figcaption>World clocks</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">07-panel-awake.png</div></div><figcaption>Stay Awake</figcaption></figure>
+      <figure class="shot"><div class="f"><div class="ph"><img src="/assets/icon-256.png" alt="" width="44" height="44">08-panel-evening.png</div></div><figcaption>Evening Mode</figcaption></figure>
+    </div>
+  </div>
+</section>
+<!-- /SCREENSHOTS -->
+
+<!-- 8 · Privacy -->
+<section class="s" id="privacy" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>Private by design</span><h2 class="h2">It keeps to itself. <span class="light-text">And to your Mac.</span></h2>
+      <p class="lede">Everything Glance reads stays on your Mac. It goes online only to fetch what it shows you.</p></div>
+    <div class="gx-badges sg">
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0M3 3l18 18"/></svg></i><span><b>No account</b><small>Nothing to sign up for or sign in to</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7M3 3l18 18"/></svg></i><span><b>Nothing collected</b><small>No analytics, no usage counts, no ads</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i><span><b>No Accessibility</b><small>It never controls other apps</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></i><span><b>Never asks for your password</b><small>No administrator rights, ever</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i><span><b>Your day stays on your Mac</b><small>Calendar, reminders and recordings</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i><span><b>Online only to fetch</b><small>Weather, rates, a speed test you start</small></span></div>
+    </div>
+    <p class="gx-privlink"><a class="btn glassy small" href="/privacy/">Read the privacy policy</a></p>
+  </div>
+</section>
+
+<!-- 9 · The sibling -->
+<section class="s" style="padding-block:clamp(48px,6vw,80px)">
+  <div class="wrap">
+    <a class="sib rv" href="https://monorail.ashforde.org">
+      <span class="rails" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><b>Need window management too?</b><p>Monorail, Glance’s sibling for your windows.</p></span>
+      <span class="go">monorail.ashforde.org ›</span>
+    </a>
+  </div>
+</section>
+
+<!-- 10 · Final call -->
+<section class="final">
+  <div class="wrap">
+    <div class="halo rv"><img src="/assets/icon.png" alt="" width="150" height="150"></div>
+    <h2 class="h2">Your Mac, <span class="light-text">at a glance.</span></h2>
+    <p class="lede">Free, with no account and nothing collected.</p>
+    <div class="ctas"><a class="store" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Mac App Store</b></span></a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance by Ashforde</a>
+        <p style="margin-top:14px;max-width:36ch">Your Mac at a glance, from the menu bar. Made by Ashforde OÜ, a company in the European Union.</p>
+        <p style="margin-top:18px"><a class="store" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Mac App Store</b></span></a></p></div>
+      <div><h2>Glance</h2><ul><li><a href="/#panel">Menu bar panel</a></li><li><a href="/#island">The Island</a></li><li><a href="/#dashboard">Dashboard</a></li><li><a href="/#awake">Stay Awake</a></li><li><a href="/#evening">Evening Mode</a></li><li><a href="/#storage">Storage</a></li></ul></div>
+      <div><h2>Help</h2><ul><li><a href="/support/">Support</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="mailto:contact@ashforde.org?subject=Glance">Report a problem</a></li></ul></div>
+      <div><h2>Ashforde</h2><ul><li><a href="https://monorail.ashforde.org">Monorail, for your windows</a></li><li><a href="mailto:contact@ashforde.org">contact@ashforde.org</a></li></ul></div>
+    </div>
+    <p class="legal">© <span data-year>2026</span> Ashforde OÜ. Ashforde® is a registered trademark of Ashforde OÜ. The Glance name and icon are trademarks of Ashforde OÜ. Mac and Mac App Store are trademarks of Apple Inc., registered in the U.S. and other countries. This site sets no cookies and counts nothing; your appearance choice is kept on this browser only.</p>
+  </div>
+  <div class="giant" aria-hidden="true">Glance</div>
+</footer>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Glance by Ashforde","applicationCategory":"UtilitiesApplication","operatingSystem":"macOS 13 or later","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"url":"https://glance.ashforde.org/","image":"https://glance.ashforde.org/assets/icon.png","publisher":{"@type":"Organization","name":"Ashforde OÜ"},"description":"Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected."}
+</script>
+</body>
+</html>

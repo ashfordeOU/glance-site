@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Support · Glance by Ashforde</title>
+<meta name="description" content="Help with Glance for Mac: permissions, Stay Awake with the lid closed, updates, starting afresh, and how to reach us.">
+<link rel="canonical" href="https://glance.ashforde.org/support/">
+<meta property="og:title" content="Support · Glance by Ashforde">
+<meta property="og:description" content="Help with Glance for Mac: permissions, Stay Awake with the lid closed, updates, starting afresh, and how to reach us.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glance by Ashforde">
+<meta property="og:url" content="https://glance.ashforde.org/support/">
+<meta property="og:image" content="https://glance.ashforde.org/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glance by Ashforde: your Mac at a glance, from the menu bar">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Support · Glance by Ashforde">
+<meta name="twitter:description" content="Help with Glance for Mac: permissions, Stay Awake with the lid closed, updates, starting afresh, and how to reach us.">
+<meta name="twitter:image" content="https://glance.ashforde.org/img/og.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#FAFBFD">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/ui/site.css">
+<script>
+/* Before the first paint: the appearance chosen on this browser, so nothing flashes. */
+(() => { const d = document.documentElement; let m = null; d.classList.add('js');
+  try { m = localStorage.getItem('glance-mode'); } catch (e) {}
+  d.dataset.scheme = m === 'light' || m === 'dark' ? m : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();
+</script>
+<script src="/ui/site.js" defer></script>
+<style>
+.starts { max-width: 1080px; margin: 0 auto; }
+.starts .card { text-align: center; }
+.starts .ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; margin: 0 auto 16px; color: #fff; background: linear-gradient(135deg, var(--l1), var(--l3)); }
+.starts .ic svg { width: 22px; height: 22px; }
+.group { margin-top: clamp(48px, 6vw, 72px); }
+.group > h2 { font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 18px; text-align: center; }
+.contact { margin: clamp(56px, 7vw, 88px) auto clamp(64px, 8vw, 110px); max-width: 760px; text-align: center; padding: clamp(28px, 4vw, 44px); }
+.contact h2 { font-size: clamp(26px, 3.4vw, 36px); }
+.contact p { color: var(--ink2); margin: 12px auto 0; max-width: 54ch; }
+.contact .btn { margin-top: 22px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance</a>
+    <nav aria-label="Main"><a href="/#panel">Panel</a><a href="/#island">Island</a><a href="/#dashboard">Dashboard</a><a href="/#awake">Stay Awake</a><a href="/#evening">Evening Mode</a><a href="/#storage">Storage</a><a href="/privacy/">Privacy</a><a href="/support/" aria-current="page">Support</a></nav>
+    <span class="spacer"></span>
+    <button type="button" class="iconbtn" id="theme-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-pop" title="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="sr">Appearance</span></button>
+    <a class="store small" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Coming soon</b></span></a>
+    <button type="button" class="iconbtn menu-btn" id="menu-btn" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+  <div class="theme-pop" id="theme-pop" role="dialog" aria-label="Appearance" hidden>
+    <h2>Appearance</h2>
+    <div class="seg" data-mode-pick role="group" aria-label="Appearance">
+      <button type="button" data-mode="auto">Automatic</button><button type="button" data-mode="light">Light</button><button type="button" data-mode="dark">Dark</button>
+    </div>
+    <p>Kept on this browser only.</p>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <section class="page-hero">
+    <span class="eyebrow"><i></i>Support</span>
+    <h1>How can we <span class="light-text">help?</span></h1>
+    <p class="lede">Answers to the questions people ask most, and a person at the other end of <a href="mailto:contact@ashforde.org">contact@ashforde.org</a> when you need one.</p>
+  </section>
+
+  <div class="grid g3 starts">
+    <div class="card glass"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16"/></svg></div><span class="k">Start here</span><h3>Click the icon</h3><p>Glance lives in the menu bar. Click its icon for the panel; the gauge button at the top opens the Dashboard.</p></div>
+    <div class="card glass"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><span class="k">Permissions</span><h3>Only when needed</h3><p>Glance asks for a permission only when you first use the feature that needs it. Every one is optional.</p></div>
+    <div class="card glass"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><span class="k">Talk to us</span><h3>Write to a person</h3><p>Email <a href="mailto:contact@ashforde.org?subject=Glance">contact@ashforde.org</a> with your Mac model and macOS version. We reply by email.</p></div>
+  </div>
+
+  <section class="group" aria-labelledby="g-perm">
+    <h2 id="g-perm">Permissions</h2>
+    <div class="faq">
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/></svg></i>Which permissions does Glance ask for?</summary><div>
+        <p>Only these, and each only when you first use the feature:</p>
+        <ol>
+          <li><b>Calendars and Reminders</b> for your day in the panel and the Island’s Calendar and Tasks.</li>
+          <li><b>Microphone and Speech Recognition</b> while you record Meeting Notes, and for the microphone test on the Sound page.</li>
+          <li><b>Screen &amp; System Audio Recording</b> only if you record a meeting with “Hear the other people too” on, to capture the call’s sound.</li>
+          <li><b>Your home folder</b>, chosen once in an Open panel, before Storage scans it.</li>
+        </ol>
+        <p>Glance never asks for Accessibility, never controls other apps and never asks for your password.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i>I said no to Calendars. How do I change my mind?</summary><div>
+        <p>Open System Settings ▸ Privacy &amp; Security ▸ Calendars and switch Glance on. The same goes for Reminders, Microphone, Speech Recognition and Screen &amp; System Audio Recording, each under its own name. If Glance doesn’t pick up the change straight away, quit it and open it again.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i>Meeting Notes only hears me, not the others.</summary><div>
+        <p>To hear the other people on a call, Meeting Notes listens to your Mac’s sound, which needs Screen &amp; System Audio Recording. Allow it in System Settings ▸ Privacy &amp; Security. Without it, only your microphone is written down. Please make sure everyone on the call is happy to be recorded.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h6l2 2h10v10H3z"/></svg></i>Why does Storage ask me to choose my home folder?</summary><div>
+        <p>Mac App Store apps can only look inside folders you choose. Choose your home folder once and Glance remembers it. Clean-ups only ever move items to the Bin, so you can put anything back.</p></div></details>
+    </div>
+  </section>
+
+  <section class="group" aria-labelledby="g-awake">
+    <h2 id="g-awake">Stay Awake</h2>
+    <div class="faq">
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg></i>Can my Mac stay awake with the lid closed?</summary><div>
+        <p>Yes, with the optional <b>Ashforde Enhancer</b>, a separate free app from Ashforde that isn’t in the Mac App Store. Mac App Store apps aren’t allowed to do this on their own, and Glance works fully without it.</p>
+        <ol>
+          <li>Download the Enhancer from <a href="https://github.com/ashfordeOU/ashforde-enhancer/releases/latest">its latest release on GitHub</a>, open it and follow its set-up.</li>
+          <li>Glance then offers <b>Stay Awake with the Lid Closed</b>. Until the Enhancer is set up, that option doesn’t appear.</li>
+        </ol></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16"/></svg></i>How do I start and stop Stay Awake?</summary><div>
+        <p>In the panel, choose Stay Awake and how long: an hour, for as long as you choose, or until a download finishes. Choose it again to end it. You can keep the display on or let it sleep, show the time left in the menu bar, and have it stop by itself when the battery runs low.</p></div></details>
+    </div>
+  </section>
+
+  <section class="group" aria-labelledby="g-updates">
+    <h2 id="g-updates">Updates and starting afresh</h2>
+    <div class="faq">
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg></i>How do updates arrive?</summary><div>
+        <p>Through the Mac App Store, like any App Store app. Glance never checks for or installs updates itself. To get them automatically, open the App Store, choose App Store ▸ Settings and turn on Automatic Updates; otherwise look under Updates in the App Store.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg></i>How do I reset Glance and start afresh?</summary><div>
+        <ol>
+          <li>Quit Glance from its menu.</li>
+          <li>In Finder, choose Go ▸ Go to Folder…, type <code>~/Library/Containers</code> and press Return.</li>
+          <li>Move the folder named <b>Glance</b> to the Bin. It holds Glance’s settings, notes and recordings, so copy anything you want to keep first.</li>
+          <li>Open Glance again. It starts as if new, with the welcome tour.</li>
+        </ol>
+        <p>To reset a permission instead, switch Glance off and on again in System Settings ▸ Privacy &amp; Security. To remove Glance completely, delete it from Applications as well.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>Can Glance open when I log in?</summary><div>
+        <p>Yes. In Glance’s Settings, turn on <b>Open Glance when I log in</b>.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/></svg></i>Which Macs does Glance run on?</summary><div>
+        <p>Any Mac with macOS 13 Ventura or later. A few things depend on your Mac: battery readings need a Mac with a battery, and summaries in Meeting Notes need macOS 26.</p></div></details>
+    </div>
+  </section>
+
+  <section class="group" aria-labelledby="g-contact">
+    <h2 id="g-contact">Contact</h2>
+    <div class="faq">
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i>How do I report a problem or suggest an idea?</summary><div>
+        <p>Write to <a href="mailto:contact@ashforde.org?subject=Glance">contact@ashforde.org</a>. Tell us your Mac model, your macOS version, Glance’s version (in its About page) and what happened. A screenshot helps. We read everything and reply by email.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i>What does Glance send about me?</summary><div>
+        <p>Nothing to Ashforde: no account, no analytics, no usage counts. It goes online only to fetch what it shows you. The <a href="/privacy/">privacy policy</a> lists every service it contacts, and when.</p></div></details>
+    </div>
+  </section>
+
+  <div class="contact glass">
+    <h2>Still stuck?</h2>
+    <p>A person reads every email. Tell us what you expected and what happened, and we’ll help.</p>
+    <a class="btn primary" href="mailto:contact@ashforde.org?subject=Glance">Email contact@ashforde.org</a>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance by Ashforde</a>
+        <p style="margin-top:14px;max-width:36ch">Your Mac at a glance, from the menu bar. Made by Ashforde OÜ, a company in the European Union.</p>
+        <p style="margin-top:18px"><a class="store" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Mac App Store</b></span></a></p></div>
+      <div><h2>Glance</h2><ul><li><a href="/#panel">Menu bar panel</a></li><li><a href="/#island">The Island</a></li><li><a href="/#dashboard">Dashboard</a></li><li><a href="/#awake">Stay Awake</a></li><li><a href="/#evening">Evening Mode</a></li><li><a href="/#storage">Storage</a></li></ul></div>
+      <div><h2>Help</h2><ul><li><a href="/support/">Support</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="mailto:contact@ashforde.org?subject=Glance">Report a problem</a></li></ul></div>
+      <div><h2>Ashforde</h2><ul><li><a href="https://monorail.ashforde.org">Monorail, for your windows</a></li><li><a href="mailto:contact@ashforde.org">contact@ashforde.org</a></li></ul></div>
+    </div>
+    <p class="legal">© <span data-year>2026</span> Ashforde OÜ. Ashforde® is a registered trademark of Ashforde OÜ. The Glance name and icon are trademarks of Ashforde OÜ. Mac and Mac App Store are trademarks of Apple Inc., registered in the U.S. and other countries. This site sets no cookies and counts nothing; your appearance choice is kept on this browser only.</p>
+  </div>
+  <div class="giant" aria-hidden="true">Glance</div>
+</footer>
+</body>
+</html>

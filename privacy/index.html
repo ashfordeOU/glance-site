@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Privacy · Glance by Ashforde</title>
+<meta name="description" content="Glance has no account and collects nothing. What stays on your Mac, every outside service it contacts and when, and how to switch the public IP lookup off.">
+<link rel="canonical" href="https://glance.ashforde.org/privacy/">
+<meta property="og:title" content="Privacy · Glance by Ashforde">
+<meta property="og:description" content="Glance has no account and collects nothing. What stays on your Mac, every outside service it contacts and when, and how to switch the public IP lookup off.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glance by Ashforde">
+<meta property="og:url" content="https://glance.ashforde.org/privacy/">
+<meta property="og:image" content="https://glance.ashforde.org/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glance by Ashforde: your Mac at a glance, from the menu bar">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy · Glance by Ashforde">
+<meta name="twitter:description" content="Glance has no account and collects nothing. What stays on your Mac, every outside service it contacts and when, and how to switch the public IP lookup off.">
+<meta name="twitter:image" content="https://glance.ashforde.org/img/og.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#FAFBFD">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/ui/site.css">
+<script>
+/* Before the first paint: the appearance chosen on this browser, so nothing flashes. */
+(() => { const d = document.documentElement; let m = null; d.classList.add('js');
+  try { m = localStorage.getItem('glance-mode'); } catch (e) {}
+  d.dataset.scheme = m === 'light' || m === 'dark' ? m : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();
+</script>
+<script src="/ui/site.js" defer></script>
+<style>
+.sent { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
+@media (max-width: 760px) { .sent { grid-template-columns: minmax(0, 1fr); } }
+.sent .card { padding: 26px 28px; }
+.sent ul { margin: 12px 0 0; padding-left: 20px; color: var(--ink2); font-size: 15.5px; }
+.sent li { margin: 6px 0; }
+.sent .no h2::before { content: "✕ "; color: var(--ok); }
+.sent .yes h2::before { content: "↑ "; color: var(--l3); }
+.sent h2 { font-size: 22px; letter-spacing: -.025em; }
+.meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin-top: 22px; font-size: 14px; color: var(--ink3); }
+.meta b { color: var(--ink2); font-weight: 600; }
+.prose { margin-top: 24px; padding-bottom: clamp(64px, 8vw, 110px); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance</a>
+    <nav aria-label="Main"><a href="/#panel">Panel</a><a href="/#island">Island</a><a href="/#dashboard">Dashboard</a><a href="/#awake">Stay Awake</a><a href="/#evening">Evening Mode</a><a href="/#storage">Storage</a><a href="/privacy/" aria-current="page">Privacy</a><a href="/support/">Support</a></nav>
+    <span class="spacer"></span>
+    <button type="button" class="iconbtn" id="theme-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-pop" title="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="sr">Appearance</span></button>
+    <a class="store small" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Coming soon</b></span></a>
+    <button type="button" class="iconbtn menu-btn" id="menu-btn" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+  <div class="theme-pop" id="theme-pop" role="dialog" aria-label="Appearance" hidden>
+    <h2>Appearance</h2>
+    <div class="seg" data-mode-pick role="group" aria-label="Appearance">
+      <button type="button" data-mode="auto">Automatic</button><button type="button" data-mode="light">Light</button><button type="button" data-mode="dark">Dark</button>
+    </div>
+    <p>Kept on this browser only.</p>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <section class="page-hero">
+    <span class="eyebrow"><i></i>Privacy</span>
+    <h1>Your Mac’s business <span class="light-text">stays on your Mac.</span></h1>
+    <p class="lede">Glance has no account and collects nothing. Ashforde receives nothing from it. Here is exactly what goes online, where, and when.</p>
+    <p class="meta"><span>Effective <b>15 November 2026</b></span><span>Data controller <b>Ashforde OÜ</b></span><span>Applies to <b>Glance by Ashforde</b> for Mac</span></p>
+  </section>
+
+  <div class="sent">
+    <div class="card glass no"><h2>Never leaves your Mac</h2>
+      <ul><li>Battery, health and charge cycles, and your accessories’ batteries</li><li>Processor, memory, storage and network readings, and their history</li><li>Your calendar events and reminders</li><li>Meeting Notes recordings, and transcripts and summaries made on your Mac</li><li>Your clipboard history, notes and the files on the Island’s shelf</li><li>What Storage finds in your home folder</li></ul></div>
+    <div class="card glass yes"><h2>Goes online, straight to the service</h2>
+      <ul><li>Weather for the places you add, and the rain radar while you look at it</li><li>Exchange rates, when you convert a currency</li><li>A speed test, only when you start one</li><li>Your public IP lookup on the Network page (you can turn it off)</li><li>AI services you connect yourself, with your own key</li></ul></div>
+  </div>
+
+  <div class="prose narrow">
+    <h2>What Glance collects</h2>
+    <p><strong>Nothing.</strong> Glance has no account and no sign-in. It sends no analytics, no usage counts and no crash reports: a crash report is only ever a file on your Mac. It doesn’t check for updates itself (the Mac App Store does that), shows no ads, has no tracking and contains no third-party analytics or advertising code. Ashforde has no server that Glance talks to.</p>
+    <p>Glance doesn’t ask for Accessibility, doesn’t control other apps and never asks for your password or for administrator rights.</p>
+
+    <h2>Outside services Glance contacts</h2>
+    <p>Each of these is contacted directly from your Mac, only for the reason given, and never through Ashforde. Like any website, each service sees the IP address the request comes from. None of them receives an account, a name or anything that links one request to you, and Ashforde receives none of it.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Service</th><th>When</th><th>What it receives</th></tr></thead>
+      <tbody>
+        <tr><td>Open-Meteo<br><small class="faint">open-meteo.com</small></td><td>When weather is shown: the Dashboard’s Weather page and the weather on the Island’s Home</td><td>The coordinates of the places you typed in. Glance never asks for your location.</td></tr>
+        <tr><td>RainViewer<br><small class="faint">rainviewer.com</small></td><td>Only while the rain radar on the Weather page is on screen</td><td>Requests for the public radar pictures of the area shown on the map</td></tr>
+        <tr><td>Apple Maps<br><small class="faint">Apple</small></td><td>Only while the rain radar on the Weather page is on screen</td><td>Requests for the map of the area shown, handled by Apple under Apple’s privacy policy</td></tr>
+        <tr><td>European Central Bank<br><small class="faint">ecb.europa.eu</small></td><td>When you convert a currency in the Island’s converter, at most twice a day</td><td>Nothing about you: Glance downloads the bank’s public file of daily exchange rates</td></tr>
+        <tr><td>Cloudflare speed test<br><small class="faint">speed.cloudflare.com</small></td><td>Only when you start a speed test on the Network page</td><td>A test download and upload, nothing else</td></tr>
+        <tr><td>ipinfo.io</td><td>When the Network page looks up your public IP address, its rough location and your provider. <strong>On by default.</strong></td><td>Only the request itself, from which it sees your public IP address. To turn it off, open Glance’s Settings and, under Privacy, switch off <strong>Show my public IP, its location and provider</strong>.</td></tr>
+        <tr><td>AI status pages<br><small class="faint">status.claude.com, status.openai.com</small></td><td>When you’ve set up AI Usage</td><td>Nothing about you: Glance reads each service’s public status</td></tr>
+        <tr><td>An AI provider you connect</td><td>AI Usage’s plan limits, and Ask AI in the Island’s Tools, only once you connect a provider with your own key</td><td>Your request, sent with your own key, under that provider’s own terms. For Ask AI, that is the text you ask about.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Glance credits its weather as “Weather by Open-Meteo.com (CC BY 4.0)”. Links in Glance open in your own browser; Glance has no web view of its own.</p>
+
+    <h2>Permissions, and what stays on your Mac</h2>
+    <p>Every permission is optional and asked for only when you first use the feature that needs it. You can change any of them in System Settings ▸ Privacy &amp; Security.</p>
+    <ul>
+      <li><strong>Calendars and Reminders</strong>: for your day in the panel, meeting reminders, and the Island’s Calendar and Tasks. Events and reminders are read and written on your Mac and never sent anywhere by Glance.</li>
+      <li><strong>Microphone and Speech Recognition</strong>: only while you record Meeting Notes, and for the microphone level test on the Sound page. Recordings stay on your Mac. Transcripts are made on your Mac where macOS supports it; where it doesn’t, macOS may use Apple’s speech recognition service, under Apple’s privacy policy. On macOS 26, summaries come from Apple’s on-device model.</li>
+      <li><strong>Screen &amp; System Audio Recording</strong>: only if you record a meeting with <strong>Hear the other people too</strong> switched on, to capture the call’s sound. Nothing is shared. Switch that setting off and macOS never asks. Please make sure everyone on a call is happy to be recorded.</li>
+      <li><strong>Files and folders</strong>: Storage asks you to choose your home folder once, in an Open panel, before it scans. What it finds stays on your Mac, and clean-ups only ever move items to the Bin. AI Usage reads AI tools’ usage logs from that same folder, on your Mac.</li>
+    </ul>
+    <p>The clipboard history never keeps passwords or other concealed copies. Weather needs no location access at all.</p>
+
+    <h2>Ashforde Enhancer (optional)</h2>
+    <p>Ashforde Enhancer is a separate, free app that Ashforde distributes outside the Mac App Store, on <a href="https://github.com/ashfordeOU/ashforde-enhancer">GitHub</a>. Glance works fully without it, and Glance never downloads or installs it. If you install the Enhancer and set it up, it places a script in Glance’s own Application Scripts folder, and Glance then offers <strong>Stay Awake with the Lid Closed</strong>, running that script on your Mac. Nothing about you is sent to Ashforde either way.</p>
+
+    <h2>Children</h2>
+    <p>Glance is rated 4+. It collects nothing from anyone, children included.</p>
+
+    <h2>This website</h2>
+    <p>glance.ashforde.org sets no cookies and runs no analytics or counters. If you choose Light or Dark with the appearance button, that choice is kept in your browser’s local storage on this device only and never sent anywhere. The site is hosted on GitHub Pages: to deliver the pages, GitHub receives your IP address and browser details under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p>
+
+    <h2>Your rights</h2>
+    <p>Because Glance collects nothing, Ashforde holds no personal data about you from it. Under the GDPR you may still ask us what we hold, and if you write to us, we use your email only to reply and keep it no longer than needed for that. You can also complain to your data protection authority.</p>
+
+    <h2>Changes</h2>
+    <p>If Glance ever starts to send anything new, this page will say so before that version is released, and the effective date above will change.</p>
+
+    <h2>Contact</h2>
+    <p>Data controller: Ashforde OÜ, a company in the European Union. Questions about privacy: <a href="mailto:contact@ashforde.org">contact@ashforde.org</a>.</p>
+  </div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance by Ashforde</a>
+        <p style="margin-top:14px;max-width:36ch">Your Mac at a glance, from the menu bar. Made by Ashforde OÜ, a company in the European Union.</p>
+        <p style="margin-top:18px"><a class="store" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Mac App Store</b></span></a></p></div>
+      <div><h2>Glance</h2><ul><li><a href="/#panel">Menu bar panel</a></li><li><a href="/#island">The Island</a></li><li><a href="/#dashboard">Dashboard</a></li><li><a href="/#awake">Stay Awake</a></li><li><a href="/#evening">Evening Mode</a></li><li><a href="/#storage">Storage</a></li></ul></div>
+      <div><h2>Help</h2><ul><li><a href="/support/">Support</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="mailto:contact@ashforde.org?subject=Glance">Report a problem</a></li></ul></div>
+      <div><h2>Ashforde</h2><ul><li><a href="https://monorail.ashforde.org">Monorail, for your windows</a></li><li><a href="mailto:contact@ashforde.org">contact@ashforde.org</a></li></ul></div>
+    </div>
+    <p class="legal">© <span data-year>2026</span> Ashforde OÜ. Ashforde® is a registered trademark of Ashforde OÜ. The Glance name and icon are trademarks of Ashforde OÜ. Mac and Mac App Store are trademarks of Apple Inc., registered in the U.S. and other countries. This site sets no cookies and counts nothing; your appearance choice is kept on this browser only.</p>
+  </div>
+  <div class="giant" aria-hidden="true">Glance</div>
+</footer>
+</body>
+</html>
