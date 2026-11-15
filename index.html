@@ -36,7 +36,9 @@
 </script>
 <script src="/ui/site.js" defer></script>
 <link rel="stylesheet" href="/ui/home.css">
+<link rel="stylesheet" href="/ui/mocks.css">
 <script src="/ui/home.js" defer></script>
+<script src="/ui/mocks.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -294,28 +296,30 @@
   </div>
 </section>
 
-<!-- SCREENSHOTS
-     Real screenshots go in /img/shots/ (2880 × 1800 from the "Mac screenshots" workflow, edition: glance).
-     For each figure, replace the whole <div class="ph">…</div> with:
-       <img src="/img/shots/01-panel-home.png" width="2880" height="1800" loading="lazy" decoding="async" alt="…">
-     keeping the order and file names below. -->
+<!-- EXACTLY AS IT LOOKS: Glance's own screens, drawn in HTML and CSS at the app's point sizes (ui/mocks.js, ui/mocks.css) -->
 <section class="s" id="screenshots">
   <div class="wrap">
-    <div class="head center rv"><span class="eyebrow"><i></i>On a real Mac</span><h2 class="h2">The real thing. <span class="light-text">On a real Mac.</span></h2>
-      <p class="lede">Glance running on a Mac, straight from the app.</p></div>
-    <div class="shots sg">
-      <figure class="shot"><div class="f"><img src="/img/shots/01-panel-home.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: The panel, with Stay Awake on"></div><figcaption>The panel, with Stay Awake on</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/02-island-home.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: The Island, open on Home"></div><figcaption>The Island, open on Home</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/03-island-calendar.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: The Island’s Calendar"></div><figcaption>The Island’s Calendar</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/04-dashboard-overview.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: The Dashboard’s Overview"></div><figcaption>The Dashboard’s Overview</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/05-dashboard-weather.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: Weather"></div><figcaption>Weather</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/06-dashboard-time.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: World clocks"></div><figcaption>World clocks</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/07-panel-awake.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: Stay Awake"></div><figcaption>Stay Awake</figcaption></figure>
-      <figure class="shot"><div class="f"><img src="/img/shots/08-panel-evening.jpg" width="1440" height="900" loading="lazy" decoding="async" alt="Glance on a Mac: Evening Mode"></div><figcaption>Evening Mode</figcaption></figure>
+    <div class="head center rv"><span class="eyebrow"><i></i>Exactly as it looks</span><h2 class="h2">The real screens. <span class="light-text">Redrawn from the app.</span></h2>
+      <p class="lede">Glance’s own layouts, labels and colours, redrawn in the browser so they stay sharp at any size.</p></div>
+    <div class="mkg">
+      <div class="mkg-wide"><figure class="rv" role="img" aria-label="Glance’s Dashboard on its Overview: a “Why is my Mac slow?” answer, tiles for CPU, memory, GPU, network, disk and battery with their charts, then storage, the connection and this Mac."><div class="mkg-f" style="aspect-ratio:1200/720"><div class="mk-stage" data-mock="overview"></div></div><figcaption>The Dashboard’s Overview</figcaption></figure></div>
+      <div class="mkg-row" style="--n:2">
+        <figure class="rv" role="img" aria-label="The Weather page: London at 9° and drizzle under a moving sky, the next 48 hours with temperatures and the chance of rain, and the rain radar."><div class="mkg-f" style="aspect-ratio:16/10"><div class="mk-stage" data-mock="weather"></div></div><figcaption>Weather</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Time page: the world as dots, lit by day and dim by night, the sun overhead, pins for London, Tallinn, New York and Tokyo, and a two-day ruler."><div class="mkg-f" style="aspect-ratio:16/10"><div class="mk-stage" data-mock="time"></div></div><figcaption>World clocks</figcaption></figure>
+      </div>
+      <div class="mkg-row" style="--n:3">
+        <figure class="rv" role="img" aria-label="Glance’s menu-bar panel: today’s next meeting, system, storage and network cards, one-click switches with Stay Awake on, volume and brightness, the clipboard and the colour picker."><div class="mkg-f cut"><div class="mk-stage" data-mock="panel"></div></div><figcaption>The panel, with Stay Awake on</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Stay Awake page: on for 1 hour 30, the time choices, and keeping the display on."><div class="mkg-f cut"><div class="mk-stage" data-mock="awake"></div></div><figcaption>Stay Awake</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Evening Mode page: on until 07:00, warmth at 65%, turning on at sunset."><div class="mkg-f cut"><div class="mk-stage" data-mock="evening"></div></div><figcaption>Evening Mode</figcaption></figure>
+      </div>
+      <div class="mkg-row" style="--n:2">
+        <figure class="rv" role="img" aria-label="The Island opened on Home: the date and battery, quick switches with Stay Awake on, world clocks and the weather for the next hours."><div class="mkg-f cut mkg-169 mki-f"><div class="mk-stage" data-mock="island"></div></div><figcaption>The Island, open on Home</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Island’s Calendar: a line to add an event, today’s and tomorrow’s events, and the month."><div class="mkg-f cut mkg-169 mki-f"><div class="mk-stage" data-mock="calendar"></div></div><figcaption>The Island’s Calendar</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
-<!-- /SCREENSHOTS -->
+<!-- /EXACTLY AS IT LOOKS -->
 
 <!-- 8 · Privacy -->
 <section class="s" id="privacy" style="background:var(--bg2)">

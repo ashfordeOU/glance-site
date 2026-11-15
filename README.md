@@ -11,18 +11,15 @@ It's plain HTML, CSS and JavaScript with no build step and no outside scripts; G
 | `privacy/`, `support/`, `404.html` | The other pages |
 | `ui/site.css`, `ui/site.js` | Shared design system and behaviour (appearance, menu, the Mac App Store link, reveals) |
 | `ui/home.css`, `ui/home.js` | The home page's drawn app and its animations |
+| `ui/mocks.css`, `ui/mocks.js` | The “Exactly as it looks” gallery: Glance’s own screens redrawn in HTML and CSS |
 | `assets/`, `icons/`, `favicon.ico`, `apple-touch-icon.png` | The Glance icon in every size |
 | `img/og.png` | The 1200 × 630 share image |
-| `img/shots/` | Real screenshots go here (see below) |
 
 ## Before launch
 
 - **App Store link.** In `ui/site.js`, replace `id0000000000` in `GLANCE_APP_STORE_URL` with the real App Store ID.
   Until then every Mac App Store button reads "Coming soon to the Mac App Store" and links nowhere; afterwards it reads
   "Download on the Mac App Store" and links to the listing.
-- **Screenshots.** Put the 2880 × 1800 PNGs from the "Mac screenshots" workflow (edition: glance) in `img/shots/`,
-  then in `index.html` find the `<!-- SCREENSHOTS -->` section and replace each placeholder `<div class="ph">…</div>`
-  with an `<img>` of the matching file (the comment there shows the exact markup).
 
 ## One-time setup
 
