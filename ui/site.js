@@ -1,8 +1,10 @@
 /* Glance by Ashforde · the site's shared behaviour: appearance, the phone menu, the Mac App Store link, reveals and the footer. */
 
-/* TODO: replace id0000000000 with Glance's real App Store ID once the listing is live.
-   While it still ends in id0000000000, every [data-appstore] button reads "Coming soon to the Mac App Store" and links nowhere. */
-const GLANCE_APP_STORE_URL = 'https://apps.apple.com/app/glance-by-ashforde/id0000000000';
+/* Glance's Mac App Store page. GLANCE_ON_STORE stays false until the listing is live: until then every [data-appstore]
+   button reads "Coming soon to the Mac App Store" and links nowhere. Set it to true on release and every button becomes
+   "Download on the Mac App Store", pointing at GLANCE_APP_STORE_URL. */
+const GLANCE_APP_STORE_URL = 'https://apps.apple.com/app/glance-by-ashforde/id6832553480';
+const GLANCE_ON_STORE = false;
 
 (() => {
   const root = document.documentElement;
@@ -43,7 +45,7 @@ const GLANCE_APP_STORE_URL = 'https://apps.apple.com/app/glance-by-ashforde/id00
   }
 
   /* ---------- The Mac App Store buttons */
-  const live = !/id0{10}$/.test(GLANCE_APP_STORE_URL);
+  const live = GLANCE_ON_STORE === true && /\/id\d{6,}$/.test(GLANCE_APP_STORE_URL) && !/id0+$/.test(GLANCE_APP_STORE_URL);
   document.querySelectorAll('[data-appstore]').forEach(a => {
     const small = a.querySelector('small'), big = a.querySelector('b');
     if (live) {

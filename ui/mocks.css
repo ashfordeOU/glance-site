@@ -254,7 +254,8 @@
 .mki-sw .c { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.13); display: grid; place-items: center; font-size: 16px; }
 .mki-sw .c.on { background: #fff; color: #000; }
 .mki-sw small { font-size: 10px; font-weight: 500; color: rgba(255,255,255,.7); }
-.mki-clk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+.mki-clk { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; margin-bottom: 10px; }
+.mki-clk em { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
 .mki-clk > div { background: var(--tile); border-radius: 12px; padding: 7px 10px; }
 .mki-clk small { display: flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,.7); }
 .mki-clk small .mi { font-size: 10px; }
@@ -527,3 +528,51 @@
 .mkp-hist .ch2 { height: 86px; }
 .mkp-hist svg { width: 100%; height: 100%; display: block; overflow: visible; }
 .mkp-hist .ft2 { display: flex; justify-content: space-between; font-size: 10px; color: var(--p-2); margin-top: 6px; }
+
+/* ---------- Glance 1.9.8: the Island's + for extra tabs, the music card and the Memory tab */
+.mki-tabs .add { background: none; min-width: 22px; padding: 0 4px; color: rgba(255,255,255,.6); }
+.mki-np { display: flex; gap: 12px; align-items: center; background: var(--tile); border-radius: 14px; padding: 10px; margin-bottom: 10px; }
+.mki-np .art { width: 74px; height: 74px; flex: none; border-radius: 10px; position: relative; overflow: hidden;
+  background: radial-gradient(70% 70% at 30% 25%, #FFB36B, transparent 70%), radial-gradient(80% 80% at 80% 90%, #7E6CF2, transparent 70%), linear-gradient(150deg, #F6627A, #3B2C8F); box-shadow: 0 6px 18px -6px rgba(246,98,122,.6); }
+.mki-np .art i { position: absolute; left: 14%; right: 14%; bottom: 18%; height: 30%; border-radius: 50% 50% 0 0; background: rgba(255,255,255,.22); }
+.mki-np .qm { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px; }
+.mki-np .qt { display: flex; align-items: flex-start; gap: 8px; }
+.mki-np .qt > span { flex: 1; min-width: 0; }
+.mki-np .qt b { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mki-np .qt small { display: block; font-size: 10.5px; color: rgba(255,255,255,.55); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mki-np .qt em { font-style: normal; font-size: 10px; font-weight: 600; color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 4px; }
+.mki-np .qs { display: flex; align-items: center; gap: 8px; }
+.mki-np .qs small { font-size: 9.5px; color: rgba(255,255,255,.55); }
+.mki-np .bar { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,.18); position: relative; }
+.mki-np .bar i { position: absolute; inset: 0 auto 0 0; width: var(--v); border-radius: 2px; background: #fff; }
+.mki-np .bar b { position: absolute; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: #fff; }
+.mki-np .qc { display: flex; align-items: center; justify-content: center; gap: 20px; font-size: 15px; }
+.mki-np .qc .sm { font-size: 12px; color: rgba(255,255,255,.45); } .mki-np .qc .sm.on { color: #FF375F; }
+.mki-np .pp { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #000; display: grid; place-items: center; font-size: 14px; }
+.mki-mh { display: flex; align-items: baseline; gap: 6px; }
+.mki-mh .fig { font-size: 24px; }
+.mki-mh small { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.55); }
+.mki-mh em { align-self: center; font-style: normal; display: flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; color: #30D158; background: rgba(48,209,88,.14); padding: 4px 8px; border-radius: 99px; }
+.mki-mh em i { width: 7px; height: 7px; border-radius: 50%; background: #30D158; }
+.mki-fl { font-size: 11.5px; color: rgba(255,255,255,.5); margin: 6px 0 8px; }
+.mki-leg { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 10px 0; }
+.mki-leg span { display: flex; flex-direction: column; gap: 2px; padding: 6px 8px; border-radius: 8px; background: rgba(255,255,255,.05); font-size: 10px; color: rgba(255,255,255,.6); position: relative; padding-left: 18px; }
+.mki-leg span i { position: absolute; left: 7px; top: 9px; width: 7px; height: 7px; border-radius: 2px; }
+.mki-leg span b { font-size: 12px; color: #fff; }
+.mki-pr { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.mki-pr svg { flex: 1; height: 26px; display: block; }
+.mki-pr em { font-style: normal; display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,.75); background: rgba(255,255,255,.08); padding: 4px 8px; border-radius: 99px; white-space: nowrap; }
+.mki-apps h6 { margin: 0 0 6px; font-size: 10px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.5); }
+.mki-apps p { margin: 0; display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 11.5px; font-weight: 500; }
+.mki-apps p span { flex: 1; }
+.mki-apps p small { font-size: 10.5px; color: rgba(255,255,255,.55); }
+.mki-apps [data-app] { width: 18px; height: 18px; }
+
+/* ---------- Monorail's strip: the windows slide along, then back, and rest while off screen */
+.mks-track { position: absolute; inset: 0; z-index: 2; }
+.mk-on .mks-track { animation: mkslide 11s var(--ease) 2s infinite; }
+@keyframes mkslide { 0%, 30% { transform: none; } 42%, 70% { transform: translateX(-660px); } 82%, 100% { transform: none; } }
+.mks-track > .mks-w { transition: opacity .35s var(--ease), filter .35s var(--ease); }
+.mks-dock > i[data-app] { width: 50px; height: 50px; }
+.mk-rest *, .mk-rest *::before, .mk-rest *::after { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) { .mk .mks-track { animation: none; } }

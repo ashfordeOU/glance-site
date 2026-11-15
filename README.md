@@ -17,9 +17,9 @@ It's plain HTML, CSS and JavaScript with no build step and no outside scripts; G
 
 ## Before launch
 
-- **App Store link.** In `ui/site.js`, replace `id0000000000` in `GLANCE_APP_STORE_URL` with the real App Store ID.
-  Until then every Mac App Store button reads "Coming soon to the Mac App Store" and links nowhere; afterwards it reads
-  "Download on the Mac App Store" and links to the listing.
+- **App Store link.** `GLANCE_APP_STORE_URL` in `ui/site.js` holds Glance's listing (id6832553480). While
+  `GLANCE_ON_STORE` is false, every Mac App Store button reads "Coming soon to the Mac App Store" and links nowhere;
+  set it to true once the app is live and every button reads "Download on the Mac App Store" and links to the listing.
 
 ## One-time setup
 

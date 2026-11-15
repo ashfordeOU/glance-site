@@ -83,10 +83,35 @@
     list: '<path d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01"/>', cols: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 5v14M15 5v14"/>',
     gallery: '<rect x="3" y="5" width="18" height="10" rx="2"/><path d="M5 19h2M9 19h2M13 19h2M17 19h2"/>', tag: '<path d="M3.5 12.5V4.5h8l9 9-8 8z"/><circle cx="8" cy="9" r="1.4"/>',
     clockr: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5h4"/>', app: '<path d="m6 18 6-13 6 13M8.5 13h7"/>', desk: '<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 20h8"/>', doc: '<path d="M7 3.5h7l4 4v13H7z"/><path d="M14 3.5v4h4"/>', dl: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v8M8.5 12l3.5 3.5 3.5-3.5"/>', cloudline: '<path d="M7 18.5a4.5 4.5 0 0 1-.6-9 6 6 0 0 1 11.4 1.6A3.8 3.8 0 0 1 17.2 18.5z"/>',
-    zoomin: '<circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5M8 10.5h5M10.5 8v5"/>', zoomout: '<circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5M8 10.5h5"/>', info: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/>', pen: '<path d="M4 20h4L19 9l-4-4L4 16z"/>', rot: '<path d="M5 12a7 7 0 1 0 2-5L5 9M5 4.5V9h4.5"/>'
+    zoomin: '<circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5M8 10.5h5M10.5 8v5"/>', zoomout: '<circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5M8 10.5h5"/>', info: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/>', pen: '<path d="M4 20h4L19 9l-4-4L4 16z"/>', rot: '<path d="M5 12a7 7 0 1 0 2-5L5 9M5 4.5V9h4.5"/>',
+    play: `<path ${A} d="M8 5.2v13.6a.8.8 0 0 0 1.2.7l10.6-6.8a.8.8 0 0 0 0-1.4L9.2 4.5A.8.8 0 0 0 8 5.2z"/>`,
+    prev: `<path ${A} d="M11.5 6.2v11.6a.7.7 0 0 1-1.1.6L2.8 12.6a.7.7 0 0 1 0-1.2l7.6-5.8a.7.7 0 0 1 1.1.6zM21 6.2v11.6a.7.7 0 0 1-1.1.6l-7.6-5.8a.7.7 0 0 1 0-1.2l7.6-5.8a.7.7 0 0 1 1.1.6z"/>`,
+    next: `<path ${A} d="M12.5 6.2v11.6a.7.7 0 0 0 1.1.6l7.6-5.8a.7.7 0 0 0 0-1.2l-7.6-5.8a.7.7 0 0 0-1.1.6zM3 6.2v11.6a.7.7 0 0 0 1.1.6l7.6-5.8a.7.7 0 0 0 0-1.2L4.1 5.6A.7.7 0 0 0 3 6.2z"/>`,
+    shuffle: '<path d="M3 7h3.5c4 0 6.5 10 11 10H21M3 17h3.5c1.6 0 2.8-1.6 3.9-3.6M13.6 9.6C14.7 8 15.9 7 17.5 7H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5"/>',
+    repeat: '<path d="M4 11V9.5A2.5 2.5 0 0 1 6.5 7H19l-2.5-2.5M20 13v1.5a2.5 2.5 0 0 1-2.5 2.5H5l2.5 2.5"/>',
+    note: `<path ${A} d="M18.5 3.2v11.3a3 3 0 1 1-2-2.8V7.6L9.5 9.1v7.4a3 3 0 1 1-2-2.8V6.3z"/>`,
+    swap: '<path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/>',
+    shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M12 8.5v4M10 11a2 2 0 0 0 4 0"/>',
+    camera: '<rect x="2.5" y="6.5" width="13" height="11" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/>',
   };
   const ic = (n, cls = '', style = '') => `<svg class="mi${cls ? ' ' + cls : ''}" viewBox="0 0 24 24" aria-hidden="true"${style ? ` style="${style}"` : ''}>${I[n] || ''}</svg>`;
-  const app = (k, cls = '') => /^(safari|xcode|mail|messages|music|photos|terminal|files|code|settings|notes|calendar)$/.test(k) ? `<i data-app="${k}"${cls ? ` class="${cls}"` : ''}></i>` : `<i data-logo="${k}"${cls ? ` class="${cls}"` : ''}></i>`;
+  // App icons for the desktop drawing: a rounded tile and a simple white glyph, deliberately unlike any real app's icon
+  let gid = 0;
+  const tileSvg = (a, b, inner, light) => { const id = 'mkt' + (++gid); return `<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="32" height="32" rx="7.4" fill="url(#${id})"/>${light ? '<rect x=".5" y=".5" width="31" height="31" rx="7" fill="none" stroke="rgba(0,0,0,.12)"/>' : ''}${inner}</svg>`; };
+  const APPS = {
+    files: ['#eaf5ff', '#c9e3ff', '<path d="M6.5 11.5a2 2 0 0 1 2-2h4.6l2 2h8.4a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2z" fill="#3a9bff"/><path d="M6.5 14h19v8a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2z" fill="#62b3ff"/>', true],
+    safari: ['#62b6ff', '#1d6fe0', '<circle cx="16" cy="16" r="9" fill="none" stroke="#fff" stroke-width="1.9"/><ellipse cx="16" cy="16" rx="4" ry="9" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M7.4 13h17.2M7.4 19h17.2" stroke="#fff" stroke-width="1.6"/>'],
+    messages: ['#5fdc8a', '#18a957', '<rect x="6.5" y="8" width="13" height="9.5" rx="3" fill="#fff"/><path d="M9 17.5v3l3.2-3z" fill="#fff"/><rect x="13" y="14" width="12.5" height="9" rx="3" fill="#d6f7e2"/>'],
+    mail: ['#5ac8d8', '#1f8fb3', '<path d="M7 17.5 9.2 10a1.5 1.5 0 0 1 1.4-1h10.8a1.5 1.5 0 0 1 1.4 1l2.2 7.5V22a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 7 22z" fill="#fff"/>'],
+    photos: ['#ffc85a', '#ff8a3d', '<rect x="6.5" y="8.5" width="19" height="15" rx="2.6" fill="#fff"/><circle cx="12" cy="13.2" r="1.9" fill="#ffb340"/><path d="M8 22l5.4-5.6 3.4 3.4 2.6-2.6L24 22z" fill="#ff8a3d"/>'],
+    music: ['#b07cff', '#6a3fe6', '<path d="M9 19v-3a7 7 0 0 1 14 0v3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><rect x="7.5" y="17.5" width="4.5" height="7" rx="1.8" fill="#fff"/><rect x="20" y="17.5" width="4.5" height="7" rx="1.8" fill="#fff"/>'],
+    calendar: ['#ff8a7a', '#e5483a', '<rect x="7.5" y="9.5" width="17" height="15" rx="2.4" fill="none" stroke="#fff" stroke-width="1.9"/><path d="M7.5 14h17M12 7.5v4M20 7.5v4" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/>'],
+    notes: ['#ffdc6a', '#f5b21c', '<path d="M9.5 7.5h9.2l4.3 4.3v12.7H9.5z" fill="#fff"/><path d="M12 15h8M12 18.2h8M12 21.4h5" stroke="#e0a300" stroke-width="1.3" stroke-linecap="round"/>'],
+    settings: ['#b4b4ba', '#6c6c72', '<circle cx="16" cy="16" r="7.4" fill="none" stroke="#fff" stroke-width="3.6" stroke-dasharray="2.9 2.9"/><circle cx="16" cy="16" r="5.6" fill="#fff"/><circle cx="16" cy="16" r="2.4" fill="#8e8e93"/>'],
+    terminal: ['#46464c', '#111114', '<path d="m9.5 12 4 4-4 4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 21h7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>'],
+    code: ['#30364f', '#14172a', '<path d="m12 11-5 5 5 5M20 11l5 5-5 5" fill="none" stroke="#8fb3ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>']
+  };
+  const app = (k, cls = '') => `<i data-app="${k}"${cls ? ` class="${cls}"` : ''}>${APPS[k] ? tileSvg(...APPS[k]) : ''}</i>`;
   const flag = '<svg class="flag" viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0 0l60 30M60 0 0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30M60 0 0 30" stroke="#C8102E" stroke-width="2"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>';
   // Weather symbols, multicolour as in the app
   const SUNG = '<circle cx="12" cy="12" r="4.4" fill="#FFD60A"/><g stroke="#FFD60A" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g>';
@@ -144,7 +169,7 @@
       ${today()}
       <div class="mkp-pair">${sysCard()}${storeCard()}</div>
       ${netCard(true)}
-      <div class="mkp-sw mk-hv">${sw('cup', 'Stay Awake', true, 'var(--orange)')}${sw('moon', 'Evening')}${sw('timer', 'Focus Session')}${sw('keep', 'Keep Available')}${sw('mic', 'Microphone')}${sw('film', 'Film')}${sw('island', 'Island', true, 'var(--pink)')}${sw('docks', 'Docks')}</div>
+      <div class="mkp-sw mk-hv">${sw('cup', 'Stay Awake', true, 'var(--orange)')}${sw('moon', 'Evening')}${sw('timer', 'Focus Session')}${sw('keep', 'Keep Available')}${sw('shield', 'Privacy')}${sw('film', 'Film')}${sw('island', 'Island', true, 'var(--pink)')}${sw('docks', 'Docks')}</div>
       ${sliders()}
       <div class="mkp-pair">${card(`<div class="mkp-tool"><div style="display:flex"><span class="qic" style="--tint:var(--blue)">${ic('clip')}</span><span class="sp"></span>${ic('chev', 'cv', 'color:var(--p-3);font-size:11px;stroke-width:2.4')}</div><b>Clipboard</b><small>14 items</small></div>`)}${card(`<div class="mkp-tool"><span class="qic" style="--tint:var(--pink)">${ic('dropper')}</span><b>Colour</b><small>Pick from screen</small></div>`)}</div>
     </div>
@@ -170,17 +195,37 @@
 
   /* ---------- The Island, opened */
   const islTabs = (on, alt) => {
-    const t = [['home', 'Home'], ['cal', 'Calendar'], ['timer', 'Timer']].concat(alt ? [] : [['spark', 'Agents']]).concat([['checklist', 'Tasks'], ['bars', 'Storage'], ['grid4', 'Tools']]);
-    return `<div class="mki-tabs" style="--i:0">${t.map(([i, n]) => n === on ? `<span class="on">${ic(i)}${n}</span>` : `<span>${ic(i)}</span>`).join('')}<span class="end">${ic('wins')}</span></div>`;
+    // Glance's tabs in their order; Storage, Battery and Memory are on by default, the + adds or removes them
+    const t = [['home', 'Home'], ['cal', 'Calendar'], ['timer', 'Timer'], ['checklist', 'Tasks'], ['bars', 'Insights'], ['drive', 'Storage'], ['bat', 'Battery'], ['mem', 'Memory'], ['grid4', 'Tools']];
+    return `<div class="mki-tabs" style="--i:0">${t.map(([i, n]) => n === on ? `<span class="on">${ic(i)}${n}</span>` : `<span>${ic(i)}</span>`).join('')}<span class="add">${ic('plus')}</span><span class="end">${ic('wins')}</span></div>`;
   };
   const islTop = alt => alt ? `<div class="mki-top"><span class="aw">${ic('cup')}</span><span>Awake</span></div>` : `<div class="mki-top">${ic('tray')}<span>2</span></div>`;
   const clk = (sun, city, time, off) => `<div><small>${ic(sun ? 'sunline' : 'moon', sun ? 'sun' : 'moon')}${city}</small><b class="fig">${time}</b><em>${off}</em></div>`;
+  // The music card: artwork, the track, where it is (drag to scrub) and the buttons
+  const nowPlaying = i => `<div class="mki-np" style="--i:${i}"><span class="art"><i></i></span><div class="qm"><div class="qt"><span><b>Northern Lights</b><small>The Harbour Trio · Tidewater</small></span><em>${ic('note')}Music</em></div>
+      <div class="qs"><small class="fig">1:48</small><span class="bar"><i style="--v:46%"></i><b style="left:46%"></b></span><small class="fig">3:54</small></div>
+      <div class="qc">${ic('shuffle', 'sm on')}${ic('prev')}<span class="pp">${ic('pause')}</span>${ic('next')}${ic('repeat', 'sm')}</div></div></div>`;
   const islHome = alt => `<div class="mki">${islTop(alt)}${islTabs('Home', alt)}
     <div class="mki-hd" style="--i:1"><b>Sunday 15 November</b><span>${ic('bat')}86%</span></div>
     <div class="mki-sw mk-hv" style="--i:2">${[['cup', 'Awake', alt], ['moon', 'Evening'], ['scope', 'Focus'], ['clip', 'Clipboard'], ['wave', 'Live']].map(([i, n, on]) => `<span><span class="c${on ? ' on' : ''}">${ic(i)}</span><small>${n}</small></span>`).join('')}</div>
+    ${alt ? nowPlaying(3) : ''}
     <div class="mki-clk mk-hv" style="--i:3">${clk(1, 'London', '10:46', '0h')}${clk(1, 'Tallinn', '12:46', '+2h')}${clk(1, 'New York', '05:46', '−5h · before work')}${alt ? clk(0, 'Tokyo', '19:46', '+9h') : ''}</div>
     <div class="mki-wx" style="--i:4"><div class="qtop">${wx('rain')}<span><b>9°  Drizzle</b><small>London · H 11° L 3°</small></span><em>Raining</em>${ic('chev', 'cv')}</div>
       <div class="mki-hrs">${ic('chevl')}${[['Now', 'rain', 9, '86%'], ['11', 'rain', 9, '90%'], ['12', 'sun', 10, '85%'], ['13', 'sun', 11, '76%'], ['14', 'psun', 10, '60%'], ['15', 'cloud', 10, '39%']].map(([t, k, d, r], i) => `<div><small${i ? '' : ' class="qnow"'}>${t}</small>${wx(k)}<b>${d}°</b><em>${r}</em></div>`).join('')}${ic('chev')}</div></div></div>`;
+  /* ---------- The Island's Memory tab (read-only in Glance: no Quit buttons) */
+  const islMemory = () => {
+    const blocks = [['App', 6.1, '#0A84FF'], ['Wired', 2.4, '#FF9F0A'], ['Compressed', 2.7, '#BF5AF2'], ['Cached', 3.1, '#40C8E0'], ['Free', 1.7, 'rgba(255,255,255,.4)']];
+    const spark = [.22, .24, .23, .27, .3, .28, .26, .31, .29, .27, .25, .28, .33, .31, .29, .3, .34, .32, .3, .28, .29, .31, .3, .29];
+    const pts = spark.map((v, k) => `${(k / (spark.length - 1) * 200).toFixed(1)},${(26 - v * 50).toFixed(1)}`).join(' ');
+    const apps = [['safari', 'Safari', '2.1 GB'], ['mail', 'Mail', '840 MB'], ['photos', 'Photos', '610 MB']];
+    return `<div class="mki">${islTop(true)}${islTabs('Memory', true)}
+      <div class="mki-mh" style="--i:1"><b class="fig">${roll('11.2')} GB</b><small>of 16 GB</small><span class="sp"></span><em><i></i>Low pressure</em></div>
+      <div class="mki-fl" style="--i:2">4.8 GB available</div>
+      <div style="--i:3">${dots(blocks.map(([, v, c]) => ({ v, c })), 16, 30, { d: .7, track: 'rgba(255,255,255,.1)' })}</div>
+      <div class="mki-leg mk-hv" style="--i:4">${blocks.map(([n, v, c]) => `<span><i style="background:${c}"></i>${n}<b class="fig">${v} GB</b></span>`).join('')}</div>
+      <div class="mki-pr" style="--i:5"><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="#30D158" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg><em>${ic('swap')}No swap in use</em></div>
+      <div class="mki-apps" style="--i:6"><h6>USING THE MOST MEMORY</h6>${apps.map(([k, n, m]) => `<p>${app(k)}<span>${n}</span><small class="fig">${m}</small></p>`).join('')}</div></div>`;
+  };
   const ev = (c, t, s, cls = '') => `<div class="mki-ev ${cls}" style="--c:${c}"><i></i><span><b>${t}</b><small>${s}</small></span></div>`;
   const islCal = () => {
     const evDays = [1, 2, 3, 11, 17, 19, 24, 26];
@@ -287,8 +332,27 @@
         <div class="mkd-tline"><svg viewBox="0 0 1000 46" preserveAspectRatio="none" aria-hidden="true">${band(7.3, 16.1)}${band(31.3, 40.1)}${ticks}<path d="M${xh(12) - 4} 44h8l-4-5z" fill="rgba(255,255,255,.7)"/><circle cx="${xh(12)}" cy="11.5" r="4.5" fill="#FF9F0A" stroke="#fff" stroke-width="1.4"/></svg><span class="nowp" style="left:${xh(12) / 10}%;top:-14px">Sun 12:00</span></div></div>`);
   };
 
+  /* ---------- Monorail's strip: windows side by side at full size, sliding along as you move between them */
+  const strip = () => `<div class="mks mks-hv">
+    <div class="mks-mb"><b>Finder</b><span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Window</span><span>Help</span>
+      <span class="qr"><span class="rail"><i style="height:7px"></i><i style="height:13px"></i><i style="height:10px"></i></span>${ic('wifi')}${ic('bat', '', 'font-size:20px;stroke-width:1.5')}${ic('search')}${ic('cc')}<span>Sun 15 Nov  10:46</span></span></div>
+    <div class="mks-isl">${ic('tray')}<span>2</span></div>
+    <div class="mks-track">
+    <div class="mks-w in1" style="left:10px;width:770px">
+      <div class="mks-side"><div class="mks-tl"><i></i><i></i><i></i></div><h6>Favourites</h6><p>${ic('clockr')}Recents</p><p>${ic('app')}Applications</p><p>${ic('desk')}Desktop</p><p class="on">${ic('doc')}Documents</p><p>${ic('dl')}Downloads</p><h6>Locations</h6><p>${ic('cloudline')}iCloud Drive</p><h6>Tags</h6><p><i class="qt" style="--c:#FF453A"></i>Red</p><p><i class="qt" style="--c:#FF9F0A"></i>Orange</p><p><i class="qt" style="--c:#30D158"></i>Green</p><p><i class="qt" style="--c:#0A84FF"></i>Blue</p></div>
+      <div class="mks-main"><div class="mks-bar">${ic('back')}${ic('fwd')}<b>Launch</b><span class="sp"></span><span class="qseg"><i class="on">${ic('grid22')}</i><i>${ic('list')}</i><i>${ic('cols')}</i><i>${ic('gallery')}</i></span>${ic('share')}${ic('tag')}${ic('search')}</div>
+        <div class="mks-files"><div><span class="fd"></span>Design</div><div><span class="fd"></span>Press</div><div><span class="fd"></span>Screens</div><div><span class="dc"><b>TXT</b></span>Launch plan.txt</div><div><span class="dc qimg"></span><span class="qsel">Hero.png</span></div><div><span class="dc"><b>MD</b></span>Roadmap.md</div><div><span class="dc"><b>CSV</b></span>Press list.csv</div><div><span class="fd"></span>Archive</div></div></div></div>
+    <div class="mks-w mks-pv bg in2" style="left:788px;width:640px">
+      <div class="mks-bar"><span class="mks-tl"><i></i><i></i><i></i></span>${ic('cols')}<b>Hero.png</b><span class="sp"></span>${ic('info')}${ic('zoomout')}${ic('zoomin')}${ic('share')}${ic('pen')}${ic('rot')}</div>
+      <div class="mks-photo"><div class="pic"></div></div></div>
+    <div class="mks-w mks-notes bg" style="left:1436px;width:600px">
+      <div class="nl"><div class="mks-tl" style="margin:4px 0 14px 4px"><i></i><i></i><i></i></div><div class="on"><b>Launch checklist</b><small>10:41 · Press list sent</small></div><div><b>Interview notes</b><small>Yesterday</small></div><div><b>Ideas</b><small>Friday</small></div></div>
+      <div class="nb"><h5>Launch checklist</h5>Press list sent<br>Hero image final<br>Screens for the site<br>Release notes, short and plain</div></div>
+    </div>
+    <div class="mks-dock">${['files', 'safari', 'messages', 'mail', 'photos', 'music', 'calendar', 'notes', 'settings'].map((k, i) => app(k, i < 2 || k === 'photos' ? 'run' : '')).join('')}<b></b>${['code', 'terminal'].map(k => app(k, 'run')).join('')}</div></div>`;
+
   /* ---------- Build, fit and animate */
-  const BUILD = { panel: [panelGlance, 360, 650], island: [() => islHome(true), 500, 450], calendar: [islCal, 500, 417], overview: [overviewGlance, 1200, 720],
+  const BUILD = { panel: [panelGlance, 360, 650], island: [() => islHome(true), 500, 560], memory: [islMemory, 500, 560], strip: [strip, 1280, 720], calendar: [islCal, 500, 417], overview: [overviewGlance, 1200, 720],
     weather: [weather, 1100, 688], time: [timePage, 1100, 688], awake: [awake, 360, 336], evening: [evening, 360, 262] };
   const zoomOK = CSS.supports && CSS.supports('zoom', '2');
   const fit = st => {
@@ -314,4 +378,7 @@
   if (reduce || !('IntersectionObserver' in window)) { stages.forEach(st => st.classList.add('mk-on')); return; }
   const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); e.target.classList.add('mk-on'); rollAll(e.target); }), { threshold: .35 });
   stages.forEach(st => io.observe(st));
+  // Live drawings rest when you can't see them: anything still moving pauses off screen
+  const rest = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('mk-rest', !e.isIntersecting)), { threshold: 0 });
+  stages.forEach(st => rest.observe(st));
 })();

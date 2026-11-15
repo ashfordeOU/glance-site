@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <title>Glance by Ashforde · your Mac at a glance</title>
-<meta name="description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected. For the Mac App Store.">
+<meta name="description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, an Island with your music and files, a full Dashboard, Stay Awake, Evening Mode and Privacy Guard. No account, nothing collected. For the Mac App Store.">
 <link rel="canonical" href="https://glance.ashforde.org/">
 <meta property="og:title" content="Glance by Ashforde · your Mac at a glance">
-<meta property="og:description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected. For the Mac App Store.">
+<meta property="og:description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, an Island with your music and files, a full Dashboard, Stay Awake, Evening Mode and Privacy Guard. No account, nothing collected. For the Mac App Store.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Glance by Ashforde">
 <meta property="og:url" content="https://glance.ashforde.org/">
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Glance by Ashforde · your Mac at a glance">
-<meta name="twitter:description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected. For the Mac App Store.">
+<meta name="twitter:description" content="Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, an Island with your music and files, a full Dashboard, Stay Awake, Evening Mode and Privacy Guard. No account, nothing collected. For the Mac App Store.">
 <meta name="twitter:image" content="https://glance.ashforde.org/img/og.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -46,7 +46,7 @@
 <header class="top">
   <div class="bar">
     <a class="brand" href="/"><img src="/assets/icon-256.png" alt="" width="28" height="28">Glance</a>
-    <nav aria-label="Main"><a href="/#panel">Panel</a><a href="/#island">Island</a><a href="/#dashboard">Dashboard</a><a href="/#awake">Stay Awake</a><a href="/#evening">Evening Mode</a><a href="/#storage">Storage</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></nav>
+    <nav aria-label="Main"><a href="/#panel">Panel</a><a href="/#island">Island</a><a href="/#dashboard">Dashboard</a><a href="/#awake">Stay Awake</a><a href="/#evening">Evening Mode</a><a href="/#storage">Storage</a><a href="/#monorail">Monorail</a><a href="/privacy/">Privacy</a><a href="/support/">Support</a></nav>
     <span class="spacer"></span>
     <button type="button" class="iconbtn" id="theme-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-pop" title="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="sr">Appearance</span></button>
     <a class="store small" data-appstore role="link" aria-disabled="true" aria-label="Coming soon to the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Coming soon to the</small><b>Coming soon</b></span></a>
@@ -68,7 +68,7 @@
 <section class="hero">
   <div class="wrap">
     <img class="hero-icon" src="/assets/icon.png" alt="The Glance icon: white rings and a pink pulse on navy" width="156" height="156">
-    <span class="eyebrow"><i></i>Free · for macOS 13 or later</span>
+    <span class="eyebrow"><i></i>Free · version 1.9.8 · for macOS 13 or later</span>
     <h1 class="display">Glance <span class="by light-text">by Ashforde</span></h1>
     <p class="lede">Your battery, your day and how your Mac is doing, one click away in the menu bar.</p>
     <div class="ctas">
@@ -77,7 +77,7 @@
     </div>
     <p class="release">No account. No in-app purchases. Nothing collected.</p>
   </div>
-  <div class="gx-desk rv" role="img" aria-label="A drawn Mac screen: the Island at the top shows Stay Awake, charging and the next meeting in turn, above three rings for battery, processor and memory.">
+  <div class="gx-desk rv" role="img" aria-label="A drawn Mac screen: the Island at the top shows Stay Awake, charging, the next meeting and what’s playing in turn, above three rings for battery, processor and memory.">
     <div class="gx-wall" aria-hidden="true"></div>
     <div class="gx-mbar" aria-hidden="true">
       <span><b>Finder</b><span class="x">File</span><span class="x">Edit</span><span class="x">View</span></span>
@@ -95,7 +95,7 @@
       <div><b>Free</b><span>No in-app purchases</span></div>
       <div><b>0</b><span>Accounts or sign-ins</span></div>
       <div><b>16</b><span>Dashboard pages</span></div>
-      <div><b>6</b><span>Island tabs</span></div>
+      <div><b>10</b><span>Island tabs to choose from</span></div>
     </div>
   </div>
 </section>
@@ -153,8 +153,8 @@
 <!-- 3 · The Island -->
 <section class="s stage" id="island" style="padding-top:0">
   <div class="wrap">
-    <div class="head center rv"><span class="eyebrow"><i></i>The Island</span><h2 class="h2">What’s happening now, <span class="light-text">at the top of your screen.</span></h2>
-      <p class="lede">A small island shows Stay Awake, charging, a timer or a meeting about to start. Rest the pointer on it to peek, click to open it.</p></div>
+    <div class="head center rv"><span class="eyebrow"><i></i>The Island · new in 1.9.8</span><h2 class="h2">What’s happening now, <span class="light-text">at the top of your screen.</span></h2>
+      <p class="lede">A small island shows what’s playing, Stay Awake, charging, a timer or a meeting about to start. Rest the pointer on it to peek, click to open it. Try the music card, and point at the pixels on Storage, Battery and Memory.</p></div>
     <div class="islandstage rv">
       <div class="gx-wall" aria-hidden="true"></div>
       <div class="gx-mbar" aria-hidden="true">
@@ -173,6 +173,9 @@
       <button type="button" data-isl-btn="timer" aria-pressed="false">Timer</button>
       <button type="button" data-isl-btn="tasks" aria-pressed="false">Tasks</button>
       <button type="button" data-isl-btn="insights" aria-pressed="false">Insights</button>
+      <button type="button" data-isl-btn="storage" aria-pressed="false">Storage</button>
+      <button type="button" data-isl-btn="battery" aria-pressed="false">Battery</button>
+      <button type="button" data-isl-btn="memory" aria-pressed="false">Memory</button>
       <button type="button" data-isl-btn="tools" aria-pressed="false">Tools</button>
     </div>
     <p class="islcap-label">Or see it live</p>
@@ -180,6 +183,19 @@
       <button type="button" data-isl-btn="awake" aria-pressed="false">Stay Awake</button>
       <button type="button" data-isl-btn="charging" aria-pressed="false">Charging</button>
       <button type="button" data-isl-btn="meeting" aria-pressed="false">Meeting soon</button>
+      <button type="button" data-isl-btn="music" aria-pressed="false">Now playing</button>
+      <button type="button" data-isl-btn="shot" aria-pressed="false">Screenshot</button>
+      <button type="button" data-isl-btn="download" aria-pressed="false">Download</button>
+    </div>
+    <div class="gx-new sg">
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></i><b>Music and Spotify</b><p>The artwork, where the track is, and play, pause, skip, scrub, shuffle and repeat. macOS asks once before Glance may control each app.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13.5 5.6 6h12.8l2.6 7.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 13.5h5l1 2h6l1-2h5"/></svg></i><b>A shelf that keeps files</b><p>Drop files on the Island to keep them handy. They’re still there the next time Glance opens, on every shelf.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg></i><b>Storage, Battery and Memory</b><p>Three tabs with pixel bars, on by default. Point at a block to read what it is. Turn any of them off from the +.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><b>World clocks and weather</b><p>Your cities at a glance, and the weather for the places you choose, with the rain radar and the next 48 hours.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="12" r="3"/></svg></i><b>Screenshots and downloads</b><p>Each new screenshot, ready to keep on the shelf, and files downloading with their progress, once you choose your home folder.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></i><b>Claude Code in Agents</b><p>Choose your .claude folder and the Agents tab lists your sessions from the last few hours: the task, its state and the cost so far.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="6.5"/><path d="M12 16.5V21M8.5 21h7"/></svg></i><b>Mirror</b><p>A quick look at yourself before a call. The camera is on only while Mirror shows, and nothing is recorded.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg></i><b>Island settings of its own</b><p>Where it sits, its look, its tools, alerts, colours and live items, all in Settings ▸ General ▸ Dynamic Island.</p></div>
     </div>
   </div>
 </section>
@@ -286,12 +302,15 @@
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow"><i></i>And more</span><h2 class="h2">The small things, <span class="light-text">done properly.</span></h2></div>
     <div class="gx-more sg">
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M12 8.5v4M10 11a2 2 0 0 0 4 0"/></svg></i><b>Privacy Guard</b><p>One click in the panel blocks the microphone for every app. Block the camera too, and Glance warns you the moment an app turns one on. Allow the apps you trust.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i><b>Meeting Notes</b><p>Record a call and get a transcript, made on your Mac where macOS supports it. On macOS 26, a summary too.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="12" rx="2.5"/><path d="M8 21h8M8.5 9.5h7M8.5 12.5h4"/></svg></i><b>A floating player</b><p>Detach the music card and keep it on screen, with its buttons and synced lyrics from your Music folder.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h4"/></svg></i><b>Clipboard history</b><p>Find anything you copied and copy it again. Passwords and other concealed copies are never kept.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 9h8M8 12h8M8 15h5"/></svg></i><b>Text and QR codes</b><p>Pull the text or a QR code out of a picture or a screenshot you’ve copied.</p></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.6A3.3 3.3 0 0 0 7 18z"/></svg></i><b>Weather</b><p>For the places you choose, with no location access needed.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="15" width="18" height="5" rx="2"/><path d="M7 15v-3M12 15V8M17 15v-5"/></svg></i><b>Docks of your own</b><p>Apps, folders, files and small widgets, at any edge of the screen.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i><b>Breaks</b><p>Gentle reminders to rest your eyes, stretch and drink some water.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 8.5A9 9 0 1 1 15 3.4"/><path d="M6.5 13h2l1.6-4 2 6.2 2-6.2 1.6 4h2"/></svg></i><b>A ringed menu bar icon</b><p>Glance’s icon now sits inside the ring from its app icon, so it’s easy to tell apart. In Colour, the pulse is Glance’s pink.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="5"/><path d="M10 12h4"/></svg></i><b>Easy on your Mac</b><p>Live drawings rest when you can’t see them, and readings stop when you close the panel, so Glance stays light.</p></div>
     </div>
   </div>
 </section>
@@ -300,7 +319,7 @@
 <section class="s" id="screenshots">
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow"><i></i>A closer look</span><h2 class="h2">Every screen, <span class="light-text">up close.</span></h2>
-      <p class="lede">The Dashboard, Weather, Time, the panel and the Island, exactly as they look on your Mac.</p></div>
+      <p class="lede">The Dashboard, Weather, Time, the panel and the Island’s tabs, exactly as they look on your Mac.</p></div>
     <div class="mkg">
       <div class="mkg-wide"><figure class="rv" role="img" aria-label="Glance’s Dashboard on its Overview: a “Why is my Mac slow?” answer, tiles for CPU, memory, GPU, network, disk and battery with their charts, then storage, the connection and this Mac."><div class="mkg-f" style="aspect-ratio:1200/720"><div class="mk-stage" data-mock="overview"></div></div><figcaption>The Dashboard’s Overview</figcaption></figure></div>
       <div class="mkg-row" style="--n:2">
@@ -312,9 +331,10 @@
         <figure class="rv" role="img" aria-label="The Stay Awake page: on for 1 hour 30, the time choices, and keeping the display on."><div class="mkg-f cut"><div class="mk-stage" data-mock="awake"></div></div><figcaption>Stay Awake</figcaption></figure>
         <figure class="rv" role="img" aria-label="The Evening Mode page: on until 07:00, warmth at 65%, turning on at sunset."><div class="mkg-f cut"><div class="mk-stage" data-mock="evening"></div></div><figcaption>Evening Mode</figcaption></figure>
       </div>
-      <div class="mkg-row" style="--n:2">
-        <figure class="rv" role="img" aria-label="The Island opened on Home: the date and battery, quick switches with Stay Awake on, world clocks and the weather for the next hours."><div class="mkg-f cut mkg-169 mki-f"><div class="mk-stage" data-mock="island"></div></div><figcaption>The Island, open on Home</figcaption></figure>
-        <figure class="rv" role="img" aria-label="The Island’s Calendar: a line to add an event, today’s and tomorrow’s events, and the month."><div class="mkg-f cut mkg-169 mki-f"><div class="mk-stage" data-mock="calendar"></div></div><figcaption>The Island’s Calendar</figcaption></figure>
+      <div class="mkg-row" style="--n:3">
+        <figure class="rv" role="img" aria-label="The Island opened on Home: the date and battery, quick switches with Stay Awake on, the music card with artwork, the track’s position and its buttons, world clocks and the weather for the next hours."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="island"></div></div><figcaption>The Island, open on Home</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Island’s Memory tab: 11.2 GB of 16 GB in use at low pressure, a dot-matrix bar of App, Wired, Compressed, Cached and Free memory, the pressure line, no swap in use, and the three apps using the most memory."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="memory"></div></div><figcaption>The Island’s Memory tab</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Island’s Calendar: a line to add an event, today’s and tomorrow’s events, and the month."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="calendar"></div></div><figcaption>The Island’s Calendar</figcaption></figure>
       </div>
     </div>
   </div>
@@ -329,23 +349,30 @@
     <div class="gx-badges sg">
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0M3 3l18 18"/></svg></i><span><b>No account</b><small>Nothing to sign up for or sign in to</small></span></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7M3 3l18 18"/></svg></i><span><b>Nothing collected</b><small>No analytics, no usage counts, no ads</small></span></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i><span><b>No Accessibility</b><small>It never controls other apps</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></i><span><b>No Accessibility</b><small>Apple events to Music and Spotify only, if you allow</small></span></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></i><span><b>Never asks for your password</b><small>No administrator rights, ever</small></span></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i><span><b>Your day stays on your Mac</b><small>Calendar, reminders and recordings</small></span></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i><span><b>Online only to fetch</b><small>Weather, rates, a speed test you start</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i><span><b>Your day stays on your Mac</b><small>Calendar, reminders, recordings and your shelf</small></span></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></i><span><b>Online only to fetch</b><small>Weather, rates, artwork, a speed test you start</small></span></div>
     </div>
     <p class="gx-privlink"><a class="btn glassy small" href="/privacy/">Read the privacy policy</a></p>
   </div>
 </section>
 
-<!-- 9 · The sibling -->
-<section class="s" style="padding-block:clamp(48px,6vw,80px)">
+<!-- 9 · The sibling: Monorail -->
+<section class="s mr" id="monorail">
   <div class="wrap">
-    <a class="sib rv" href="https://monorail.ashforde.org">
-      <span class="rails" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span><b>Need window management too?</b><p>Monorail, Glance’s sibling for your windows.</p></span>
-      <span class="go">monorail.ashforde.org ›</span>
-    </a>
+    <div class="head center rv"><img class="mr-icon" src="/assets/monorail-icon.png" alt="The Monorail icon: three rails on a pink gradient" width="96" height="96"><span class="eyebrow"><i></i>Glance’s sibling</span><h2 class="h2">Meet Monorail. <span class="light-text">Glance’s sibling, for your windows.</span></h2>
+      <p class="lede">Monorail is a free download from monorail.ashforde.org. It does everything Glance does, and adds a scrolling window manager where nothing shrinks, the full Overview, agents with approvals, a Privacy Guard that can quit apps, and Ashforde Enhancer’s fan control and charge limit alongside the lid-closed mode both apps share.</p></div>
+    <figure class="mr-stage rv" role="img" aria-label="A drawn Mac desktop with Monorail: Finder, Preview and Notes side by side at full size on a strip, sliding along to the next window and back."><div class="mkg-f" style="aspect-ratio:16/9"><div class="mk-stage" data-mock="strip"></div></div><figcaption>Monorail’s strip: your windows side by side at full size. Move along and they slide; nothing shrinks.</figcaption></figure>
+    <div class="mr-cmp sg">
+      <div class="mr-col"><div class="mr-h"><img src="/assets/icon-256.png" alt="" width="40" height="40"><span><b>In Glance</b><small>Free on the Mac App Store</small></span></div><ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>The menu bar panel and the full Dashboard</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>The Island: music, the shelf, Storage, Battery and Memory</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Stay Awake and Evening Mode</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Storage clean-ups, always to the Bin</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Meeting Notes, clipboard history and docks</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Privacy Guard: blocks the microphone, warns about the camera</span></li></ul></div>
+      <div class="mr-col mono"><div class="mr-h"><img src="/assets/monorail-icon.png" alt="" width="40" height="40"><span><b>Monorail adds</b><small>Everything in Glance, plus</small></span></div><ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>A scrolling window manager where nothing shrinks</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>The full-screen Overview, with every window on every workspace</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Every coding agent in the Island, with approvals</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Privacy Guard that can quit an app that turns the camera on</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Fan control and the charge limit, with Ashforde Enhancer</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>Now Playing from every player, not just Music and Spotify</span></li></ul></div>
+    </div>
+    <div class="mr-both rv">
+      <div class="mr-bar" aria-hidden="true"><span class="rail"><i></i><i></i><i></i></span><i class="gx-gl dim"></i><span class="t">10:46</span></div>
+      <p><b>Using both?</b> Glance steps aside while Monorail runs, so nothing runs twice: its menu bar icon dims, and a click explains why. When Monorail quits, Glance takes over again within a few seconds.</p>
+    </div>
+    <div class="ctas"><a class="btn accent" href="https://monorail.ashforde.org/download/">Get Monorail (free)</a><a class="btn glassy" href="https://monorail.ashforde.org">Learn more</a></div>
   </div>
 </section>
 
@@ -375,7 +402,7 @@
   <div class="giant" aria-hidden="true">Glance</div>
 </footer>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Glance by Ashforde","applicationCategory":"UtilitiesApplication","operatingSystem":"macOS 13 or later","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"url":"https://glance.ashforde.org/","image":"https://glance.ashforde.org/assets/icon.png","publisher":{"@type":"Organization","name":"Ashforde OÜ"},"description":"Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, the Island, a full Dashboard, Stay Awake and Evening Mode. No account, nothing collected."}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Glance by Ashforde","applicationCategory":"UtilitiesApplication","operatingSystem":"macOS 13 or later","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"url":"https://glance.ashforde.org/","image":"https://glance.ashforde.org/assets/icon.png","publisher":{"@type":"Organization","name":"Ashforde OÜ"},"softwareVersion":"1.9.8","description":"Glance keeps an eye on your Mac from the menu bar: battery and health, your day, system readings, an Island with your music and files, a full Dashboard, Stay Awake, Evening Mode and Privacy Guard. No account, nothing collected."}
 </script>
 </body>
 </html>

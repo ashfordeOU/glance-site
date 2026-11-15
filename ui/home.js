@@ -99,6 +99,21 @@
     prompt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 9h10M7 12h6M9 21h6"/></svg>',
     ask: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>',
     check: '<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg>',
+    home: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.2 2.8 11h2.7v9h5v-5.5h3V20h5v-9h2.7z"/></svg>',
+    tasks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5.5" cy="7" r="2"/><circle cx="5.5" cy="16" r="2"/><path d="M10 7h10M10 16h10"/></svg>',
+    insights: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="11" width="5" height="9" rx="1.2"/><rect x="9.5" y="7" width="5" height="13" rx="1.2"/><rect x="16" y="4" width="5" height="16" rx="1.2"/></svg>',
+    drive: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.4 5h11.2a2 2 0 0 1 1.9 1.4L21 11H3l1.5-4.6A2 2 0 0 1 6.4 5zM3 12.5h18V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+    bat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2.5" y="7.5" width="17" height="9" rx="2.6"/><rect x="4.6" y="9.6" width="10.5" height="4.8" rx="1" fill="currentColor" stroke="none"/><path d="M21.6 10.6v2.8"/></svg>',
+    mem: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="6.5" width="18" height="11" rx="2"/><path d="M7 17.5v2M11 17.5v2M15 17.5v2M7 10v4M11 10v4M15 10v4"/></svg>',
+    tools: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>',
+    play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a.8.8 0 0 0 1.2.7l10.6-6.8a.8.8 0 0 0 0-1.4L9.2 4.5A.8.8 0 0 0 8 5.2z"/></svg>',
+    pause: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg>',
+    prev: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.5 6.2v11.6a.7.7 0 0 1-1.1.6L2.8 12.6a.7.7 0 0 1 0-1.2l7.6-5.8a.7.7 0 0 1 1.1.6zM21 6.2v11.6a.7.7 0 0 1-1.1.6l-7.6-5.8a.7.7 0 0 1 0-1.2l7.6-5.8a.7.7 0 0 1 1.1.6z"/></svg>',
+    next: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 6.2v11.6a.7.7 0 0 0 1.1.6l7.6-5.8a.7.7 0 0 0 0-1.2l-7.6-5.8a.7.7 0 0 0-1.1.6zM3 6.2v11.6a.7.7 0 0 0 1.1.6l7.6-5.8a.7.7 0 0 0 0-1.2L4.1 5.6A.7.7 0 0 0 3 6.2z"/></svg>',
+    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9.5 9.5h0M12 8v5M10 11.5a2 2 0 0 0 4 0"/></svg>',
+    mirror: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6.5"/><path d="M12 16.5V21M8.5 21h7M9.5 8.5a3 3 0 0 1 3-2"/></svg>',
+    shot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="12" r="3"/></svg>',
+    down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg>',
     wifi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg>'
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -112,6 +127,7 @@
       { l: `<span style="color:#ff9f0a">${G.awake}</span>Stay Awake`, r: '52 min', wide: true },
       { l: `<span style="color:#30d158">${G.bolt}</span>Charging`, r: '<i class="mini" style="--v:86;--c:#30d158"></i>86%', wide: true },
       { l: `<span style="color:#5c8fff">${G.cal}</span>Design review`, r: 'in 4 min', wide: true },
+      { l: '<i class="art-mini"></i>Northern Lights', r: '<span class="eq"><i></i><i></i><i></i><i></i></span>', wide: true },
       { l: `<span style="color:#ff8a5b">${G.timer}</span>Focus`, r: '24:12', wide: true },
       { l: '', r: '', wide: false }
     ];
@@ -144,18 +160,57 @@
   const isl = $('[data-isl]');
   if (isl) {
     const wingL = $('.wing .l', isl), wingR = $('.wing .r', isl), body = $('.body', isl);
-    const TABS = ['Home', 'Calendar', 'Timer', 'Tasks', 'Insights', 'Tools'];
-    const tabs = on => `<div class="tabs">${TABS.map(t => `<span class="${t === on ? 'on' : ''}">${t}</span>`).join('')}</div>`;
+    // Glance's tabs in their order. Storage, Battery and Memory are on by default; the + adds or removes them.
+    const TABS = [['home', 'Home'], ['calendar', 'Calendar'], ['timer', 'Timer'], ['tasks', 'Tasks'], ['insights', 'Insights'], ['storage', 'Storage'], ['battery', 'Battery'], ['memory', 'Memory'], ['tools', 'Tools']];
+    const TICON = { home: G.home, calendar: G.cal, timer: G.timer, tasks: G.tasks, insights: G.insights, storage: G.drive, battery: G.bat, memory: G.mem, tools: G.tools };
+    const tabs = on => `<div class="tabs">${TABS.map(([k, t]) => `<button type="button" data-tab="${k}" class="${k === on ? 'on' : ''}" aria-label="${t}"${k === on ? ' aria-current="true"' : ''}>${TICON[k]}${k === on ? `<span>${t}</span>` : ''}</button>`).join('')}<span class="plus" title="Add or remove Storage, Battery and Memory">${G.plus}</span></div>`;
     let cleanup = [];
     const later = (ms, fn) => { const id = setTimeout(fn, ms); cleanup.push(() => clearTimeout(id)); };
+    // A dot-matrix bar: segments [name, value, colour], out of a total; pointing at a block lights it and names it
+    const dm = (segs, total, { h = 46, idle = '', unit = 'GB' } = {}) => {
+      const used = segs.reduce((t, x) => t + x[1], 0), rest = Math.max(0, total - used);
+      return `<div class="gx-dmw"><p class="gx-dmf" data-idle="${esc(idle)}">${esc(idle)}</p><div class="gx-dm pre" style="--h:${h}px">${segs.map(([n, v, c]) => `<i style="--c:${c};flex:${v}" data-n="${esc(n)}" data-v="${v} ${unit}"></i>`).join('')}${rest ? `<i class="e" style="flex:${rest}"></i>` : ''}<b class="tw"></b></div></div>`;
+    };
+    const wireDM = scope => $$('.gx-dmw', scope).forEach(w => {
+      const bar = $('.gx-dm', w), f = $('.gx-dmf', w), segs = $$('i:not(.e)', bar);
+      segs.forEach(seg => {
+        const on = () => { bar.classList.add('focus'); segs.forEach(x => x.classList.toggle('lit', x === seg)); f.innerHTML = `<i style="background:${seg.style.getPropertyValue('--c')}"></i><b>${esc(seg.dataset.n)}</b> ${esc(seg.dataset.v)}`; };
+        const off = () => { bar.classList.remove('focus'); segs.forEach(x => x.classList.remove('lit')); f.textContent = f.dataset.idle; };
+        seg.addEventListener('mouseenter', on); seg.addEventListener('mouseleave', off);
+      });
+      if (reduce) { bar.classList.remove('pre'); return; }
+      later(60, () => { bar.classList.add('drawn'); bar.classList.remove('pre'); });
+    });
+    // What's playing: the artwork, the track, a scrubber you can click or drag, and the buttons
+    const NP = { len: 234, at: 108, playing: true };
+    const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+    const music = () => `<div class="tile np"><span class="art" aria-hidden="true"><i></i></span><div class="npm">
+        <div class="npt"><span><b>Northern Lights</b><small>The Harbour Trio · Tidewater</small></span><em>Music</em></div>
+        <div class="nps"><small data-np-at>${fmt(NP.at)}</small><span class="scrub" role="slider" tabindex="0" aria-label="Position in the track" aria-valuemin="0" aria-valuemax="${NP.len}" aria-valuenow="${NP.at}"><i></i><b></b></span><small>${fmt(NP.len)}</small></div>
+        <div class="npc"><button type="button" aria-label="Previous track">${G.prev}</button><button type="button" class="pp" aria-label="Pause">${G.pause}</button><button type="button" aria-label="Next track">${G.next}</button></div></div></div>`;
+    const wireMusic = scope => {
+      const np = $('.np', scope); if (!np) return;
+      const scrub = $('.scrub', np), at = $('[data-np-at]', np), pp = $('.pp', np);
+      const put = () => { const k = NP.at / NP.len; scrub.style.setProperty('--k', k); at.textContent = fmt(NP.at); scrub.setAttribute('aria-valuenow', Math.round(NP.at)); };
+      put();
+      const seek = e => { const r = scrub.getBoundingClientRect(); NP.at = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * NP.len; put(); };
+      scrub.addEventListener('pointerdown', e => { scrub.setPointerCapture(e.pointerId); seek(e); scrub.onpointermove = seek; });
+      scrub.addEventListener('pointerup', () => { scrub.onpointermove = null; });
+      scrub.addEventListener('keydown', e => { const d = e.key === 'ArrowRight' ? 5 : e.key === 'ArrowLeft' ? -5 : 0; if (d) { e.preventDefault(); NP.at = Math.max(0, Math.min(NP.len, NP.at + d)); put(); } });
+      pp.addEventListener('click', () => { NP.playing = !NP.playing; pp.innerHTML = NP.playing ? G.pause : G.play; pp.setAttribute('aria-label', NP.playing ? 'Pause' : 'Play'); np.classList.toggle('paused', !NP.playing); });
+      pp.innerHTML = NP.playing ? G.pause : G.play; np.classList.toggle('paused', !NP.playing);
+      $$('.npc button:not(.pp)', np).forEach((b, i) => b.addEventListener('click', () => { NP.at = i ? 0 : Math.max(0, NP.at - 30); if (i) NP.at = 0; put(); }));
+      if (reduce) return;
+      const id = setInterval(() => { if (!NP.playing || document.hidden) return; NP.at = (NP.at + 1) % NP.len; put(); }, 1000); cleanup.push(() => clearInterval(id));
+    };
     const VIEWS = {
-      home: { h: 410, html: () => tabs('Home') + `<div class="ib">
-        <div class="two stack"><div class="tile"><h6>Switches</h6><div class="sws"><span><i class="on">${G.awake}</i>Awake</span><span><i>${G.moon}</i>Evening</span><span><i>${G.eye}</i>Breaks</span><span><i>${G.island}</i>Island</span></div></div>
-        <div class="tile"><h6>Battery <span>3 h 40 m</span></h6><div style="display:grid;grid-template-columns:58px minmax(0,1fr);gap:12px;align-items:center">${ringHTML(86, '86%', { c: '#30d158', w: 11 })}<div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5">Next: <b style="color:#fff">Design review</b><br>in 4 min</div></div></div></div>
+      home: { html: () => tabs('home') + `<div class="ib">
+        <div class="tile"><div class="sws"><span><i class="on">${G.awake}</i>Awake</span><span><i>${G.moon}</i>Evening</span><span><i>${G.eye}</i>Breaks</span><span><i>${G.island}</i>Island</span></div></div>
+        ${music()}
         <div class="three clocks"><div class="tile clk"><span>London</span><b data-tz="Europe/London">--:--</b><span>Today</span></div><div class="tile clk"><span>New York</span><b data-tz="America/New_York">--:--</b><span>−5 h</span></div><div class="tile clk"><span>Tokyo</span><b data-tz="Asia/Tokyo">--:--</b><span>+9 h</span></div></div>
         <div class="tile"><h6>Weather · Tallinn <span>Partly cloudy</span></h6><div class="hrs"><span>Now<i class="cl"></i><b>4°</b></span><span>13:00<i></i><b>6°</b></span><span>14:00<i></i><b>7°</b></span><span>15:00<i class="cl"></i><b>6°</b></span><span>16:00<i class="cl"></i><b>4°</b></span></div></div>
-      </div>`, after: () => tickClocks(body) },
-      calendar: { h: 360, html: () => tabs('Calendar') + `<div class="ib">
+      </div>`, after: () => { tickClocks(body); wireMusic(body); } },
+      calendar: { html: () => tabs('calendar') + `<div class="ib">
         <div class="qa">${G.plus}<span data-type></span><i class="caret"></i></div>
         <div class="tile"><h6>Today <span>Sat 14 Nov</span></h6>
           <div class="row" style="--c:#5c8fff"><i></i><span>Design review</span><em>10:00</em></div>
@@ -167,7 +222,7 @@
           let i = 0; const typeOn = () => { t.textContent = text.slice(0, ++i); if (i < text.length) later(55, typeOn); else later(500, () => added.classList.add('on')); };
           later(700, typeOn);
         } },
-      timer: { h: 330, html: () => tabs('Timer') + `<div class="ib"><div class="tile"><div class="timer">${ringHTML(62, '15:30', { c: '#ff8a5b', w: 8, label: 'Focus' })}
+      timer: { html: () => tabs('timer') + `<div class="ib"><div class="tile"><div class="timer">${ringHTML(62, '15:30', { c: '#ff8a5b', w: 8, label: 'Focus' })}
         <div><div style="font:600 17px var(--display);letter-spacing:-.02em">Focus session</div><div style="font-size:12.5px;color:rgba(255,255,255,.6);margin:4px 0 12px">25 minutes, then a 5-minute break</div>
         <div class="pills"><span class="on">Focus</span><span>Countdown</span><span>Stopwatch</span></div></div></div></div></div>`,
         after: () => {
@@ -178,24 +233,43 @@
           const tick = () => { s--; b.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; ring.set(s / 1500); later(1000, tick); };
           later(1700, tick);
         } },
-      tasks: { h: 370, html: () => tabs('Tasks') + `<div class="ib"><div class="two stack">
+      tasks: { html: () => tabs('tasks') + `<div class="ib"><div class="two stack">
         <div class="tile"><h6>Reminders <span>3 left</span></h6><div class="task done"><i>${G.check}</i><span>Book the dentist</span></div><div class="task"><i></i><span>Send the slides</span></div><div class="task"><i></i><span>Pay the electricity bill</span></div><div class="task"><i></i><span>Pick up the parcel</span></div></div>
         <div class="tile"><h6>This week</h6><div class="week">${[['M', 40], ['T', 72], ['W', 55], ['T', 88], ['F', 64], ['S', 22], ['S', 12]].map(([d, h], i) => `<span><i style="--h:${h}%;transform-origin:bottom;animation:gxgrow .9s var(--calm) both;animation-delay:${i * 70}ms"></i>${d}</span>`).join('')}</div></div>
       </div></div>`, after: () => {
           $$('.task', body).forEach(t => t.addEventListener('click', () => { t.classList.toggle('done'); $('i', t).innerHTML = t.classList.contains('done') ? G.check : ''; }));
           $$('.task', body).forEach(t => { t.style.cursor = 'pointer'; });
         } },
-      insights: { h: 330, html: () => tabs('Insights') + `<div class="ib"><div class="tile"><h6>Yesterday</h6><div class="ins"><span><b data-r>6.4 h</b><small>at your Mac</small></span><span><b data-r>3</b><small>focus sessions</small></span><span><b data-r>5</b><small>breaks taken</small></span></div></div>
+      insights: { html: () => tabs('insights') + `<div class="ib"><div class="tile"><h6>Yesterday</h6><div class="ins"><span><b data-r>6.4 h</b><small>at your Mac</small></span><span><b data-r>3</b><small>focus sessions</small></span><span><b data-r>5</b><small>breaks taken</small></span></div></div>
         <div class="tile"><h6>This week <span>busiest Thursday</span></h6><div class="week" style="height:56px">${[['M', 52], ['T', 66], ['W', 48], ['T', 90], ['F', 70], ['S', 18], ['S', 10]].map(([d, h], i) => `<span><i style="--h:${h}%;transform-origin:bottom;animation:gxgrow .9s var(--calm) both;animation-delay:${i * 70}ms"></i>${d}</span>`).join('')}</div></div></div>`,
         after: () => $$('[data-r]', body).forEach((b, i) => roll(b, 0, 1300, 250 + i * 120)) },
-      tools: { h: 350, html: () => tabs('Tools') + `<div class="ib"><div class="tools"><span>${G.note}Notes</span><span>${G.conv}Converter</span><span>${G.emoji}Emoji</span><span>${G.clip}Clipboard</span><span>${G.prompt}Teleprompter</span><span>${G.ask}Ask AI</span></div>
+      storage: { html: () => tabs('storage') + `<div class="ib"><div class="tile">
+        <div class="hd"><b data-r>506.9 GB</b><small>of 995 GB</small></div>
+        ${dm([['Applications', 62.4, '#FF453A'], ['Documents', 118.2, '#FFD60A'], ['Developer', 74.6, '#5E5CE6'], ['Photos', 96.3, '#40C8E0'], ['Music', 21.8, '#FF9F0A'], ['System Data', 86.1, '#8E8E93'], ['macOS', 47.5, '#636366']], 995, { h: 54, idle: '488.1 GB available' })}
+        <p class="note">Point at a block to see what it is. Measured in your home folder, once you choose it.</p></div></div>`,
+        after: () => { wireDM(body); $$('[data-r]', body).forEach(b => roll(b, 0, 1300, 150)); } },
+      battery: { html: () => tabs('battery') + `<div class="ib"><div class="tile">
+        <div class="hd"><b data-r>86%</b><span class="st"><b>3 h 40 min left</b><small>Until about 13:20</small></span><em class="pill">${G.bat}Battery</em></div>
+        ${dm([['Charge', 86, '#30D158']], 100, { h: 40, idle: 'On battery', unit: '%' })}
+        <div class="figs"><span><small>Health</small><b>97%</b></span><span><small>Cycles</small><b>214</b></span><span><small>Using</small><b>6.2 W</b></span></div></div></div>`,
+        after: () => { wireDM(body); $$('[data-r]', body).forEach(b => roll(b, 0, 1300, 150)); } },
+      memory: { html: () => tabs('memory') + `<div class="ib"><div class="tile">
+        <div class="hd"><b data-r>11.2 GB</b><small>of 16 GB</small><em class="pill ok"><i></i>Low pressure</em></div>
+        ${dm([['App', 6.1, '#0A84FF'], ['Wired', 2.4, '#FF9F0A'], ['Compressed', 2.7, '#BF5AF2'], ['Cached', 3.1, '#40C8E0'], ['Free', 1.7, 'rgba(255,255,255,.45)']], 16, { h: 46, idle: '4.8 GB available' })}
+        <div class="pr"><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><polyline points="${[.22, .24, .23, .27, .3, .28, .26, .31, .29, .27, .25, .28, .33, .31, .29, .3, .34, .32, .3, .28].map((v, k) => `${(k / 19 * 200).toFixed(1)},${(26 - v * 50).toFixed(1)}`).join(' ')}"/></svg><em class="pill">No swap in use</em></div></div>
+        <div class="tile"><h6>Using the most memory</h6><div class="kvs"><span>Safari<b>2.1 GB</b></span><span>Mail<b>840 MB</b></span><span>Photos<b>610 MB</b></span></div></div></div>`,
+        after: () => { wireDM(body); $$('[data-r]', body).forEach(b => roll(b, 0, 1300, 150)); } },
+      tools: { html: () => tabs('tools') + `<div class="ib"><div class="tools"><span>${G.note}Notes</span><span>${G.conv}Converter</span><span>${G.clip}Clipboard</span><span>${G.prompt}Teleprompter</span><span>${G.mirror}Mirror</span><span>${G.ask}Ask AI</span></div>
         <div class="tile"><div class="conv"><span><small>Kilometres</small><span data-r>10</span> km</span><span style="color:var(--l1)">${G.conv.replace('<svg', '<svg width="18" height="18"')}</span><span style="text-align:right"><small>Miles</small><span data-r>6.21</span> mi</span></div></div></div>`,
         after: () => $$('[data-r]', body).forEach((b, i) => roll(b, 0, 1200, 200 + i * 100)) }
     };
     const WINGS = {
       awake: { l: `<span style="color:#ff9f0a">${G.awake}</span>Stay Awake`, r: '52 min' },
       charging: { l: `<span style="color:#30d158">${G.bolt}</span>Charging`, r: '<span style="font-variant-numeric:tabular-nums">86%</span>' },
-      meeting: { l: `<span style="color:#5c8fff">${G.cal}</span>Design review`, r: 'in 4 min' }
+      meeting: { l: `<span style="color:#5c8fff">${G.cal}</span>Design review`, r: 'in 4 min' },
+      music: { l: '<i class="art-mini"></i>Northern Lights', r: '<span class="eq"><i></i><i></i><i></i><i></i></span>' },
+      shot: { l: `<span style="color:#64d2ff">${G.shot}</span>Screenshot`, r: 'Keep on shelf' },
+      download: { l: `<span style="color:#5c8fff">${G.down}</span>Downloading`, r: '<i class="mini" style="--v:62;--c:#5c8fff"></i>62%' }
     };
     function tickClocks(scope) {
       const els = $$('[data-tz]', scope); if (!els.length) return;
@@ -216,6 +290,8 @@
         const open = () => {
           body.innerHTML = '<div class="inner">' + v.html() + '</div>'; fit(); isl.dataset.shape = 'card';
           initRings(body, { now: true }); if (v.after) v.after();
+          // The tab row inside the Island works too
+          $$('[data-tab]', body).forEach(t => t.addEventListener('click', () => show(t.dataset.tab)));
         };
         if (isl.dataset.shape === 'card' && !reduce) { body.style.opacity = '0'; later(200, () => { body.style.opacity = ''; open(); }); } else open();
       } else {
@@ -228,6 +304,12 @@
     // Rest the pointer on the Island to peek (it opens on Home), as on the Mac
     isl.addEventListener('mouseenter', () => { if (isl.dataset.shape !== 'card') show('home'); });
     whenSeen(isl, () => { if (reduce) show('home'); else { show('awake'); setTimeout(() => { if (current === 'awake') show('home'); }, 2600); } }, 0.5);
+  }
+
+  /* ---------- Live drawings rest when you can't see them: anything still moving pauses while off screen */
+  if ('IntersectionObserver' in window) {
+    const rest = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('gx-rest', !e.isIntersecting)), { threshold: 0 });
+    $$('.gx-desk, .islandstage, .mr-both, .final').forEach(el => rest.observe(el));
   }
 
   /* ---------- The Dashboard */
