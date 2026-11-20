@@ -1,10 +1,9 @@
 /* Glance by Ashforde · the site's shared behaviour: appearance, the phone menu, the Mac App Store link, reveals and the footer. */
 
-/* Glance's Mac App Store page. GLANCE_ON_STORE stays false until the listing is live: until then every [data-appstore]
-   button reads "Coming soon to the Mac App Store" and links nowhere. Set it to true on release and every button becomes
-   "Download on the Mac App Store", pointing at GLANCE_APP_STORE_URL. */
+/* Glance's Mac App Store page (live since November 2026). With GLANCE_ON_STORE true every [data-appstore] button reads
+   "Download on the Mac App Store" and points at GLANCE_APP_STORE_URL; set it to false to show "Coming soon" instead. */
 const GLANCE_APP_STORE_URL = 'https://apps.apple.com/app/glance-by-ashforde/id6832553480';
-const GLANCE_ON_STORE = false;
+const GLANCE_ON_STORE = true;
 
 (() => {
   const root = document.documentElement;
