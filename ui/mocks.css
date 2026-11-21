@@ -130,7 +130,7 @@
 .mkp-today .cv { color: var(--p-3); font-size: 11px; stroke-width: 2.4; }
 .mk-join { background: var(--blue); color: #fff; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px; box-shadow: 0 .5px 1px rgba(0,0,0,.2); }
 /* Switches */
-.mkp-sw { display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 10px; padding: 2px 0; }
+.mkp-sw { display: grid; grid-template-columns: repeat(4, 1fr); row-gap: 9px; padding: 2px 0; }
 .mkp-sw > span { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 0; }
 .mkp-sw .c { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--p-sw); color: var(--p-1); font-size: 17px; }
 .mkp-sw .c.on { background: var(--tint); color: #fff; }
@@ -230,21 +230,6 @@
 .mkp-chk i { width: 16px; height: 16px; border-radius: 4px; background: var(--p-sw); box-shadow: inset 0 0 0 .5px var(--p-edge); }
 
 /* ---------- The Island: always black */
-.mki { --blue: #0A84FF; --tile: rgba(255,255,255,.08); position: relative; width: 500px; background: #000; color: #fff; border-radius: 0 0 30px 30px; padding: 0 20px 18px; overflow: hidden;
-  box-shadow: 0 0 0 .5px rgba(255,255,255,.08), 0 24px 50px -16px rgba(0,0,0,.6); }
-.mk-on .mki, .mki.still { clip-path: inset(0 0 0 0 round 0 0 30px 30px); }
-.mki { clip-path: inset(0 calc(50% - 74px) calc(100% - 32px) calc(50% - 74px) round 0 0 16px 16px); }
-.mk-on .mki { transition: clip-path .9s cubic-bezier(.32, 1.18, .5, 1) .25s; }
-.mki > :not(.mki-top) { opacity: 0; transform: translateY(-6px) scale(.98); }
-.mk-on .mki > :not(.mki-top) { opacity: 1; transform: none; transition: opacity .5s ease, transform .7s var(--ease); transition-delay: calc(.45s + var(--i, 0) * 60ms); }
-.mki-top { height: 32px; display: flex; align-items: center; justify-content: space-between; padding: 0 4px 0 22px; font-size: 13px; font-weight: 600; }
-.mki-top .mi { font-size: 17px; color: #64d2ff; }
-.mki-top .aw { color: #0A84FF; font-size: 18px; }
-.mki-tabs { display: flex; align-items: center; gap: 6px; margin: 2px 0 12px; }
-.mki-tabs span { height: 26px; min-width: 30px; padding: 0 9px; border-radius: 13px; background: rgba(255,255,255,.13); display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; }
-.mki-tabs span .mi { font-size: 13px; stroke-width: 1.9; }
-.mki-tabs span.on { background: #fff; color: #000; font-weight: 600; padding: 0 12px; }
-.mki-tabs .end { background: none; margin-left: auto; font-size: 16px; color: rgba(255,255,255,.85); }
 .mki-hd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .mki-hd b { font-size: 13px; }
 .mki-hd span { font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,.7); display: flex; align-items: center; gap: 6px; }
@@ -334,6 +319,21 @@
 .mkd-card:hover { background: rgba(255,255,255,.1); }
 .mkd-cap { font-size: 11px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.75); text-transform: uppercase; display: flex; justify-content: space-between; }
 .mkd-cap span { text-transform: none; letter-spacing: 0; font-weight: 400; color: rgba(255,255,255,.4); }
+/* 1.9.9: the tabs in groups, each with what's inside it, and the open group's own pages below */
+.mkd-gt { display: flex; align-items: center; gap: 10px; flex: none; }
+.mkd-grp { display: flex; gap: 2px; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.06); }
+.mkd-grp span { height: 38px; padding: 0 12px; border-radius: 11px; display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.88); white-space: nowrap; }
+.mkd-grp span .mi { font-size: 14px; stroke-width: 1.8; opacity: .85; }
+.mkd-grp b { display: flex; flex-direction: column; font-size: 13px; font-weight: 600; line-height: 1.05; }
+.mkd-grp small { font-size: 9.5px; font-weight: 500; color: rgba(255,255,255,.45); margin-top: 2px; }
+.mkd-grp span.on { background: color-mix(in srgb, var(--acc) 24%, transparent); color: var(--acc); }
+.mkd-grp span.on b { font-size: 13.5px; }
+.mkd-k { margin-left: auto; font-style: normal; display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 11px; border-radius: 16px; background: rgba(255,255,255,.08); font-size: 12px; font-weight: 600; color: rgba(255,255,255,.85); }
+.mkd-k .mi { font-size: 12px; stroke-width: 2.4; }
+.mkd-sub { display: inline-flex; align-self: flex-start; gap: 2px; padding: 3px; margin-top: 10px; border-radius: 12px; background: rgba(255,255,255,.06); flex: none; }
+.mkd-sub span { height: 26px; padding: 0 11px; border-radius: 9px; display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.85); }
+.mkd-sub span .mi { font-size: 12px; stroke-width: 1.9; }
+.mkd-sub span.on { background: color-mix(in srgb, var(--acc) 24%, transparent); color: var(--acc); font-weight: 600; }
 .mkd-chip { display: flex; align-items: baseline; gap: 10px; }
 .mkd-chip h4 { margin: 0; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -.01em; }
 .mkd-chip small { font-size: 12px; color: rgba(255,255,255,.6); }
@@ -529,44 +529,6 @@
 .mkp-hist svg { width: 100%; height: 100%; display: block; overflow: visible; }
 .mkp-hist .ft2 { display: flex; justify-content: space-between; font-size: 10px; color: var(--p-2); margin-top: 6px; }
 
-/* ---------- Glance 1.9.8: the Island's + for extra tabs, the music card and the Memory tab */
-.mki-tabs .add { background: none; min-width: 22px; padding: 0 4px; color: rgba(255,255,255,.6); }
-.mki-np { display: flex; gap: 12px; align-items: center; background: var(--tile); border-radius: 14px; padding: 10px; margin-bottom: 10px; }
-.mki-np .art { width: 74px; height: 74px; flex: none; border-radius: 10px; position: relative; overflow: hidden;
-  background: radial-gradient(70% 70% at 30% 25%, #FFB36B, transparent 70%), radial-gradient(80% 80% at 80% 90%, #7E6CF2, transparent 70%), linear-gradient(150deg, #F6627A, #3B2C8F); box-shadow: 0 6px 18px -6px rgba(246,98,122,.6); }
-.mki-np .art i { position: absolute; left: 14%; right: 14%; bottom: 18%; height: 30%; border-radius: 50% 50% 0 0; background: rgba(255,255,255,.22); }
-.mki-np .qm { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px; }
-.mki-np .qt { display: flex; align-items: flex-start; gap: 8px; }
-.mki-np .qt > span { flex: 1; min-width: 0; }
-.mki-np .qt b { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mki-np .qt small { display: block; font-size: 10.5px; color: rgba(255,255,255,.55); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.mki-np .qt em { font-style: normal; font-size: 10px; font-weight: 600; color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 4px; }
-.mki-np .qs { display: flex; align-items: center; gap: 8px; }
-.mki-np .qs small { font-size: 9.5px; color: rgba(255,255,255,.55); }
-.mki-np .bar { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,.18); position: relative; }
-.mki-np .bar i { position: absolute; inset: 0 auto 0 0; width: var(--v); border-radius: 2px; background: #fff; }
-.mki-np .bar b { position: absolute; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: #fff; }
-.mki-np .qc { display: flex; align-items: center; justify-content: center; gap: 20px; font-size: 15px; }
-.mki-np .qc .sm { font-size: 12px; color: rgba(255,255,255,.45); } .mki-np .qc .sm.on { color: #FF375F; }
-.mki-np .pp { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #000; display: grid; place-items: center; font-size: 14px; }
-.mki-mh { display: flex; align-items: baseline; gap: 6px; }
-.mki-mh .fig { font-size: 24px; }
-.mki-mh small { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.55); }
-.mki-mh em { align-self: center; font-style: normal; display: flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; color: #30D158; background: rgba(48,209,88,.14); padding: 4px 8px; border-radius: 99px; }
-.mki-mh em i { width: 7px; height: 7px; border-radius: 50%; background: #30D158; }
-.mki-fl { font-size: 11.5px; color: rgba(255,255,255,.5); margin: 6px 0 8px; }
-.mki-leg { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 10px 0; }
-.mki-leg span { display: flex; flex-direction: column; gap: 2px; padding: 6px 8px; border-radius: 8px; background: rgba(255,255,255,.05); font-size: 10px; color: rgba(255,255,255,.6); position: relative; padding-left: 18px; }
-.mki-leg span i { position: absolute; left: 7px; top: 9px; width: 7px; height: 7px; border-radius: 2px; }
-.mki-leg span b { font-size: 12px; color: #fff; }
-.mki-pr { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.mki-pr svg { flex: 1; height: 26px; display: block; }
-.mki-pr em { font-style: normal; display: flex; align-items: center; gap: 5px; font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,.75); background: rgba(255,255,255,.08); padding: 4px 8px; border-radius: 99px; white-space: nowrap; }
-.mki-apps h6 { margin: 0 0 6px; font-size: 10px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.5); }
-.mki-apps p { margin: 0; display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 11.5px; font-weight: 500; }
-.mki-apps p span { flex: 1; }
-.mki-apps p small { font-size: 10.5px; color: rgba(255,255,255,.55); }
-.mki-apps [data-app] { width: 18px; height: 18px; }
 
 /* ---------- Monorail's strip: the windows slide along, then back, and rest while off screen */
 .mks-track { position: absolute; inset: 0; z-index: 2; }

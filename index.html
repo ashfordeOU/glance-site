@@ -37,8 +37,11 @@
 <script src="/ui/site.js" defer></script>
 <link rel="stylesheet" href="/ui/home.css">
 <link rel="stylesheet" href="/ui/mocks.css">
+<link rel="stylesheet" href="/ui/mac.css">
 <script src="/ui/home.js" defer></script>
 <script src="/ui/mocks.js" defer></script>
+<script src="/ui/screens.js" defer></script>
+<script src="/ui/mac.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -68,7 +71,7 @@
 <section class="hero">
   <div class="wrap">
     <img class="hero-icon" src="/assets/icon.png" alt="The Glance icon: white rings and a pink pulse on navy" width="156" height="156">
-    <span class="eyebrow"><i></i>Free · version 1.9.8 · for macOS 13 or later</span>
+    <span class="eyebrow"><i></i>Free · version 1.9.9 · for macOS 13 or later</span>
     <h1 class="display">Glance <span class="by light-text">by Ashforde</span></h1>
     <p class="lede">Your battery, your day and how your Mac is doing, one click away in the menu bar.</p>
     <div class="ctas">
@@ -77,19 +80,7 @@
     </div>
     <p class="release">No account. No in-app purchases. Nothing collected.</p>
   </div>
-  <div class="gx-desk rv" role="img" aria-label="A drawn Mac screen: the Island at the top shows Stay Awake, charging, the next meeting and what’s playing in turn, above three rings for battery, processor and memory.">
-    <div class="gx-wall" aria-hidden="true"></div>
-    <div class="gx-mbar" aria-hidden="true">
-      <span><b>Finder</b><span class="x">File</span><span class="x">Edit</span><span class="x">View</span></span>
-      <span><i class="gx-gl"></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><span class="date">Sat 14 Nov</span><span>09:41</span></span>
-    </div>
-    <div class="gx-live" data-live aria-hidden="true"><span class="l"></span><span class="r"></span></div>
-    <div class="gx-rings" aria-hidden="true">
-      <div class="gx-orb" tabindex="-1"><div class="gr" data-v="86" data-text="86%" data-label="3 h 40 m left" data-c="#30d158" data-w="7" data-d="0"></div><span class="lab">Battery<small>Health 97% · 214 cycles</small></span></div>
-      <div class="gx-orb" tabindex="-1"><div class="gr" data-v="18" data-text="18%" data-label="8 cores" data-c="#FF8A5B" data-w="7" data-d="1"></div><span class="lab">Processor<small>Running cool</small></span></div>
-      <div class="gx-orb" tabindex="-1"><div class="gr" data-v="61" data-text="61%" data-label="of 16 GB" data-c="#E8437A" data-w="7" data-d="2"></div><span class="lab">Memory<small>Plenty free</small></span></div>
-    </div>
-  </div>
+  <figure class="mac-fig hero-mac rv" role="img" aria-label="A drawn MacBook with a warm wallpaper. At the top, the Island hangs from the camera: closed, it shows what’s playing, with round bubbles either side for Stay Awake, a tea timer, charging and the microphone light. Then it opens on Home with its tab bar floating below: the date and battery, quick switches, a line to jot a note, Stay Awake for 1 hour 30, the weather in London and world clocks. Then it opens on Tools, a grid of illustrated icons."><div class="mac-stage" data-mac="hero"></div></figure>
   <div class="wrap">
     <div class="facts rv">
       <div><b>Free</b><span>No in-app purchases</span></div>
@@ -102,90 +93,47 @@
 
 <!-- 2 · Menu bar panel -->
 <section class="s stage" id="panel">
-  <div class="wrap duo">
-    <div class="rv">
+  <div class="wrap">
+    <div class="head center rv">
       <span class="eyebrow"><i></i>The menu bar panel</span>
       <h2 class="h2">Your Mac, <span class="light-text">one click away.</span></h2>
-      <p class="lede">Click Glance’s icon for your battery, your day and how your Mac is doing, with Stay Awake and Evening Mode right there. Try the switches.</p>
-      <ul class="gx-chips sg">
-        <li><svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="21" height="12" rx="3.5"/><rect x="4.5" y="8.5" width="12" height="7" rx="1.4" fill="currentColor" stroke="none"/><path d="M25 10.5v3" stroke-linecap="round"/></svg>Battery, health and cycles</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Your day and reminders</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 18V12M9 18V6M14 18v-8M19 18V9"/></svg>Processor, memory, storage, network</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0-5 5m5-5 5 5"/></svg>Cards that rise when they matter</li>
-      </ul>
+      <p class="lede">Click Glance’s icon in the menu bar and the panel drops down: your day, how your Mac is doing, and twelve one-click switches, from Stay Awake and Evening Mode to Microphone, Camera and Meeting Notes. Right-click a switch for its options.</p>
     </div>
-    <div class="panelscene rv">
-      <div class="mbs" aria-hidden="true"><i class="gx-gl"></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><span>Sat 14 Nov 09:41</span></div>
-      <div class="panel" data-panel role="group" aria-label="A working copy of Glance’s menu bar panel">
-        <div class="st"><span><b>Glance</b> · Stay Awake <span data-awake-time>52 min</span></span><span class="dbtn" title="Dashboard" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/></svg></span></div>
-        <div class="tg">
-          <button type="button" class="sw1" data-sw="awake" aria-pressed="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M7 3v2M10 3v2M13 3v2"/></svg></i><span>Stay Awake</span></button>
-          <button type="button" class="sw1" data-sw="evening" aria-pressed="false"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></i><span>Evening</span></button>
-          <button type="button" class="sw1" data-sw="island" aria-pressed="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><rect x="8" y="4" width="8" height="3.5" rx="1.75" fill="currentColor"/></svg></i><span>Island</span></button>
-          <button type="button" class="sw1" data-sw="breaks" aria-pressed="false"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i><span>Breaks</span></button>
-        </div>
-        <div class="cd"><h6>Battery <span>3 h 40 m left</span></h6>
-          <div class="gx-bat"><div class="gr" data-v="86" data-text="86%" data-c="#30d158" data-w="10"></div>
-            <div class="kv"><span>Health <b>97%</b></span><span>Charge cycles <b>214</b></span><span>On battery</span></div></div>
-          <div class="gx-acc"><span>Mouse <b>72%</b><i style="--v:72%"></i></span><span>Keyboard <b>90%</b><i style="--v:90%"></i></span><span>Trackpad <b>55%</b><i style="--v:55%"></i></span></div>
-        </div>
-        <div class="cd"><h6>System <span class="gx-heat">Running cool</span></h6>
-          <div class="gx-sys">
-            <div><div class="gr" data-v="18" data-text="18%" data-c="#FF8A5B" data-w="11" data-d="0"></div>Processor</div>
-            <div><div class="gr" data-v="61" data-text="61%" data-c="#E8437A" data-w="11" data-d="1"></div>Memory</div>
-            <div><div class="gr" data-v="59" data-text="59%" data-c="#5C8FFF" data-w="11" data-d="2"></div>Storage</div>
-            <div><div class="gr" data-v="42" data-text="108" data-c="#64D2FF" data-w="11" data-d="3"></div>Mbit/s</div>
-          </div>
-        </div>
-        <div class="cd"><h6>Today <span>Saturday 14 November</span></h6>
-          <div class="gx-day">
-            <div class="gx-ev" style="--c:#5c8fff"><i></i><span><b>Design review</b><small>Studio 2</small></span><em>10:00</em></div>
-            <div class="gx-ev" style="--c:#30d158"><i></i><span><b>Run with Ana</b><small>Kadriorg</small></span><em>12:30</em></div>
-            <div class="gx-rem">Send the slides</div>
-          </div>
-        </div>
-        <div class="cd gx-smart" aria-live="polite"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i><span><b>Design review in 4 minutes</b><small>A card that shows only when it matters</small></span></div>
-      </div>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with Glance’s panel open below its menu bar icon. The panel shows All calm, today’s next meeting with a Join button, cards for System, Storage and Network, and twelve round switches in four columns: Stay Awake (on), Evening, Focus Session, Keep Available, Microphone, Camera, Meeting Notes, Time Tracking, Film, Island (on), Docks and Backdrop, then volume and brightness."><div class="mac-stage" data-mac="panel"></div></figure>
+    <p class="mac-btns-label">Open a page</p>
+    <div class="mac-btns" role="group" aria-label="Show a page of the panel">
+      <button type="button" data-mac-btn="panel:home" aria-pressed="true">Home</button>
+      <button type="button" data-mac-btn="panel:awake" aria-pressed="false">Stay Awake</button>
+      <button type="button" data-mac-btn="panel:evening" aria-pressed="false">Evening Mode</button>
+      <button type="button" data-mac-btn="panel:system" aria-pressed="false">System</button>
     </div>
+    <ul class="gx-chips sg center-chips">
+      <li><svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="21" height="12" rx="3.5"/><rect x="4.5" y="8.5" width="12" height="7" rx="1.4" fill="currentColor" stroke="none"/><path d="M25 10.5v3" stroke-linecap="round"/></svg>Battery, health and cycles</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Your day and reminders</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 18V12M9 18V6M14 18v-8M19 18V9"/></svg>Processor, memory, storage, network</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0-5 5m5-5 5 5"/></svg>Cards that rise when they matter</li>
+    </ul>
   </div>
 </section>
 
 <!-- 3 · The Island -->
 <section class="s stage" id="island" style="padding-top:0">
   <div class="wrap">
-    <div class="head center rv"><span class="eyebrow"><i></i>The Island · new in 1.9.8</span><h2 class="h2">What’s happening now, <span class="light-text">at the top of your screen.</span></h2>
-      <p class="lede">A small island shows what’s playing, Stay Awake, charging, a timer or a meeting about to start. Rest the pointer on it to peek, click to open it. Try the music card, and point at the pixels on Storage, Battery and Memory.</p></div>
-    <div class="islandstage rv">
-      <div class="gx-wall" aria-hidden="true"></div>
-      <div class="gx-mbar" aria-hidden="true">
-        <span><b>Finder</b><span class="x">File</span><span class="x">Edit</span></span>
-        <span><i class="gx-gl"></i><span class="date">Sat 14 Nov</span><span>09:41</span></span>
-      </div>
-      <div class="isl" data-isl data-shape="pill" role="region" aria-label="A working copy of the Island" aria-live="polite">
-        <div class="wing"><span class="l"></span><span class="r"></span></div>
-        <div class="body"></div>
-      </div>
+    <div class="head center rv"><span class="eyebrow"><i></i>The Island</span><h2 class="h2">What’s happening now, <span class="light-text">at the top of your screen.</span></h2>
+      <p class="lede">The Island hangs from the camera and shows what’s playing. Timers, Stay Awake, charging and an AI limit float beside it in round bubbles, each with a ring for its time or charge. Rest the pointer on it to peek, click to open it, and pick a tab from the bar below.</p></div>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with the Island at the top of the screen. Closed, it shows what’s playing in the pill, with bubbles either side: rings for Stay Awake and a tea timer on the left, a charging ring and the microphone light on the right. Open, it grows into a black card with its tab bar floating below: Home, Calendar, Timers, Tasks, Insights, Storage, Battery and Tools."><div class="mac-stage" data-mac="island"></div></figure>
+    <p class="mac-btns-label">Closed</p>
+    <div class="mac-btns" role="group" aria-label="Show the closed Island">
+      <button type="button" data-mac-btn="island:split" aria-pressed="true">Split bubbles</button>
+      <button type="button" data-mac-btn="island:pill" aria-pressed="false">One pill</button>
     </div>
-    <p class="islcap-label">Open a tab</p>
-    <div class="islcap" role="group" aria-label="Open the Island on a tab">
-      <button type="button" data-isl-btn="home" aria-pressed="false">Home</button>
-      <button type="button" data-isl-btn="calendar" aria-pressed="false">Calendar</button>
-      <button type="button" data-isl-btn="timer" aria-pressed="false">Timer</button>
-      <button type="button" data-isl-btn="tasks" aria-pressed="false">Tasks</button>
-      <button type="button" data-isl-btn="insights" aria-pressed="false">Insights</button>
-      <button type="button" data-isl-btn="storage" aria-pressed="false">Storage</button>
-      <button type="button" data-isl-btn="battery" aria-pressed="false">Battery</button>
-      <button type="button" data-isl-btn="memory" aria-pressed="false">Memory</button>
-      <button type="button" data-isl-btn="tools" aria-pressed="false">Tools</button>
-    </div>
-    <p class="islcap-label">Or see it live</p>
-    <div class="islcap" role="group" aria-label="Show the Island live">
-      <button type="button" data-isl-btn="awake" aria-pressed="false">Stay Awake</button>
-      <button type="button" data-isl-btn="charging" aria-pressed="false">Charging</button>
-      <button type="button" data-isl-btn="meeting" aria-pressed="false">Meeting soon</button>
-      <button type="button" data-isl-btn="music" aria-pressed="false">Now playing</button>
-      <button type="button" data-isl-btn="shot" aria-pressed="false">Screenshot</button>
-      <button type="button" data-isl-btn="download" aria-pressed="false">Download</button>
+    <p class="mac-btns-label">Open a tab</p>
+    <div class="mac-btns" role="group" aria-label="Open the Island on a tab">
+      <button type="button" data-mac-btn="island:home" aria-pressed="false">Home</button>
+      <button type="button" data-mac-btn="island:music" aria-pressed="false">Home, with music</button>
+      <button type="button" data-mac-btn="island:calendar" aria-pressed="false">Calendar</button>
+      <button type="button" data-mac-btn="island:timers" aria-pressed="false">Timers</button>
+      <button type="button" data-mac-btn="island:tools" aria-pressed="false">Tools</button>
     </div>
     <div class="gx-new sg">
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></i><b>Music and Spotify</b><p>The artwork, where the track is, and play, pause, skip, scrub, shuffle and repeat. macOS asks once before Glance may control each app.</p></div>
@@ -204,17 +152,12 @@
 <section class="s" id="dashboard">
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow"><i></i>The Dashboard</span><h2 class="h2">Every reading, <span class="light-text">at full size.</span></h2>
-      <p class="lede">One window for everything Glance reads. Pick a page from the sidebar.</p></div>
-    <div class="dash rv" data-dash role="group" aria-label="A working copy of Glance’s Dashboard">
-      <div class="side" role="tablist" aria-label="Dashboard pages" aria-orientation="vertical">
-        <div class="tl" aria-hidden="true"><i></i><i></i><i></i></div>
-        <button type="button" role="tab" data-page="overview" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg>Overview</button>
-        <button type="button" role="tab" data-page="battery" aria-selected="false" tabindex="-1"><svg viewBox="0 0 28 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="6" width="21" height="12" rx="3.5"/><rect x="4.5" y="8.5" width="12" height="7" rx="1.4" fill="currentColor" stroke="none"/><path d="M25 10.5v3" stroke-linecap="round"/></svg>Battery</button>
-        <button type="button" role="tab" data-page="weather" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4 1.6A3.3 3.3 0 0 0 7 18z"/></svg>Weather</button>
-        <button type="button" role="tab" data-page="time" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Time</button>
-        <p class="more">And twelve more pages, from processor to history.</p>
-      </div>
-      <div class="main" data-main aria-live="polite"></div>
+      <p class="lede">One window for everything Glance reads, in eight groups along the top: Overview, Apps, Power, Performance, Storage, Connections, Your day and Insights.</p></div>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with Glance’s Dashboard open as a window on the desktop: its Overview answers “Why is my Mac slow?” with all good, above tiles for CPU, memory, GPU, network, disk and battery with their charts, then storage, the connection and this Mac."><div class="mac-stage" data-mac="dash"></div></figure>
+    <div class="mac-btns" role="group" aria-label="Show a page of the Dashboard">
+      <button type="button" data-mac-btn="dash:overview" aria-pressed="true">Overview</button>
+      <button type="button" data-mac-btn="dash:weather" aria-pressed="false">Weather</button>
+      <button type="button" data-mac-btn="dash:time" aria-pressed="false">World clocks</button>
     </div>
     <ul class="gx-pages sg" aria-label="Every Dashboard page">
       <li>Overview</li><li>CPU, each core drawn as your chip</li><li>Memory</li><li>GPU</li><li>Disk</li><li>Network, with a speed test</li><li>Battery</li><li>Sound</li><li>Devices</li><li>Storage</li><li>AI Usage</li><li>Weather</li><li>World clocks</li><li>Today</li><li>Trends</li><li>History</li>
@@ -297,7 +240,29 @@
   </div>
 </section>
 
-<!-- 7 · And more -->
+<!-- 7 · Docks -->
+<section class="s" id="docks">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>Docks · new in 1.9.9</span><h2 class="h2">Docks of your own. <span class="light-text">On any edge.</span></h2>
+      <p class="lede">Add an Apps dock with a dot under each open app and icons that grow as you pass, a Widgets bar of readings, or both, on any edge of the screen. Right-click a dock to hide it.</p></div>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with Glance’s dock along the whole bottom edge: app icons with a dot under the open ones, two folders, then the time, the battery at 86% and the weather in London. A pointer sweeps along and the icons grow as it passes."><div class="mac-stage" data-mac="docks"></div></figure>
+  </div>
+</section>
+
+<!-- 8 · The welcome tour -->
+<section class="s" id="tour" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>The welcome · new in 1.9.9</span><h2 class="h2">It starts with hello. <span class="light-text">Then a short tour.</span></h2>
+      <p class="lede">The first time Glance opens, it writes hello, then takes about two minutes to show you the Island, the panel and your day, with a live look at each. Skip it, or open it again any time from Settings.</p></div>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with Glance’s welcome window. First, the word hello writes itself in glowing script over a soft blur, with Press Return to begin. Then a chapter of the tour: chapters You, Island, Panel, Your day and Done along the top, 2 of 5, about 2 minutes left, a small picture of the open Island, the title What’s happening, one glance up, two switches and a Continue button."><div class="mac-stage" data-mac="tour"></div></figure>
+    <div class="mac-btns" role="group" aria-label="Show a page of the tour">
+      <button type="button" data-mac-btn="tour:hello" aria-pressed="true">hello</button>
+      <button type="button" data-mac-btn="tour:chapter" aria-pressed="false">A chapter</button>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · And more -->
 <section class="s" id="more" style="background:var(--bg2)">
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow"><i></i>And more</span><h2 class="h2">The small things, <span class="light-text">done properly.</span></h2></div>
@@ -319,23 +284,23 @@
 <section class="s" id="screenshots">
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow"><i></i>A closer look</span><h2 class="h2">Every screen, <span class="light-text">up close.</span></h2>
-      <p class="lede">The Dashboard, Weather, Time, the panel and the Island’s tabs, exactly as they look on your Mac.</p></div>
+      <p class="lede">The Dashboard, Weather, Time, the panel’s pages and the Island’s tabs, drawn as they look on your Mac.</p></div>
     <div class="mkg">
       <div class="mkg-wide"><figure class="rv" role="img" aria-label="Glance’s Dashboard on its Overview: a “Why is my Mac slow?” answer, tiles for CPU, memory, GPU, network, disk and battery with their charts, then storage, the connection and this Mac."><div class="mkg-f" style="aspect-ratio:1200/720"><div class="mk-stage" data-mock="overview"></div></div><figcaption>The Dashboard’s Overview</figcaption></figure></div>
       <div class="mkg-row" style="--n:2">
-        <figure class="rv" role="img" aria-label="The Weather page: London at 9° and drizzle under a moving sky, the next 48 hours with temperatures and the chance of rain, and the rain radar."><div class="mkg-f" style="aspect-ratio:16/10"><div class="mk-stage" data-mock="weather"></div></div><figcaption>Weather</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Weather page, under Your day: London at 9° and drizzle under a moving sky, the next 48 hours with temperatures and the chance of rain, and the rain radar."><div class="mkg-f" style="aspect-ratio:16/10"><div class="mk-stage" data-mock="weather"></div></div><figcaption>Weather</figcaption></figure>
         <figure class="rv" role="img" aria-label="The Time page: the world as dots, lit by day and dim by night, the sun overhead, pins for London, Tallinn, New York and Tokyo, and a two-day ruler."><div class="mkg-f" style="aspect-ratio:16/10"><div class="mk-stage" data-mock="time"></div></div><figcaption>World clocks</figcaption></figure>
       </div>
-      <div class="mkg-row" style="--n:3">
-        <figure class="rv" role="img" aria-label="Glance’s menu-bar panel: today’s next meeting, system, storage and network cards, one-click switches with Stay Awake on, volume and brightness, the clipboard and the colour picker."><div class="mkg-f cut"><div class="mk-stage" data-mock="panel"></div></div><figcaption>The panel, with Stay Awake on</figcaption></figure>
-        <figure class="rv" role="img" aria-label="The Stay Awake page: on for 1 hour 30, the time choices, and keeping the display on."><div class="mkg-f cut"><div class="mk-stage" data-mock="awake"></div></div><figcaption>Stay Awake</figcaption></figure>
-        <figure class="rv" role="img" aria-label="The Evening Mode page: on until 07:00, warmth at 65%, turning on at sunset."><div class="mkg-f cut"><div class="mk-stage" data-mock="evening"></div></div><figcaption>Evening Mode</figcaption></figure>
+      <div class="mkg-row" style="--n:4">
+        <figure class="rv" role="img" aria-label="Glance’s menu-bar panel: All calm, today’s next meeting with Join, cards for System, Storage and Network, twelve round switches with Stay Awake and Island on, then volume and brightness."><div class="mkg-f cut"><div class="mk-stage" data-mock="panel"></div></div><figcaption>The panel, with Stay Awake on</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The panel’s System page: rings for processor and memory with the heat, the load on each of 14 cores, memory by kind, and processor time."><div class="mkg-f cut"><div class="mk-stage" data-mock="system"></div></div><figcaption>System</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Stay Awake page: on for 1 hour 30, the time choices, keeping the display on, and keeping you Available in Teams and Slack."><div class="mkg-f cut"><div class="mk-stage" data-mock="awake"></div></div><figcaption>Stay Awake</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Evening Mode page: on until you turn it off, warmth at 50%, turned on by hand, and red light only."><div class="mkg-f cut"><div class="mk-stage" data-mock="evening"></div></div><figcaption>Evening Mode</figcaption></figure>
       </div>
       <div class="mkg-row" style="--n:3">
-        <figure class="rv" role="img" aria-label="The Island opened on Home: the date and battery, quick switches with Stay Awake on, the music card with artwork, the track’s position and its buttons, world clocks and the weather for the next hours."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="island"></div></div><figcaption>The Island, open on Home</figcaption></figure>
-        <figure class="rv" role="img" aria-label="The Island’s Memory tab: 11.2 GB of 16 GB in use at low pressure, a dot-matrix bar of App, Wired, Compressed, Cached and Free memory, the pressure line, no swap in use, and the three apps using the most memory."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="memory"></div></div><figcaption>The Island’s Memory tab</figcaption></figure>
-        <figure class="rv" role="img" aria-label="The Island’s Calendar: a line to add an event, today’s and tomorrow’s events, and the month."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="calendar"></div></div><figcaption>The Island’s Calendar</figcaption></figure>
-      </div>
+        <figure class="rv" role="img" aria-label="The Island open on Home, its tab bar floating below: the date and battery, quick switches with Awake on, a line to jot a note, Stay Awake for 1 hour 30 with Turn Off, the weather in London for the next hours, and clocks for London, Tallinn, New York and Tokyo."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="island"></div></div><figcaption>The Island, open on Home</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Island’s Tools tab: illustrated icons for System, AI usage, Clipboard, Notes, Converter, Shelf, Now Playing, Timers, Reminders, Breaks, Cues, Emoji and Jot."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="tools"></div></div><figcaption>The Island’s Tools</figcaption></figure>
+        <figure class="rv" role="img" aria-label="The Island’s Calendar: a line to add an event, today’s and tomorrow’s events, and the month with today marked."><div class="mkg-f cut mki-f"><div class="mk-stage" data-mock="calendar"></div></div><figcaption>The Island’s Calendar</figcaption></figure>
     </div>
   </div>
 </section>

@@ -3,8 +3,6 @@
    When a screen comes into view its numbers roll, charts and bars draw in behind a glowing edge and the Island opens;
    with Reduce Motion the finished frame is simply there. */
 (() => {
-  const stages = [...document.querySelectorAll('[data-mock]')];
-  if (!stages.length) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Small helpers */
@@ -92,6 +90,10 @@
     note: `<path ${A} d="M18.5 3.2v11.3a3 3 0 1 1-2-2.8V7.6L9.5 9.1v7.4a3 3 0 1 1-2-2.8V6.3z"/>`,
     swap: '<path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/>',
     shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M12 8.5v4M10 11a2 2 0 0 0 4 0"/>',
+    track: '<circle cx="11" cy="12" r="8"/><path d="M11 7.5V12l2.6 1.6"/><circle cx="17.6" cy="17.4" r="3.6" fill="currentColor" stroke="none"/><path d="m16 17.5 1.1 1.1 2.1-2.2" stroke="var(--knock, #fff)" stroke-width="1.5"/>',
+    notes: '<path d="M4 12h1.5M7 8.5v7M10 5.5v13M13 8v8M16 10v4M19 11.5v1"/>',
+    backdrop: '<rect x="3" y="3" width="13" height="13" rx="2.5"/><rect x="8" y="8" width="13" height="13" rx="2.5" fill="currentColor" stroke="none" opacity=".9"/>',
+    video: `<rect x="2.5" y="6.5" width="13" height="11" rx="2.5" ${A}/><path ${A} d="m16.5 10.5 5-3v9l-5-3z"/>`,
     camera: '<rect x="2.5" y="6.5" width="13" height="11" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/>',
   };
   const ic = (n, cls = '', style = '') => `<svg class="mi${cls ? ' ' + cls : ''}" viewBox="0 0 24 24" aria-hidden="true"${style ? ` style="${style}"` : ''}>${I[n] || ''}</svg>`;
@@ -154,7 +156,7 @@
   /* ---------- The menu-bar panel: Home */
   const card = (inner, cls = '') => `<div class="mkc${cls ? ' ' + cls : ''}">${inner}</div>`;
   const title = (t, icon, col) => `<div class="mk-ct" style="color:${col}">${ic(icon)}${t}<span class="sp"></span>${ic('chev', 'cv')}</div>`;
-  const today = () => card(`<div class="mkp-today"><div class="qd"><small>Sun</small><b class="fig">15</b></div><div class="qw"><b>Design review</b><small>11:30 · in 12 min</small></div>${ic('chev', 'cv')}<span class="mk-join">Join</span></div>`);
+  const today = () => card(`<div class="mkp-today"><div class="qd"><small>Fri</small><b class="fig">20</b></div><div class="qw"><b>Design review</b><small>17:30 · in 17 min</small></div>${ic('chev', 'cv')}<span class="mk-join">Join</span></div>`);
   const sysCard = () => card(title('SYSTEM', 'cpu', 'var(--blue)') + `<div class="mk-rr">${rings(50, 5.5, 1.5, [.23, .61], ['var(--blue)', 'var(--orange)'])}<div><b class="fig">${roll('23%')}</b><small>Memory low</small></div></div>`);
   const storeSegs = [{ v: 212, c: 'var(--blue)' }, { v: 148, c: 'var(--purple)' }, { v: 96, c: 'var(--yellow)' }, { v: 82, c: 'var(--green)' }, { v: 50, c: 'var(--grey)' }];
   const storeCard = () => card(title('STORAGE', 'drive', 'var(--blue)') + `<b class="fig qbig">${roll('412')} GB<small>free</small></b><span class="s11 qt2" style="margin:5px 0 8px;color:var(--p-2)">588 GB of 1 TB used</span>${dots(storeSegs, 1000, 14, { d: .35 })}`);
@@ -163,84 +165,47 @@
   const sw = (icon, name, on, tint) => `<span><span class="c${on ? ' on' : ''}" style="--tint:${tint || 'var(--blue)'}">${ic(icon)}</span><small>${name}</small></span>`;
   const sliders = () => card(`<div class="mkp-sl">${ic('sound')}<span class="qtr"><i style="--v:72%"></i></span></div><div class="mkp-sl">${ic('sunrise')}<span class="qtr"><i style="--v:55%"></i></span></div>`, '');
 
-  const panelGlance = () => `<div class="mkp" style="height:650px">
+  const panelGlance = () => `<div class="mkp" style="height:${PANEL_H}px">
     <div class="mkp-st"><i class="dot" style="background:var(--green)"></i><b>All calm</b><small>· 1:29</small><span class="sp"></span>${ic('gauge')}${ic('gear')}</div>
     <div class="mkp-scroll mk-hv">
       ${today()}
       <div class="mkp-pair">${sysCard()}${storeCard()}</div>
       ${netCard(true)}
-      <div class="mkp-sw mk-hv">${sw('cup', 'Stay Awake', true, 'var(--orange)')}${sw('moon', 'Evening')}${sw('timer', 'Focus Session')}${sw('keep', 'Keep Available')}${sw('shield', 'Privacy')}${sw('film', 'Film')}${sw('island', 'Island', true, 'var(--pink)')}${sw('docks', 'Docks')}</div>
+      <div class="mkp-sw mk-hv">${sw('cup', 'Stay Awake', true, 'var(--orange)')}${sw('moon', 'Evening')}${sw('timer', 'Focus Session')}${sw('keep', 'Keep Available')}${sw('mic', 'Microphone')}${sw('video', 'Camera')}${sw('notes', 'Meeting Notes')}${sw('track', 'Time Tracking')}${sw('film', 'Film')}${sw('island', 'Island', true, 'var(--pink)')}${sw('docks', 'Docks')}${sw('backdrop', 'Backdrop')}</div>
       ${sliders()}
       <div class="mkp-pair">${card(`<div class="mkp-tool"><div style="display:flex"><span class="qic" style="--tint:var(--blue)">${ic('clip')}</span><span class="sp"></span>${ic('chev', 'cv', 'color:var(--p-3);font-size:11px;stroke-width:2.4')}</div><b>Clipboard</b><small>14 items</small></div>`)}${card(`<div class="mkp-tool"><span class="qic" style="--tint:var(--pink)">${ic('dropper')}</span><b>Colour</b><small>Pick from screen</small></div>`)}</div>
     </div>
     <div class="mkp-foot">${ic('sliders')}Customise Home</div></div>`;
 
+  const PANEL_H = 650;
   /* ---------- Stay Awake and Evening Mode pages (Glance) */
   const awake = () => `<div class="mkp" style="height:336px"><div class="mkp-ph"><span class="bk">${ic('chevl')}Glance</span><b>Stay Awake</b></div>
     <div class="mkp-pg"><div class="mkp-trow"><span><b>Stay Awake</b><small>On for ${roll('1')} h 30</small></span><span class="mk-tog on" style="--tint:var(--orange)"></span></div>
     <div class="mkp-cap">Keep this Mac awake</div>
-    <div class="mkp-chips mk-hv"><span>15 min</span><span>30 min</span><span>1 hour</span><span class="on">2 hours</span><span>4 hours</span><span>8 hours</span></div>
+    <div class="mkp-chips mk-hv"><span>15 min</span><span>30 min</span><span>1 hour</span><span>2 hours</span><span>4 hours</span><span>8 hours</span></div>
     <div class="mkp-chips2 mk-hv"><span>Until I end it</span><span>While downloading</span></div>
     <div class="mkp-hr"></div>
     <div class="mkp-line">Keep the display on <span class="mk-tog on" style="--tint:var(--orange)"></span></div>
     <div class="mkp-line">Keep me Available in Teams and Slack <span class="mk-tog"></span></div>
     <div class="mkp-hr"></div><span class="mkp-link">More Stay Awake settings…</span></div></div>`;
   const evening = () => `<div class="mkp" style="height:262px"><div class="mkp-ph"><span class="bk">${ic('chevl')}Glance</span><b>Evening Mode</b></div>
-    <div class="mkp-pg"><div class="mkp-trow"><span><b>Evening Mode</b><small>On until 07:00</small></span><span class="mk-tog on" style="--tint:var(--orange)"></span></div>
-    <div class="mkp-warm">Warmth <span>${roll('65%')}</span></div>
-    <div class="mkp-wsl">${ic('sunline')}<span class="qtr" style="--v:65%"><i></i><b></b></span>${ic('flame')}</div>
-    <div class="mkp-pop">Turn on <span>At sunset${ic('updown')}</span></div>
+    <div class="mkp-pg"><div class="mkp-trow"><span><b>Evening Mode</b><small>On now, until you turn it off</small></span><span class="mk-tog on" style="--tint:var(--orange)"></span></div>
+    <div class="mkp-warm">Warmth <span>${roll('50%')}</span></div>
+    <div class="mkp-wsl">${ic('sunline')}<span class="qtr" style="--v:50%"><i></i><b></b></span>${ic('flame')}</div>
+    <div class="mkp-pop">Turn on <span>By hand${ic('updown')}</span></div>
     <div class="mkp-chk"><i></i>Red light only</div>
     <div class="mkp-hr"></div><span class="mkp-link">More Evening Mode settings…</span></div></div>`;
 
-  /* ---------- The Island, opened */
-  const islTabs = (on, alt) => {
-    // Glance's tabs in their order; Storage, Battery and Memory are on by default, the + adds or removes them
-    const t = [['home', 'Home'], ['cal', 'Calendar'], ['timer', 'Timer'], ['checklist', 'Tasks'], ['bars', 'Insights'], ['drive', 'Storage'], ['bat', 'Battery'], ['mem', 'Memory'], ['grid4', 'Tools']];
-    return `<div class="mki-tabs" style="--i:0">${t.map(([i, n]) => n === on ? `<span class="on">${ic(i)}${n}</span>` : `<span>${ic(i)}</span>`).join('')}<span class="add">${ic('plus')}</span><span class="end">${ic('wins')}</span></div>`;
-  };
-  const islTop = alt => alt ? `<div class="mki-top"><span class="aw">${ic('cup')}</span><span>Awake</span></div>` : `<div class="mki-top">${ic('tray')}<span>2</span></div>`;
+  /* ---------- The Island's pieces shared with screens.js (which draws the 1.9.9 Island) */
   const clk = (sun, city, time, off) => `<div><small>${ic(sun ? 'sunline' : 'moon', sun ? 'sun' : 'moon')}${city}</small><b class="fig">${time}</b><em>${off}</em></div>`;
-  // The music card: artwork, the track, where it is (drag to scrub) and the buttons
-  const nowPlaying = i => `<div class="mki-np" style="--i:${i}"><span class="art"><i></i></span><div class="qm"><div class="qt"><span><b>Northern Lights</b><small>The Harbour Trio · Tidewater</small></span><em>${ic('note')}Music</em></div>
-      <div class="qs"><small class="fig">1:48</small><span class="bar"><i style="--v:46%"></i><b style="left:46%"></b></span><small class="fig">3:54</small></div>
-      <div class="qc">${ic('shuffle', 'sm on')}${ic('prev')}<span class="pp">${ic('pause')}</span>${ic('next')}${ic('repeat', 'sm')}</div></div></div>`;
-  const islHome = alt => `<div class="mki">${islTop(alt)}${islTabs('Home', alt)}
-    <div class="mki-hd" style="--i:1"><b>Sunday 15 November</b><span>${ic('bat')}86%</span></div>
-    <div class="mki-sw mk-hv" style="--i:2">${[['cup', 'Awake', alt], ['moon', 'Evening'], ['scope', 'Focus'], ['clip', 'Clipboard'], ['wave', 'Live']].map(([i, n, on]) => `<span><span class="c${on ? ' on' : ''}">${ic(i)}</span><small>${n}</small></span>`).join('')}</div>
-    ${alt ? nowPlaying(3) : ''}
-    <div class="mki-clk mk-hv" style="--i:3">${clk(1, 'London', '10:46', '0h')}${clk(1, 'Tallinn', '12:46', '+2h')}${clk(1, 'New York', '05:46', '−5h · before work')}${alt ? clk(0, 'Tokyo', '19:46', '+9h') : ''}</div>
-    <div class="mki-wx" style="--i:4"><div class="qtop">${wx('rain')}<span><b>9°  Drizzle</b><small>London · H 11° L 3°</small></span><em>Raining</em>${ic('chev', 'cv')}</div>
-      <div class="mki-hrs">${ic('chevl')}${[['Now', 'rain', 9, '86%'], ['11', 'rain', 9, '90%'], ['12', 'sun', 10, '85%'], ['13', 'sun', 11, '76%'], ['14', 'psun', 10, '60%'], ['15', 'cloud', 10, '39%']].map(([t, k, d, r], i) => `<div><small${i ? '' : ' class="qnow"'}>${t}</small>${wx(k)}<b>${d}°</b><em>${r}</em></div>`).join('')}${ic('chev')}</div></div></div>`;
-  /* ---------- The Island's Memory tab (read-only in Glance: no Quit buttons) */
-  const islMemory = () => {
-    const blocks = [['App', 6.1, '#0A84FF'], ['Wired', 2.4, '#FF9F0A'], ['Compressed', 2.7, '#BF5AF2'], ['Cached', 3.1, '#40C8E0'], ['Free', 1.7, 'rgba(255,255,255,.4)']];
-    const spark = [.22, .24, .23, .27, .3, .28, .26, .31, .29, .27, .25, .28, .33, .31, .29, .3, .34, .32, .3, .28, .29, .31, .3, .29];
-    const pts = spark.map((v, k) => `${(k / (spark.length - 1) * 200).toFixed(1)},${(26 - v * 50).toFixed(1)}`).join(' ');
-    const apps = [['safari', 'Safari', '2.1 GB'], ['mail', 'Mail', '840 MB'], ['photos', 'Photos', '610 MB']];
-    return `<div class="mki">${islTop(true)}${islTabs('Memory', true)}
-      <div class="mki-mh" style="--i:1"><b class="fig">${roll('11.2')} GB</b><small>of 16 GB</small><span class="sp"></span><em><i></i>Low pressure</em></div>
-      <div class="mki-fl" style="--i:2">4.8 GB available</div>
-      <div style="--i:3">${dots(blocks.map(([, v, c]) => ({ v, c })), 16, 30, { d: .7, track: 'rgba(255,255,255,.1)' })}</div>
-      <div class="mki-leg mk-hv" style="--i:4">${blocks.map(([n, v, c]) => `<span><i style="background:${c}"></i>${n}<b class="fig">${v} GB</b></span>`).join('')}</div>
-      <div class="mki-pr" style="--i:5"><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="#30D158" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg><em>${ic('swap')}No swap in use</em></div>
-      <div class="mki-apps" style="--i:6"><h6>USING THE MOST MEMORY</h6>${apps.map(([k, n, m]) => `<p>${app(k)}<span>${n}</span><small class="fig">${m}</small></p>`).join('')}</div></div>`;
-  };
   const ev = (c, t, s, cls = '') => `<div class="mki-ev ${cls}" style="--c:${c}"><i></i><span><b>${t}</b><small>${s}</small></span></div>`;
-  const islCal = () => {
-    const evDays = [1, 2, 3, 11, 17, 19, 24, 26];
-    let g = ['M', 'T', 'W', 'T', 'F', 'S', 'S'].map(d => `<small>${d}</small>`).join('') + '<span></span>'.repeat(6);
-    for (let d = 1; d <= 30; d++) g += `<span class="${d === 15 ? 'td' : ''}${evDays.includes(d) ? ' ev' : ''}">${d}</span>`;
-    return `<div class="mki">${islTop(true)}${islTabs('Calendar', true)}
-      <div class="mki-add" style="--i:1"><span>Add an event: lunch with Sam tomorrow 13:00</span><em>Add</em>${ic('calplus')}</div>
-      <div class="mki-cal" style="--i:2"><div class="mki-ag mk-hv"><h6>TODAY</h6>${ev('#FF9F0A', 'Team stand-up', '09:30 – 09:45', 'past')}${ev('#0A84FF', 'Design review', '11:30 – 12:00 · in 12 min')}${ev('#30D158', 'Lunch with Sam', '13:00 – 14:00 · Dishoom')}${ev('#BF5AF2', 'Press call', '16:00 – 16:30')}<h6>TOMORROW</h6>${ev('#FF453A', 'Flight to Tallinn', '08:15 · LHR Terminal 2')}${ev('#0A84FF', 'Roadmap planning', '14:00 – 15:30')}</div>
-      <div class="mki-mo"><b>November 2026</b><div class="qg">${g}</div></div></div></div>`;
-  };
 
   /* ---------- The Dashboard and the Overview */
-  const TABS_G = [['ov', 'Overview'], ['cpu', 'CPU'], ['mem', 'Memory'], ['gpu', 'GPU'], ['disk', 'Disk'], ['globe', 'Network'], ['neural', 'Neural'], ['bat', 'Battery'], ['fan', 'Fans'], ['sound', 'Sound'], ['bt', 'Bluetooth'], ['phones', 'Devices']];
-  const TABS_G2 = [['neural', 'Neural'], ['bat', 'Battery'], ['fan', 'Fans'], ['sound', 'Sound'], ['bt', 'Bluetooth'], ['phones', 'Devices'], ['disk', 'Storage'], ['cal', 'Today'], ['cloudline', 'Weather'], ['clock', 'Time']];
   const tabs = (list, on) => `<div class="mkd-tabs">${list.map(([i, n]) => `<span${n === on ? ' class="on"' : ''}>${ic(i)}${n}</span>`).join('')}</div>`;
+  const GROUPS = [['ov', 'Overview'], ['stack', 'Apps', 'AI'], ['bolt', 'Power', 'Battery'], ['gauge', 'Performance', 'CPU'], ['disk', 'Storage', 'Storage'], ['globe', 'Connections', 'Network'], ['sunline', 'Your day', 'Today'], ['history', 'Insights', 'History']];
+  const groupTabs = (on, sub) => `<div class="mkd-gt"><div class="mkd-grp">${GROUPS.map(([i, n, s]) => `<span${n === on ? ' class="on"' : ''}>${ic(i)}<b>${n}${s && n !== on ? `<small>${s}</small>` : ''}</b></span>`).join('')}</div><em class="mkd-k">${ic('search')}⌘K</em></div>`
+    + (sub ? `<div class="mkd-sub">${sub[0].map(([i, n]) => `<span${n === sub[1] ? ' class="on"' : ''}>${ic(i)}${n}</span>`).join('')}</div>` : '');
+  const DAY = [['cal', 'Today'], ['clock', 'Time'], ['cloudline', 'Weather'], ['notes', 'Record']];
   const tile = (icon, name, col, val, sub, arr, max, lo, avg, hi, d) => `<div class="mkd-card mkd-t" style="--c:${col}"><div class="qh">${ic(icon)}${name}${ic('chev', 'cv')}</div><b class="v">${val}</b><small>${sub}</small>${chart(arr, max, col, d)}<div class="ft"><span>Low</span>${lo}<b style="font-weight:400"><span>Average</span>${avg}</b><b style="font-weight:400"><span>High</span>${hi}</b></div></div>`;
   const tiles = mono => { seed = 11; return `<div class="mkd-g3 mk-hv">
       ${tile('cpu', 'CPU', 'var(--acc)', roll('23%'), '14 cores', walk(48, 22, 26, 3, 70), 100, '4%', '19%', '62%', .2)}
@@ -257,23 +222,23 @@
   const chip = () => `<div class="mkd-chip"><h4>Apple M4 Pro</h4><small>up 3 days</small><em>${ic('share')}Share${ic('chevd', '', 'font-size:9px;stroke-width:3')}</em></div>
     <div class="mkd-card mkd-why">${ic('seal')}<span><small>Why is my Mac slow?</small><b>All good: nothing is slowing your Mac down.</b></span><em>Check again</em></div>`;
   const dashWin = (w, h, tabsHtml, body) => `<div class="mkd navy" style="width:${w}px;height:${h}px"><div class="mkd-tl"><i></i><i></i><i></i><span>Glance Dashboard</span></div><h3>Dashboard</h3>${tabsHtml}<div class="mkd-body">${body}</div><div class="mkd-foot">Glance 0.4% · 77 MB<span class="sp"></span>M4 Pro · up 3 days ${ic('gear')}<b>Settings</b></div></div>`;
-  const overviewGlance = () => dashWin(1200, 720, tabs(TABS_G, 'Overview'), chip() + tiles(false) + bottom3());
+  const overviewGlance = (w = 1200, h = 720) => dashWin(w, h, groupTabs('Overview'), chip() + tiles(false) + bottom3());
 
   /* ---------- Weather */
   const weather = () => {
-    const H = [['Now', 'rain', 9, 86], ['13', 'rain', 9, 90], ['14', 'sun', 10, 85], ['15', 'sun', 11, 76], ['16', 'cloud', 10, 60], ['17', 'pmoon', 10, 39], ['18', 'cloud', 10, 25], ['19', 'rain', 9, 25], ['20', 'cloud', 9, 32], ['21', 'cloud', 9, 35], ['22', 'cloud', 9, 28], ['23', 'cloud', 8, 18], ['Mon', 'rain', 8, 10], ['01', 'cloud', 8, 0], ['02', 'cloud', 8, 0], ['03', 'pmoon', 7, 0], ['04', 'pmoon', 7, 0], ['05', 'pmoon', 6, 0], ['06', 'moon', 6, 0]];
+    const H = [['Now', 'rain', 9, 70], ['18', 'rain', 9, 64], ['19', 'cloud', 9, 40], ['20', 'cloud', 9, 28], ['21', 'pmoon', 8, 15], ['22', 'cloud', 8, 12], ['23', 'pmoon', 8, 8], ['Sat', 'moon', 7, 0], ['01', 'moon', 7, 0], ['02', 'pmoon', 7, 0], ['03', 'cloud', 6, 5], ['04', 'cloud', 6, 10], ['05', 'cloud', 6, 12], ['06', 'cloud', 6, 10], ['07', 'cloud', 6, 8], ['08', 'psun', 7, 5], ['09', 'psun', 8, 0], ['10', 'sun', 9, 0], ['11', 'sun', 10, 0]];
     const y = t => 8 + (11 - t) / 7 * 34, n = H.length;
     const pts = H.map((h, i) => [(i + .5) / n * 1000, y(h[2])]);
     let path = `M${pts[0][0]} ${pts[0][1]}`; for (let i = 1; i < n; i++) { const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], m = (x0 + x1) / 2; path += ` C${m} ${y0} ${m} ${y1} ${x1} ${y1}`; }
     const clouds = [[40, 30, 260, 70], [200, 70, 300, 80], [420, 20, 240, 60], [520, 90, 280, 70], [700, 40, 260, 66], [880, 80, 240, 60]].map(([l, t, w, h]) => `<i class="cl" style="left:${l}px;top:${t}px;width:${w}px;height:${h}px"></i>`).join('');
     // The radar: Britain and the near Continent in small squares, rain over London
     let land = ''; for (let la = 61; la > 47; la -= .32) for (let lo = -12; lo < 22; lo += .5) if (landAmount(la, lo) >= .5) land += `M${((lo + 12) / 34 * 1024).toFixed(0)} ${((61 - la) / 14 * 300).toFixed(0)}h13v5h-13z`;
-    return dashWin(1100, 688, tabs(TABS_G2, 'Weather'), `
+    return dashWin(1100, 688, groupTabs('Your day', [DAY, 'Weather']), `
       <div class="mkd-places"><span class="on">${ic('loc')}London</span><span>${ic('pin')}Tallinn</span><span>${ic('pin')}New York</span><span class="add">Add a place</span><span class="unit"><i class="on">°C</i><i>°F</i></span></div>
-      <div class="mkd-sky">${clouds}<i class="rn"></i><div class="qtx"><div class="pl">${ic('loc')}London</div><div class="qrow"><span class="deg">${roll('9')}°</span><span><b>Drizzle</b><small>H 11°  L 3°</small><small>Feels like 7°</small></span></div><div class="dry">Drying up around 17:00.</div></div>${wx('rain', 'wxi bigi')}</div>
+      <div class="mkd-sky">${clouds}<i class="rn"></i><div class="qtx"><div class="pl">${ic('loc')}London</div><div class="qrow"><span class="deg">${roll('9')}°</span><span><b>Drizzle</b><small>H 11°  L 3°</small><small>Feels like 7°</small></span></div><div class="dry">Drying up around 19:00.</div></div>${wx('rain', 'wxi bigi')}</div>
       <div class="mkd-card mkd-48"><div class="mkd-cap">Next 48 hours<span>4° – 11°</span></div>
-        <div class="qhrs">${H.map((h, i) => `<div class="hc"><small${i === 0 || h[0] === 'Mon' ? ' class="qk"' : ''}>${h[0]}</small>${wx(h[1])}<span class="qtl"></span><span class="qrb"><i style="--h:${h[3]}%;--i:${i}"></i></span><em>${h[3] ? h[3] + '%' : ''}</em></div>`).join('')}
-          <i class="day" style="left:${12 / n * 100}%"></i>
+        <div class="qhrs">${H.map((h, i) => `<div class="hc"><small${i === 0 || h[0] === 'Sat' ? ' class="qk"' : ''}>${h[0]}</small>${wx(h[1])}<span class="qtl"></span><span class="qrb"><i style="--h:${h[3]}%;--i:${i}"></i></span><em>${h[3] ? h[3] + '%' : ''}</em></div>`).join('')}
+          <i class="day" style="left:${7 / n * 100}%"></i>
           <div class="tl-svg mk-dw" style="--hc:#64D2C8;--d:.3s"><div class="mk-in" style="height:100%"><svg viewBox="0 0 1000 52" preserveAspectRatio="none" aria-hidden="true"><path d="${path}" fill="none" stroke="#64D2C8" stroke-width="1.6" vector-effect="non-scaling-stroke"/>${pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="2" fill="#fff"/>`).join('')}</svg></div></div>
           <div class="temps">${H.map(h => `<b style="--y:${y(h[2]).toFixed(1)}">${h[2]}°</b>`).join('')}</div></div>
         <div class="ftr">Scroll for the next two days<span>Now</span><i>Tonight</i><i>Tomorrow</i></div></div>
@@ -301,7 +266,7 @@
   const elev = (lat, lon, s) => 90 - Math.acos(Math.min(1, Math.max(-1, Math.sin(lat * RAD) * Math.sin(s.lat * RAD) + Math.cos(lat * RAD) * Math.cos(s.lat * RAD) * Math.cos((lon - s.lon) * RAD)))) / RAD;
   const daylight = e => { const t = Math.min(Math.max((e + 12) / (11.17), 0), 1); return t * t * (3 - 2 * t); };
   const timePage = () => {
-    const W = 1024, Hm = Math.round(W / (360 / (NORTH - SOUTH))), moment = Date.UTC(2026, 10, 15, 12, 0), sun = subsolar(moment);
+    const W = 1024, Hm = Math.round(W / (360 / (NORTH - SOUTH))), moment = Date.UTC(2026, 10, 20, 17, 13), sun = subsolar(moment);
     const across = Math.round(W / 5.2), down = Math.round(across / (360 / (NORTH - SOUTH))), sp = W / across, r = sp * .3;
     const shades = ['', '', '', '', ''];
     for (let i = 0; i < down; i++) { const y = (i + .5) / down, lat = NORTH - y * (NORTH - SOUTH);
@@ -316,20 +281,20 @@
     const night = dec < 0 ? `${tline} L${W} -40 L0 -40Z` : `${tline} L${W} ${Hm + 40} L0 ${Hm + 40}Z`;
     const pos = (lat, lon) => [(lon + 180) / 360 * 100, (NORTH - lat) / (NORTH - SOUTH) * 100];
     const sp0 = pos(sun.lat, sun.lon);
-    const pins = [[51.5, -.13, 'London', '12:00', 'here', 'l', 1], [59.44, 24.75, 'Tallinn', '14:00', '+2 hr', 'r'], [40.71, -74, 'New York', '07:00', '−5 hr', 'r'], [35.68, 139.7, 'Tokyo', '21:00', '+9 hr', 'l']];
+    const pins = [[51.5, -.13, 'London', '17:13', 'here', 'l', 1], [59.44, 24.75, 'Tallinn', '19:13', '+2 hr', 'r'], [40.71, -74, 'New York', '12:13', '−5 hr', 'r'], [35.68, 139.7, 'Tokyo', '02:13', '+9 hr', 'l']];
     const pinHtml = pins.map(([la, lo, c, t, o, side, here]) => { const [x, y] = pos(la, lo); return `<i class="pin${here ? ' here' : ''}" style="left:${x}%;top:${y}%"></i><span class="lab${here ? ' here' : ''}" style="top:${y}%;${side === 'r' ? `left:calc(${x}% + 11px)` : `right:calc(${100 - x}% + 11px)`}"><b>${c}</b> <span>${t}</span> <em>· ${o}</em></span>`; }).join('');
     // The two-day ruler, daylight in amber
-    const x0 = 2, span = 46, xh = h => (h - x0) / span * 1000;
-    let ticks = ''; for (let h = 3; h <= 47; h++) { const x = xh(h), hr = h % 24, tall = hr === 0 ? 15 : hr % 6 === 0 ? 10 : 5; ticks += `<rect x="${x - .5}" y="14" width="1" height="${tall}" fill="rgba(255,255,255,${hr === 0 ? .6 : hr % 6 === 0 ? .4 : .2})" vector-effect="non-scaling-stroke"/>`; if (hr === 0) ticks += `<text x="${x + 4}" y="36" font-size="10" font-weight="600" fill="rgba(255,255,255,.75)">Mon 16</text>`; else if (hr % 6 === 0) ticks += `<text x="${x}" y="38" font-size="9.5" text-anchor="middle" fill="rgba(255,255,255,.45)">${String(hr).padStart(2, '0')}</text>`; }
+    const x0 = 7, span = 46, xh = h => (h - x0) / span * 1000;
+    let ticks = ''; for (let h = 8; h <= 52; h++) { const x = xh(h), hr = h % 24, tall = hr === 0 ? 15 : hr % 6 === 0 ? 10 : 5; ticks += `<rect x="${x - .5}" y="14" width="1" height="${tall}" fill="rgba(255,255,255,${hr === 0 ? .6 : hr % 6 === 0 ? .4 : .2})" vector-effect="non-scaling-stroke"/>`; if (hr === 0) ticks += `<text x="${x + 4}" y="36" font-size="10" font-weight="600" fill="rgba(255,255,255,.75)">Sat 21</text>`; else if (hr % 6 === 0) ticks += `<text x="${x}" y="38" font-size="9.5" text-anchor="middle" fill="rgba(255,255,255,.45)">${String(hr).padStart(2, '0')}</text>`; }
     const band = (a, b) => `<rect x="${xh(a)}" y="10" width="${xh(b) - xh(a)}" height="3" rx="1.5" fill="#E8B04A" opacity=".85"/>`;
-    return dashWin(1100, 688, tabs(TABS_G2, 'Time'), `
-      <div class="mkd-now"><span><b class="fig">12:00</b><small>Sunday 15 November · GMT</small></span><em>${ic('plus')}Add a City</em></div>
+    return dashWin(1100, 688, groupTabs('Your day', [DAY, 'Time']), `
+      <div class="mkd-now"><span><b class="fig">17:13</b><small>Friday 20 November · GMT</small></span><em>${ic('plus')}Add a City</em></div>
       <div class="mkd-card" style="padding:12px 14px 6px"><div class="mkd-cap">World<span>Now</span></div>
         <div class="mkd-map mk-dw" style="--hc:#FFD60A;--d:.25s"><div class="mk-in"><svg viewBox="0 0 ${W} ${Hm}" aria-hidden="true"><defs><filter id="mknt" x="-10%" y="-20%" width="120%" height="140%"><feGaussianBlur stdDeviation="14"/></filter><radialGradient id="mksun"><stop offset="0" stop-color="#FFD60A" stop-opacity=".38"/><stop offset="1" stop-color="#FFD60A" stop-opacity="0"/></radialGradient></defs>
           ${[0, 23.44, -23.44].map(l => `<line x1="0" x2="${W}" y1="${((NORTH - l) / (NORTH - SOUTH) * Hm).toFixed(1)}" y2="${((NORTH - l) / (NORTH - SOUTH) * Hm).toFixed(1)}" stroke="rgba(255,255,255,${l ? .04 : .07})" stroke-dasharray="2 4"/>`).join('')}
           ${dotsSvg}<path d="${night}" fill="#0b0f26" opacity=".5" filter="url(#mknt)"/><path d="${tline}" fill="none" stroke="rgba(255,255,255,.2)"/>
           <circle class="sunh" cx="${sp0[0] / 100 * W}" cy="${sp0[1] / 100 * Hm}" r="26" fill="url(#mksun)"/><circle cx="${sp0[0] / 100 * W}" cy="${sp0[1] / 100 * Hm}" r="5.5" fill="#FFD60A"/></svg>${pinHtml}</div><i class="mk-hot"></i></div>
-        <div class="mkd-tline"><svg viewBox="0 0 1000 46" preserveAspectRatio="none" aria-hidden="true">${band(7.3, 16.1)}${band(31.3, 40.1)}${ticks}<path d="M${xh(12) - 4} 44h8l-4-5z" fill="rgba(255,255,255,.7)"/><circle cx="${xh(12)}" cy="11.5" r="4.5" fill="#FF9F0A" stroke="#fff" stroke-width="1.4"/></svg><span class="nowp" style="left:${xh(12) / 10}%;top:-14px">Sun 12:00</span></div></div>`);
+        <div class="mkd-tline"><svg viewBox="0 0 1000 46" preserveAspectRatio="none" aria-hidden="true">${band(7.5, 16.1)}${band(31.5, 40.1)}${ticks}<path d="M${xh(17.22) - 4} 44h8l-4-5z" fill="rgba(255,255,255,.7)"/><circle cx="${xh(17.22)}" cy="11.5" r="4.5" fill="#FF9F0A" stroke="#fff" stroke-width="1.4"/></svg><span class="nowp" style="left:${xh(17.22) / 10}%;top:-14px">Fri 17:13</span></div></div>`);
   };
 
   /* ---------- Monorail's strip: windows side by side at full size, sliding along as you move between them */
@@ -351,9 +316,17 @@
     </div>
     <div class="mks-dock">${['files', 'safari', 'messages', 'mail', 'photos', 'music', 'calendar', 'notes', 'settings'].map((k, i) => app(k, i < 2 || k === 'photos' ? 'run' : '')).join('')}<b></b>${['code', 'terminal'].map(k => app(k, 'run')).join('')}</div></div>`;
 
+  /* ---------- Shared with the other drawings (screens.js, mac.js) */
+  window.GM = { I, ic, rings, dots, chart, roll, wx, app, flag, walk, setSeed: n => { seed = n; }, card, title, sysCard, storeCard, netCard, sw, sliders,
+    panel: panelGlance, awake, evening, overview: overviewGlance, weather, time: timePage, groupTabs, dashWin, clk, landAmount, ROWS, ev,
+    add: (name, fn, w, h) => { BUILD[name] = [fn, w, h]; } };
+
   /* ---------- Build, fit and animate */
-  const BUILD = { panel: [panelGlance, 360, 650], island: [() => islHome(true), 500, 560], memory: [islMemory, 500, 560], strip: [strip, 1280, 720], calendar: [islCal, 500, 417], overview: [overviewGlance, 1200, 720],
+  const BUILD = { panel: [panelGlance, 360, 650], strip: [strip, 1280, 720], overview: [overviewGlance, 1200, 720],
     weather: [weather, 1100, 688], time: [timePage, 1100, 688], awake: [awake, 360, 336], evening: [evening, 360, 262] };
+  const start = () => {
+  const stages = [...document.querySelectorAll('[data-mock]')];
+  if (!stages.length) return;
   const zoomOK = CSS.supports && CSS.supports('zoom', '2');
   const fit = st => {
     const f = st.firstElementChild; if (!f) return;
@@ -381,4 +354,7 @@
   // Live drawings rest when you can't see them: anything still moving pauses off screen
   const rest = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('mk-rest', !e.isIntersecting)), { threshold: 0 });
   stages.forEach(st => rest.observe(st));
+  };
+  // Every drawing script has run by DOMContentLoaded (they're deferred), so their screens are all in BUILD
+  if (document.readyState === 'complete') start(); else document.addEventListener('DOMContentLoaded', start);
 })();
