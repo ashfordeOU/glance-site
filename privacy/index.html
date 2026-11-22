@@ -88,7 +88,7 @@
 
   <div class="prose narrow">
     <h2>What Glance collects</h2>
-    <p><strong>Nothing.</strong> Glance has no account and no sign-in. It sends no analytics, no usage counts and no crash reports: a crash report is only ever a file on your Mac. It doesn’t check for updates itself (the Mac App Store does that), shows no ads, has no tracking and contains no third-party analytics or advertising code. Ashforde has no server that Glance talks to.</p>
+    <p><strong>Nothing about you, unless you choose to send it.</strong> Glance needs no account. It sends no analytics and no usage counts, doesn’t check for updates itself (the Mac App Store does that), shows no ads, has no tracking and contains no third-party analytics or advertising code. Two things reach Ashforde only when you choose them: files you share with a <a href="#share-links">share link</a>, and a <a href="#crash-reports">crash report</a> you decide to email us.</p>
     <p>Glance doesn’t ask for Accessibility and never asks for your password or for administrator rights. The only apps it sends instructions to are Music and Spotify, and only if you allow it (see Automation below).</p>
 
     <h2>Outside services Glance contacts</h2>
@@ -108,6 +108,14 @@
         <tr><td>An AI provider you connect</td><td>AI Usage’s plan limits, and Ask AI in the Island’s Tools, only once you connect a provider with your own key</td><td>Your request, sent with your own key, under that provider’s own terms. For Ask AI, that is the text you ask about.</td></tr>
       </tbody>
     </table></div>
+    <p>Also contacted directly, only when you use them: <strong>Apple’s Shazam service</strong> (ShazamKit), when you press Song finder, receives a short audio signature of what’s playing, never a recording; <strong>Google</strong>, <strong>Spotify</strong> and <strong>Dropbox</strong>, only once you sign in to them in Settings, for your calendar (reading it, and adding the events you create in Glance) and tasks (read only), your Google Drive or Dropbox (only the files Glance shares there) and Spotify’s playback controls. Their sign-in stays in your Keychain, and the data goes straight between your Mac and that service.</p>
+
+    <h2 id="share-links">Share links</h2>
+    <p>When you choose Share Link on a file, Glance uploads that file to Ashforde’s share service, which runs on Cloudflare, and copies a link anyone can open. The file is kept for the time you pick (1, 7 or 30 days) and then deleted; you can delete it sooner from Glance. Comments people leave on a shared video are kept with the share and deleted with it. The service stores no IP addresses and no account. If you’d rather keep files in your own storage, choose your Dropbox or Google Drive in Settings and the link points there instead. Anyone can report a share from its page; a report keeps what the person types (the reason, any details and an email address if they give one) and the shared files’ names, for up to 31 days, with no IP address. See the <a href="https://monorail-share.talkmeout.workers.dev/terms">terms for share links</a>.</p>
+
+    <h2 id="crash-reports">Crash reports</h2>
+    <p>Glance reads crash details from macOS (MetricKit), on your Mac. If Glance quits unexpectedly, it may offer once to send the crash report: Send opens an email to contact@ashforde.org in your own mail app with the Glance and macOS versions, your Mac’s model and where it crashed, and puts the full report on the clipboard for you to paste in. Nothing is sent unless you send that email. To stop the offer, switch off <strong>Offer to send crash reports</strong> in Glance’s Settings, under General ▸ Privacy.</p>
+
     <p>Weather from Apple shows the Apple Weather mark with a link to its other data sources; weather from Open-Meteo is credited as “Weather by Open-Meteo.com (CC BY 4.0)”. Links in Glance open in your own browser; Glance has no web view of its own.</p>
 
     <h2>Permissions, and what stays on your Mac</h2>
