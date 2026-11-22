@@ -305,3 +305,23 @@
 @media (prefers-color-scheme: dark) { :root:not([data-scheme]) .gm { --gd-cloud: #fff; } }
 /* A crop that starts at the top edge of the screen keeps the screen's own square top */
 .mac-stage.mac-crop.mac-top { border-top-left-radius: 0; border-top-right-radius: 0; }
+
+/* 1.9.9: glances at rest beside the camera, Apple Weather's credit, the shelf page and its lone shelf button */
+.gi-gl { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: #fff; }
+.gi-gl .mi { font-size: 17px; color: #30D158; }
+.gi-aw { display: block; margin-top: 4px; font-size: 9px; color: rgba(255,255,255,.5); text-align: right; }
+.gs-n { font-size: 12px; color: rgba(255,255,255,.55); }
+.gs-row { display: grid; gap: 6px; margin-bottom: 10px; }
+.gs-it { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 12px; background: var(--tile); }
+.gs-it i { width: 32px; height: 32px; border-radius: 7px; background: linear-gradient(135deg, #5AC8FA, #0A84FF); }
+.gs-it i.zip { background: repeating-linear-gradient(180deg, #8e8e93 0 3px, #c7c7cc 3px 6px) center / 6px 100% no-repeat, #e5e5ea; }
+.gs-it i.vid { background: linear-gradient(135deg, #FF9E62, #D63A80); }
+.gs-it i.pic { background: radial-gradient(circle at 50% 50%, #FF9F0A 0 30%, transparent 31%), repeating-conic-gradient(#d1d1d6 0 25%, #f2f2f7 0 50%) 0 0 / 8px 8px; }
+.gs-it b { display: block; font-size: 12.5px; } .gs-it small { font-size: 10.5px; color: rgba(255,255,255,.55); }
+.gs-it em, .gs-link em { font-style: normal; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 9px; background: rgba(255,255,255,.12); white-space: nowrap; }
+.gs-link { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: rgba(10,132,255,.18); margin-bottom: 10px; }
+.gs-link .li { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: #0A84FF; font-size: 14px; flex: none; }
+.gs-link > span:nth-child(2) { flex: 1; min-width: 0; } .gs-link b { display: block; font-size: 12.5px; } .gs-link small { font-size: 10.5px; color: rgba(255,255,255,.65); }
+.gs-link em { background: #0A84FF; }
+.gi-bar1 span { width: auto; padding: 0 12px; gap: 6px; display: inline-flex; align-items: center; }
+.gi-bar1 span b { font-size: 12px; }

@@ -51,8 +51,8 @@
     <div class="mki-sw gi-sw">${[['cup', 'Awake', true], ['moon', 'Evening'], ['scope', 'Focus'], ['clip', 'Clipboard'], ['wave', 'Live']].map(([i, n, on]) => `<span><span class="c${on ? ' on' : ''}">${ic(i)}</span><small>${n}</small></span>`).join('')}</div>
     <div class="gi-jot">${g('jot')}<span>Jot a note, task or sum…</span>${g('calsm')}</div>
     ${o.music ? player() : `<div class="gi-chip"><span style="color:${TINT.blue}">${ic('cup')}</span>Awake for 1 h 30<em>Turn Off</em></div>`}
-    ${o.music ? '' : `<div class="mki-wx gi-wx"><div class="qtop">${wx('cloud')}<span><b>9°  Cloudy</b><small>London · H 10° L 7°</small></span><span class="sp"></span>${ic('chev', 'cv')}<span class="gi-seg"><i class="on">${g('clockt')}</i><i>${g('map')}</i></span></div>
-      <div class="mki-hrs">${ic('chevl')}${hours.map(([t, k, d], i) => `<div><small${i ? '' : ' class="qnow"'}>${t}</small>${wx(k)}<b>${d}°</b></div>`).join('')}${ic('chev')}</div></div>`}
+    ${o.music ? '' : `<div class="mki-wx gi-wx"><div class="qtop">${wx('cloud')}<span><b>9°  Cloudy</b><small>London · Rain in ~12 min</small></span><span class="sp"></span>${ic('chev', 'cv')}<span class="gi-seg"><i class="on">${g('clockt')}</i><i>${g('map')}</i></span></div>
+      <div class="mki-hrs">${ic('chevl')}${hours.map(([t, k, d], i) => `<div><small${i ? '' : ' class="qnow"'}>${t}</small>${wx(k)}<b>${d}°</b></div>`).join('')}${ic('chev')}</div><small class="gi-aw">Apple Weather</small></div>`}
     <div class="mki-clk gi-clk">${clk(0, 'London', '17:13', '0h')}${clk(0, 'Tallinn', '19:13', '+2h')}${clk(1, 'New York', '12:13', '−5h')}</div>
     <div class="mki-clk gi-clk gi-clk1">${clk(0, 'Tokyo', '02:13', '<span style="color:#FFB340">+9h · Tomorrow</span>')}<span></span><span></span></div></div>`;
 
@@ -113,7 +113,9 @@
     breaks: { art: `<path d="M17.5 26h21v6.5a8.5 8.5 0 0 1-8.5 8.5h-4a8.5 8.5 0 0 1-8.5-8.5zM38.5 28h2a4 4 0 0 1 0 8h-2.6M15 43.5h27" ${F}/><path d="M38.5 28h2a4 4 0 0 1 0 8h-2.6M15.5 44.5h26" ${N} stroke-width="2.6"/><path d="M23 18c-1.4 1.6 1.4 2.4 0 4.2M28.5 17c-1.4 1.6 1.4 2.4 0 4.2M34 18c-1.4 1.6 1.4 2.4 0 4.2" ${N} stroke-width="1.8" opacity=".8"/>` },
     cues: { art: `<path d="M16 22a6 6 0 0 1 6-6h14a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6h-8.5L21 41.5V36a6 6 0 0 1-5-6z" ${F}/><path d="M22.5 23.5h13M22.5 28.5h9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>` },
     emoji: { art: `<circle cx="30" cy="30" r="12.5" ${N} stroke-width="3"/><circle cx="25.8" cy="27.2" r="1.9" ${F}/><circle cx="34.2" cy="27.2" r="1.9" ${F}/><path d="M24.5 33c1.4 2.2 3.3 3.3 5.5 3.3s4.1-1.1 5.5-3.3" ${N} stroke-width="2.6"/>` },
-    jot: { badge: '<path d="M5 19l2.5-.6L18 8l-2-2L5.6 16.4z"/>' }
+    jot: { badge: '<path d="M5 19l2.5-.6L18 8l-2-2L5.6 16.4z"/>' },
+    song: { art: `<path d="M21 30h2M25.5 24v12M30 19v22M34.5 25v10M39 28v4" ${N} stroke-width="3"/>` },
+    calc: { art: `<rect x="19" y="15" width="22" height="30" rx="4.5" ${F}/><rect x="22.5" y="18.5" width="15" height="6" rx="1.5" fill="#141416" stroke="none" opacity=".7"/><path d="M24 30h.01M30 30h.01M36 30h.01M24 35h.01M30 35h.01M36 35h.01M24 40h.01M30 40h.01M36 40h.01" fill="none" stroke="#141416" stroke-width="3.4" stroke-linecap="round"/>` }
   };
   const TOOLS = [
     ['system', 'System', '7CF0D0', '1FA88A', ['ring', .68], '34D3A6', GL.system],
@@ -128,15 +130,26 @@
     ['breaks', 'Breaks', 'F5C9A0', 'C27A45', 'orbs', 'E8A86C', GL.breaks],
     ['cues', 'Cues', 'FFB4A0', 'FF7051', 'bubble', 'FF9F6E', GL.cues],
     ['emoji', 'Emoji', 'FFE680', 'FFB300', 'none', '', GL.emoji],
-    ['jot', 'Jot', 'FFD0A0', 'FF8A3D', 'sheets', 'FFB067', GL.jot]
+    ['jot', 'Jot', 'FFD0A0', 'FF8A3D', 'sheets', 'FFB067', GL.jot],
+    ['song', 'Song finder', '7AC8FF', '2F6BFF', 'orbs', '3D8BFF', GL.song],
+    ['calc', 'Calculator', 'D8D8DE', '8E8E96', 'none', '', GL.calc]
   ];
   const toolDefs = `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gtile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#363638"/><stop offset="1" stop-color="#171718"/></linearGradient><linearGradient id="gtedge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity=".04"/></linearGradient><linearGradient id="gts" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#d6d6da"/></linearGradient><filter id="gtb" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.2"/></filter></defs></svg>`;
   const tools = () => `<div class="gi-pg">${toolDefs}
     <div class="gi-th"><span class="all">${ic('grid22')}All</span><span class="sp"></span><span class="rb">${ic('list')}</span><span class="more">${g('ell')}More</span></div>
     <div class="gi-tools">${TOOLS.map(t => tool(...t)).join('')}</div></div>`;
 
-  S.pages = { home: () => home(), music: () => home({ music: true }), calendar: cal, timers, tools };
-  S.pageTab = { home: 'Home', music: 'Home', calendar: 'Calendar', timers: 'Timers', tools: 'Tools' };
+  /* ---------- The shelf (1.9.9): files with their actions; Share Link copies a link anyone can open */
+  const shelfItem = (k, n, s, act) => `<div class="gs-it"><i class="${k}"></i><span><b>${n}</b><small>${s}</small></span>${act}</div>`;
+  const shelf = () => `<div class="gi-pg">
+    <div class="mki-hd"><b>Shelf</b><span class="gs-n">3 files</span></div>
+    <div class="gs-row">${shelfItem('zip', 'Photos.zip', '48 MB', '<em>Unzip</em>')}${shelfItem('vid', 'Walkthrough.mov', '212 MB', '<em>Fit to 25 MB</em>')}${shelfItem('pic', 'Logo.png', '1.2 MB', '<em>Remove Background</em>')}</div>
+    <div class="gs-link"><span class="li">${ic('link')}</span><span><b>Link copied</b><small>3 files · lasts 7 days · no account needed to open it</small></span><em>Share Link</em></div>
+    <p class="gi-hint">Files wait here until you take them. With the tabs hidden, the shelf button shows only while something is on the shelf.</p></div>`;
+  S.shelfBar = () => `<div class="gi-bar gi-bar1" role="presentation"><span class="on" title="Shelf">${ic('tray')}<b>3</b></span></div>`;
+
+  S.pages = { home: () => home(), music: () => home({ music: true }), calendar: cal, timers, tools, shelf };
+  S.pageTab = { home: 'Home', music: 'Home', calendar: 'Calendar', timers: 'Timers', tools: 'Tools', shelf: null };
 
   /* ---------- The open Island on its own, for the gallery: the Island and its tab bar below it */
   const solo = (page, tab) => `<div class="gi-solo"><div class="gi-card">${S.islTop()}${S.pages[page]()}</div>${S.tabBar(tab)}</div>`;

@@ -97,9 +97,9 @@
     <div class="head center rv">
       <span class="eyebrow"><i></i>The menu bar panel</span>
       <h2 class="h2">Your Mac, <span class="light-text">one click away.</span></h2>
-      <p class="lede">Click Glance’s icon in the menu bar and the panel drops down: your day, how your Mac is doing, and twelve one-click switches, from Stay Awake and Evening Mode to Microphone, Camera and Meeting Notes. Right-click a switch for its options.</p>
+      <p class="lede">Click Glance’s icon in the menu bar and the panel drops down: your day, how your Mac is doing, and twelve one-click switches, from Stay Awake and Evening Mode to Microphone, Camera, Meeting Notes and Record Screen. Right-click a switch for its options.</p>
     </div>
-    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with Glance’s panel open below its menu bar icon. The panel shows All calm, today’s next meeting with a Join button, cards for System, Storage and Network, and twelve round switches in four columns: Stay Awake (on), Evening, Focus Session, Keep Available, Microphone, Camera, Meeting Notes, Time Tracking, Film, Island (on), Docks and Backdrop, then volume and brightness."><div class="mac-stage" data-mac="panel"></div></figure>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with Glance’s panel open below its menu bar icon. The panel shows All calm, today’s next meeting with a Join button, cards for System, Storage and Network, and twelve round switches in four columns: Stay Awake (on), Evening, Focus Session, Keep Available, Microphone, Camera, Meeting Notes, Record Screen, Time Tracking, Film, Island (on) and Docks, then volume and brightness."><div class="mac-stage" data-mac="panel"></div></figure>
     <p class="mac-btns-label">Open a page</p>
     <div class="mac-btns" role="group" aria-label="Show a page of the panel">
       <button type="button" data-mac-btn="panel:home" aria-pressed="true">Home</button>
@@ -120,12 +120,13 @@
 <section class="s stage" id="island" style="padding-top:0">
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow"><i></i>The Island</span><h2 class="h2">What’s happening now, <span class="light-text">at the top of your screen.</span></h2>
-      <p class="lede">The Island hangs from the camera and shows what’s playing. Timers, Stay Awake, charging and an AI limit float beside it in round bubbles, each with a ring for its time or charge. Rest the pointer on it to peek, click to open it, and pick a tab from the bar below.</p></div>
-    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with the Island at the top of the screen. Closed, it shows what’s playing in the pill, with bubbles either side: rings for Stay Awake and a tea timer on the left, a charging ring and the microphone light on the right. Open, it grows into a black card with its tab bar floating below: Home, Calendar, Timers, Tasks, Insights, Storage, Battery and Tools."><div class="mac-stage" data-mac="island"></div></figure>
+      <p class="lede">The Island hangs from the camera and shows what’s playing. Timers, Stay Awake, charging and an AI limit float beside it in round bubbles, each with a ring for its time or charge. With nothing going on, it can show small glances either side of the camera, such as the time and the battery. Rest the pointer on it to peek, click to open it, and pick a tab from the bar below.</p></div>
+    <figure class="mac-fig rv" role="img" aria-label="A drawn MacBook with the Island at the top of the screen. Closed, it shows what’s playing in the pill, with bubbles either side: rings for Stay Awake and a tea timer on the left, a charging ring and the microphone light on the right. Open, it grows into a black card with its tab bar floating below: Home, Calendar, Timers, Tasks, Insights, Storage, Battery and Tools. With the tabs hidden, a single shelf button with the number of files takes their place."><div class="mac-stage" data-mac="island"></div></figure>
     <p class="mac-btns-label">Closed</p>
     <div class="mac-btns" role="group" aria-label="Show the closed Island">
       <button type="button" data-mac-btn="island:split" aria-pressed="true">Split bubbles</button>
       <button type="button" data-mac-btn="island:pill" aria-pressed="false">One pill</button>
+      <button type="button" data-mac-btn="island:glances" aria-pressed="false">Glances at rest</button>
     </div>
     <p class="mac-btns-label">Open a tab</p>
     <div class="mac-btns" role="group" aria-label="Open the Island on a tab">
@@ -134,16 +135,17 @@
       <button type="button" data-mac-btn="island:calendar" aria-pressed="false">Calendar</button>
       <button type="button" data-mac-btn="island:timers" aria-pressed="false">Timers</button>
       <button type="button" data-mac-btn="island:tools" aria-pressed="false">Tools</button>
+      <button type="button" data-mac-btn="island:shelf" aria-pressed="false">Shelf, tabs hidden</button>
     </div>
     <div class="gx-new sg">
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></i><b>Music and Spotify</b><p>The artwork, where the track is, and play, pause, skip, scrub, shuffle and repeat. macOS asks once before Glance may control each app.</p></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13.5 5.6 6h12.8l2.6 7.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 13.5h5l1 2h6l1-2h5"/></svg></i><b>A shelf that keeps files</b><p>Drop files on the Island to keep them handy. They’re still there the next time Glance opens, on every shelf.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13.5 5.6 6h12.8l2.6 7.5V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 13.5h5l1 2h6l1-2h5"/></svg></i><b>A shelf that works with your files</b><p>Drop files on the Island to keep them handy. Unzip archives, fit a picture or a video under a size you type, remove a picture’s background, and let folders you choose fill the shelf by themselves.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg></i><b>Storage, Battery and Memory</b><p>Three tabs with pixel bars, on by default. Point at a block to read what it is. Turn any of them off from the +.</p></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><b>World clocks and weather</b><p>Your cities at a glance, and the weather for the places you choose, with the rain radar and the next 48 hours.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><b>World clocks and weather</b><p>Your cities at a glance, and the weather for the places you choose, from Apple Weather, with the rain radar, the next hour and the next 48 hours.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="12" r="3"/></svg></i><b>Screenshots and downloads</b><p>Each new screenshot, ready to keep on the shelf, and files downloading with their progress, once you choose your home folder.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></i><b>Claude Code in Agents</b><p>Choose your .claude folder and the Agents tab lists your sessions from the last few hours: the task, its state and the cost so far.</p></div>
       <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="6.5"/><path d="M12 16.5V21M8.5 21h7"/></svg></i><b>Mirror</b><p>A quick look at yourself before a call. The camera is on only while Mirror shows, and nothing is recorded.</p></div>
-      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg></i><b>Island settings of its own</b><p>Where it sits, its look, its tools, alerts, colours and live items, all in Settings ▸ General ▸ Dynamic Island.</p></div>
+      <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg></i><b>Island settings of its own</b><p>Where it sits, its look, its tools, alerts, colours and live items, all on its own page: Settings ▸ Island.</p></div>
     </div>
   </div>
 </section>
@@ -236,6 +238,61 @@
         <button type="button" style="--c:#30D158"><i></i><span>Archives</span><em>2.0 GB</em></button>
       </div>
       <div class="sact"><small>Nothing is deleted outright. Change your mind and put it back.</small><span class="btn primary" aria-hidden="true">Move to Bin</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6b · Also new in 1.9.9: Song finder, Apple Weather, the screen recorder and recordings, share links, new Island tools (drawn in CSS, no screenshots) -->
+<section class="s" id="new" aria-labelledby="new-h">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow"><i></i>Also new in 1.9.9</span><h2 class="h2" id="new-h">Name a song. <span class="light-text">Share a file.</span></h2>
+      <p class="lede">New Island tools, the forecast from Apple Weather, a screen recorder with sound and links for the files on your shelf.</p></div>
+    <div class="g9">
+      <article class="g9-t navy rv">
+        <div><span class="k">Song finder</span><h3>Name that song.</h3>
+          <p>A new Island tool listens for up to 12 seconds, to the room or to your Mac’s own sound, and names the song with Shazam, with links to open it. It listens only when you press Listen, and keeps the last 50 songs it found.</p></div>
+        <div class="g9-song" aria-hidden="true">
+          <div class="ears"><i></i><i></i><i></i><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/></svg></span></div>
+          <div class="found"><span class="art"></span><span><b>Northern Lights</b><small>The Harbour Trio</small></span><em>Found</em></div>
+        </div>
+      </article>
+      <article class="g9-t rv">
+        <div><span class="k">Apple Weather</span><h3>Rain, to the minute.</h3>
+          <p>The forecast comes from Apple Weather, with the next hour minute by minute on the Weather page and the Island saying when rain starts or stops. Severe weather warnings show too.</p></div>
+        <div class="g9-rain" aria-hidden="true">
+          <p><b>Rain starting in ~12 min</b><small>London</small></p>
+          <div class="bars"></div>
+          <div class="ax"><span>Now</span><span>30 min</span><span>60 min</span></div>
+          <small class="cr">Apple Weather · Other data sources</small>
+        </div>
+      </article>
+      <article class="g9-t navy rv">
+        <div><span class="k">Screen recorder</span><h3>Record your screen, with sound.</h3>
+          <p>Record Screen is on Home: the whole screen, a display, a window or an area, with your Mac’s sound, your microphone or both. Every recording sits with your meeting recordings in one library.</p></div>
+        <div class="g9-rec" aria-hidden="true">
+          <div class="seg"><span class="on">Screen</span><span>Window</span><span>Area</span></div>
+          <div class="aud"><span>Mac sound</span><span>Microphone</span><b>REC 0:18</b></div>
+          <div class="lib"><div class="seg"><span class="on">All</span><span>Meetings</span><span>Screen</span></div><p><i></i>Screen recording · 14:02</p><p><i class="m"></i>Design review · 11:30</p></div>
+        </div>
+      </article>
+      <article class="g9-t rv">
+        <div><span class="k">Island tools</span><h3>More in the Island.</h3>
+          <p>Turn on the ones you want in the Tools tab.</p></div>
+        <ul class="g9-list">
+          <li><b>Song finder</b><span>Names the song that’s playing.</span></li>
+          <li><b>Calculator</b><span>Basic or scientific, with a tape.</span></li>
+          <li><b>Developer tools</b><span>Base64, JSON, hashes, UUIDs and more.</span></li>
+          <li><b>Things, Obsidian and Plane</b><span>Add to-dos, edit your vault’s notes, see your work items.</span></li>
+        </ul>
+      </article>
+      <article class="g9-t g9-wide rv">
+        <div><span class="k">Share links</span><h3>Send a link, not an attachment.</h3>
+          <p>Choose Share Link on a file on the shelf and Glance copies a link anyone can open in a browser, with no account: up to 25 files, kept for 1, 7 or 30 days. Share a video for review, and people can comment on a moment, reply and draw on the frame. Nothing is uploaded until you choose Share Link.</p></div>
+        <div class="g9-share" aria-hidden="true">
+          <div class="lnk"><span class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><span><b>Link copied</b><small>3 files · lasts 7 days</small></span><em>1 day · <u>7 days</u> · 30 days</em></div>
+          <div class="rev"><div class="frame"><span class="ink"></span></div><div class="tl"><i style="left:18%"></i><i class="on" style="left:46%"></i><i style="left:72%"></i><span></span></div><p><b>0:42</b> Can we hold this shot a little longer?</p></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>

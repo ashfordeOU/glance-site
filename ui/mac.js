@@ -43,6 +43,8 @@
       bl: [{ icon: 'cup', tint: 'blue', ring: .75, label: 'Stay Awake, 1:30 left' }, { icon: 'timer', tint: 'orange', ring: .6, label: 'Tea, 4:18 left' }],
       br: [{ icon: 'bolt', tint: 'green', ring: .86, label: 'Charging, 86%' }, { dot: true, tint: 'orange', label: 'The microphone is on' }] },
     pill: { w: NOTCH + 110, l: `<span class="gi-lead">${S.ringSvg(22, 2, .75, S.TINT.blue)}<span style="color:${S.TINT.blue}">${ic('cup')}</span></span>`, r: '<span class="gi-val"><b class="fig">1:30</b><small>+3</small></span>', bl: [], br: [] },
+    // glances: nothing going on, so small glances rest either side of the camera (the time, the battery)
+    glances: { w: NOTCH + 120, l: '<span class="gi-gl fig">17:13</span>', r: `<span class="gi-gl">${ic('bat')}<b class="fig">86%</b></span>`, bl: [], br: [] },
     calm: { w: NOTCH, l: '', r: '', bl: [], br: [] }
   };
   const islandHTML = () => `<div class="gi" data-s="closed"><div class="gi-bub l"></div><div class="gi-bub r"></div>
@@ -62,7 +64,7 @@
     };
     const fill = p => {
       inner.innerHTML = `<div class="gi-card mk-a">${S.islTop()}${S.pages[p]()}</div>`;
-      barw.innerHTML = S.tabBar(S.pageTab[p]);
+      barw.innerHTML = S.pageTab[p] === null ? S.shelfBar() : S.tabBar(S.pageTab[p]);
       animate(inner);
       el.style.setProperty('--oh', Math.ceil($('.gi-card', inner).offsetHeight) + 'px');
       $$('[data-gtab]', barw).forEach(t => {
@@ -196,7 +198,7 @@
   btns.forEach(b => b.addEventListener('click', () => {
     const [n, v] = b.dataset.macBtn.split(':'), sc = scenes[n]; if (!sc) return;
     stopAuto(sc);
-    if (v === 'split' || v === 'pill') { sc.island.close(v); sync(sc, v); return; }
+    if (v === 'split' || v === 'pill' || v === 'glances') { sc.island.close(v); sync(sc, v); return; }
     if (sc.panelShow && PANEL[v]) { sc.panelShow(v); sync(sc, v); return; }
     if (sc.dashShow && DASH[v]) { sc.dashShow(v); sync(sc, v); return; }
     if (sc.tourShow && (v === 'hello' || v === 'chapter')) { sc.tourShow(v); sync(sc, v); return; }

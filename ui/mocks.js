@@ -95,6 +95,8 @@
     backdrop: '<rect x="3" y="3" width="13" height="13" rx="2.5"/><rect x="8" y="8" width="13" height="13" rx="2.5" fill="currentColor" stroke="none" opacity=".9"/>',
     video: `<rect x="2.5" y="6.5" width="13" height="11" rx="2.5" ${A}/><path ${A} d="m16.5 10.5 5-3v9l-5-3z"/>`,
     camera: '<rect x="2.5" y="6.5" width="13" height="11" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5z"/>',
+    recscr: '<rect x="2.5" y="4.5" width="19" height="13" rx="2.5"/><path d="M8 21h8"/><circle cx="12" cy="11" r="3" fill="currentColor" stroke="none"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
   };
   const ic = (n, cls = '', style = '') => `<svg class="mi${cls ? ' ' + cls : ''}" viewBox="0 0 24 24" aria-hidden="true"${style ? ` style="${style}"` : ''}>${I[n] || ''}</svg>`;
   // App icons for the desktop drawing: a rounded tile and a simple white glyph, deliberately unlike any real app's icon
@@ -171,7 +173,7 @@
       ${today()}
       <div class="mkp-pair">${sysCard()}${storeCard()}</div>
       ${netCard(true)}
-      <div class="mkp-sw mk-hv">${sw('cup', 'Stay Awake', true, 'var(--orange)')}${sw('moon', 'Evening')}${sw('timer', 'Focus Session')}${sw('keep', 'Keep Available')}${sw('mic', 'Microphone')}${sw('video', 'Camera')}${sw('notes', 'Meeting Notes')}${sw('track', 'Time Tracking')}${sw('film', 'Film')}${sw('island', 'Island', true, 'var(--pink)')}${sw('docks', 'Docks')}${sw('backdrop', 'Backdrop')}</div>
+      <div class="mkp-sw mk-hv">${sw('cup', 'Stay Awake', true, 'var(--orange)')}${sw('moon', 'Evening')}${sw('timer', 'Focus Session')}${sw('keep', 'Keep Available')}${sw('mic', 'Microphone')}${sw('video', 'Camera')}${sw('notes', 'Meeting Notes')}${sw('recscr', 'Record Screen')}${sw('track', 'Time Tracking')}${sw('film', 'Film')}${sw('island', 'Island', true, 'var(--pink)')}${sw('docks', 'Docks')}</div>
       ${sliders()}
       <div class="mkp-pair">${card(`<div class="mkp-tool"><div style="display:flex"><span class="qic" style="--tint:var(--blue)">${ic('clip')}</span><span class="sp"></span>${ic('chev', 'cv', 'color:var(--p-3);font-size:11px;stroke-width:2.4')}</div><b>Clipboard</b><small>14 items</small></div>`)}${card(`<div class="mkp-tool"><span class="qic" style="--tint:var(--pink)">${ic('dropper')}</span><b>Colour</b><small>Pick from screen</small></div>`)}</div>
     </div>
@@ -235,7 +237,7 @@
     let land = ''; for (let la = 61; la > 47; la -= .32) for (let lo = -12; lo < 22; lo += .5) if (landAmount(la, lo) >= .5) land += `M${((lo + 12) / 34 * 1024).toFixed(0)} ${((61 - la) / 14 * 300).toFixed(0)}h13v5h-13z`;
     return dashWin(1100, 688, groupTabs('Your day', [DAY, 'Weather']), `
       <div class="mkd-places"><span class="on">${ic('loc')}London</span><span>${ic('pin')}Tallinn</span><span>${ic('pin')}New York</span><span class="add">Add a place</span><span class="unit"><i class="on">°C</i><i>°F</i></span></div>
-      <div class="mkd-sky">${clouds}<i class="rn"></i><div class="qtx"><div class="pl">${ic('loc')}London</div><div class="qrow"><span class="deg">${roll('9')}°</span><span><b>Drizzle</b><small>H 11°  L 3°</small><small>Feels like 7°</small></span></div><div class="dry">Drying up around 19:00.</div></div>${wx('rain', 'wxi bigi')}</div>
+      <div class="mkd-sky">${clouds}<i class="rn"></i><div class="qtx"><div class="pl">${ic('loc')}London</div><div class="qrow"><span class="deg">${roll('9')}°</span><span><b>Drizzle</b><small>H 11°  L 3°</small><small>Feels like 7°</small></span></div><div class="dry">Rain stopping in ~25 min.</div></div>${wx('rain', 'wxi bigi')}<div class="mkd-nh"><div class="mkd-cap">Next hour</div><b>Rain stopping in ~25 min</b><div class="bars">${Array.from({ length: 60 }, (_, i) => { const v = i < 25 ? .35 + .4 * Math.sin(i / 4) ** 2 : 0; return `<i style="--h:${v ? Math.round(v * 100) : 6}%;--i:${i}"${v ? '' : ' class="dr"'}></i>`; }).join('')}</div><div class="ax"><span>Now</span><span>30 min</span><span>60 min</span></div><small class="cr"><b>Apple Weather</b> · <u>Other data sources</u></small></div></div>
       <div class="mkd-card mkd-48"><div class="mkd-cap">Next 48 hours<span>4° – 11°</span></div>
         <div class="qhrs">${H.map((h, i) => `<div class="hc"><small${i === 0 || h[0] === 'Sat' ? ' class="qk"' : ''}>${h[0]}</small>${wx(h[1])}<span class="qtl"></span><span class="qrb"><i style="--h:${h[3]}%;--i:${i}"></i></span><em>${h[3] ? h[3] + '%' : ''}</em></div>`).join('')}
           <i class="day" style="left:${7 / n * 100}%"></i>

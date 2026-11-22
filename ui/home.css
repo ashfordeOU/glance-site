@@ -580,3 +580,71 @@ main > section { overflow-x: clip; }
 @media (max-width: 640px) { .mr-both { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } }
 .mr .ctas { margin-top: 28px; }
 @media (prefers-reduced-motion: reduce) { .mr-bar .gx-gl.dim, .mr-bar .rail { animation: none; } }
+
+/* ---------- Also new in 1.9.9 (#new): tiles drawn in CSS, in Glance's navy and pink */
+.g9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.g9-t { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-width: 0; padding: 24px; border-radius: 24px; background: var(--card); border: 1px solid var(--hair); box-shadow: var(--shadow); }
+.g9-t.navy { background: linear-gradient(160deg, var(--n2), var(--n1)); color: #F3F4FA; border-color: rgba(255,255,255,.08); --ink2: #A3A7BF; --ink3: #8A8FAD; }
+.g9-wide { grid-column: span 2; }
+.g9-t .k { font: 600 13px var(--font); color: var(--ink3); }
+.g9-t h3 { font: 600 clamp(20px, 2vw, 25px)/1.15 var(--display); letter-spacing: -.028em; margin: 4px 0 0; }
+.g9-t p { color: var(--ink2); font-size: 15px; line-height: 1.45; margin: 8px 0 0; }
+/* song finder */
+.g9-song { display: grid; gap: 14px; justify-items: center; }
+.g9-song .ears { position: relative; width: 104px; height: 104px; display: grid; place-items: center; }
+.g9-song .ears i { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(255,138,91,.55); opacity: .5; }
+.g9-song .ears i:nth-child(2) { inset: 14px; opacity: .7; } .g9-song .ears i:nth-child(3) { inset: 28px; opacity: .9; }
+.g9-song .ears span { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, var(--l1), var(--l3)); box-shadow: 0 8px 24px -6px rgba(232,67,122,.6); }
+.g9-song .ears svg { width: 24px; height: 24px; }
+@media (prefers-reduced-motion: no-preference) {
+  .g9-song .ears i { animation: g9ping 2.8s var(--ease) infinite; }
+  .g9-song .ears i:nth-child(2) { animation-delay: .5s; } .g9-song .ears i:nth-child(3) { animation-delay: 1s; }
+}
+@keyframes g9ping { 0% { transform: scale(.85); opacity: 0; } 40% { opacity: .8; } 100% { transform: scale(1.08); opacity: 0; } }
+.g9-song .found { justify-self: stretch; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; background: rgba(255,255,255,.08); }
+.g9-song .art { width: 40px; height: 40px; border-radius: 8px; background: radial-gradient(circle at 30% 30%, #FFD60A, transparent 55%), linear-gradient(135deg, #5E5CE6, #0A84FF); }
+.g9-song b { display: block; font-size: 13.5px; } .g9-song small { font-size: 12px; color: var(--ink3); }
+.g9-song em { font: 600 11px var(--font); font-style: normal; color: var(--l1); }
+/* rain */
+.g9-rain { display: grid; gap: 8px; }
+.g9-rain p { margin: 0; } .g9-rain p b { display: block; font-size: 15px; } .g9-rain p small { font-size: 12.5px; color: var(--ink3); }
+.g9-rain .bars { height: 64px; border-radius: 10px; position: relative; overflow: hidden; background: var(--bg2); }
+.g9-rain .bars::before { content: ""; position: absolute; left: 20%; right: 0; bottom: 0; height: 80%; background: linear-gradient(90deg, transparent, #0A84FF 8%, #0A84FF 55%, rgba(10,132,255,.5) 75%, transparent 95%);
+  -webkit-mask: radial-gradient(120% 140% at 40% 100%, #000 45%, transparent 75%); mask: radial-gradient(120% 140% at 40% 100%, #000 45%, transparent 75%); }
+.g9-rain .bars::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 4px, var(--bg2) 4px 6px); }
+.g9-rain .ax { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink3); }
+.g9-rain .cr { font-size: 11px; color: var(--ink3); }
+/* recorder */
+.g9-rec { display: grid; gap: 10px; font-size: 12.5px; }
+.g9-rec .seg { display: flex; gap: 4px; padding: 3px; border-radius: 10px; background: rgba(255,255,255,.08); }
+.g9-rec .seg span { flex: 1; text-align: center; padding: 6px 4px; border-radius: 8px; color: var(--ink2); font-weight: 600; }
+.g9-rec .seg span.on { background: rgba(255,255,255,.18); color: #fff; }
+.g9-rec .aud { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.g9-rec .aud span { padding: 5px 10px; border-radius: 99px; background: rgba(48,209,88,.2); color: #d8f5df; font-weight: 600; }
+.g9-rec .aud b { margin-left: auto; font: 700 11px var(--font); color: #ff6961; display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.g9-rec .aud b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #ff453a; }
+.g9-rec .lib { padding: 8px; border-radius: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); display: grid; gap: 6px; }
+.g9-rec .lib p { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12.5px; padding: 2px 4px; }
+.g9-rec .lib i { width: 34px; height: 22px; border-radius: 5px; background: linear-gradient(135deg, #5AC8FA, #5E5CE6); }
+.g9-rec .lib i.m { background: linear-gradient(135deg, var(--l1), var(--l3)); }
+/* share links */
+.g9-share { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: end; }
+.g9-share .lnk { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 6px 10px; align-items: center; padding: 12px; border-radius: 14px; background: var(--bg2); border: 1px solid var(--hair); }
+.g9-share .li { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: #0A84FF; color: #fff; }
+.g9-share .li svg { width: 16px; height: 16px; }
+.g9-share .lnk b { display: block; font-size: 13.5px; } .g9-share .lnk small { font-size: 12px; color: var(--ink3); }
+.g9-share .lnk em { grid-column: 1 / -1; font-style: normal; font-size: 12px; color: var(--ink2); } .g9-share .lnk u { text-decoration: none; font-weight: 700; color: var(--ink); }
+.g9-share .rev { padding: 10px; border-radius: 14px; background: var(--bg2); border: 1px solid var(--hair); display: grid; gap: 8px; }
+.g9-share .frame { position: relative; height: 72px; border-radius: 8px; background: linear-gradient(160deg, #2a8a6a, #1E2D63); overflow: hidden; }
+.g9-share .ink { position: absolute; left: 52%; top: 22%; width: 26%; height: 50%; border: 2.4px solid #FFD60A; border-radius: 50%; transform: rotate(-8deg); }
+.g9-share .tl { position: relative; height: 6px; border-radius: 3px; background: var(--bg3); margin: 4px 0; }
+.g9-share .tl i { position: absolute; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--ink3); border: 2px solid var(--card); }
+.g9-share .tl i.on { background: #FFD60A; }
+.g9-share .tl span { position: absolute; left: 46%; width: 14%; top: 0; bottom: 0; border-radius: 3px; background: rgba(255,214,10,.55); }
+.g9-share .rev p { margin: 0; font-size: 12.5px; } .g9-share .rev p b { color: var(--ink); margin-right: 4px; }
+/* tools list */
+.g9-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.g9-list li { display: grid; gap: 1px; padding: 9px 12px; border-radius: 12px; background: var(--bg2); }
+.g9-list b { font-size: 14px; } .g9-list span { font-size: 12.5px; color: var(--ink2); }
+@media (max-width: 1000px) { .g9 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .g9-wide { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .g9 { grid-template-columns: minmax(0, 1fr); gap: 12px; } .g9-t { padding: 18px; } .g9-share { grid-template-columns: minmax(0, 1fr); } }
