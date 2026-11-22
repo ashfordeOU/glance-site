@@ -332,8 +332,8 @@
 /* Each drawn Mac keeps its height before mac.js draws it (the same crops as mac.js's fit), so nothing below moves. */
 .mac-fig { container-type: inline-size; }
 .mac-stage { height: auto; aspect-ratio: 1706 / 1084; }
-@container (max-width: 959.98px) { .mac-stage[data-mac="hero"] { aspect-ratio: 1180 / 760; } }
-@container (max-width: 559.98px) { .mac-stage[data-mac="hero"] { aspect-ratio: 600 / 600; } }
+@container (max-width: 959.98px) { .mac-stage[data-mac="hero"] { aspect-ratio: 660 / 600; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="hero"] { aspect-ratio: 580 / 580; } }
 @container (max-width: 959.98px) { .mac-stage[data-mac="panel"] { aspect-ratio: 980 / 760; } }
 @container (max-width: 559.98px) { .mac-stage[data-mac="panel"] { aspect-ratio: 540 / 740; } }
 @container (max-width: 959.98px) { .mac-stage[data-mac="island"] { aspect-ratio: 900 / 640; } }

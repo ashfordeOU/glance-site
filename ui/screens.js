@@ -37,7 +37,7 @@
   };
 
   /* ---------- The open Island's top row, either side of the camera: the live item's glyph and its value */
-  S.islTop = (live = true) => `<div class="gi-top">${live ? `<span class="l">${ringSvg(22, 2, .75, TINT.blue)}<span style="color:${TINT.blue}">${ic('cup')}</span></span><span class="r fig">1:30</span>` : ''}</div>`;
+  S.islTop = (live = true) => `<div class="gi-top">${live ? `<span class="l">${ringSvg(22, 2, .75, TINT.blue)}<span style="color:${TINT.blue}">${ic('cup')}</span></span><span class="r"></span>` : ''}</div>`;
 
   /* ---------- The tab bar floating just below the open Island (IslandFloatingTabBar): icons only, in groups */
   const TABS = [['home', 'Home'], '|', ['cal', 'Calendar'], ['timer', 'Timer'], ['checklist', 'Tasks'], '|', ['bars', 'Insights'], ['drive', 'Storage'], ['bat', 'Battery'], '|', ['grid4', 'Tools']];

@@ -89,8 +89,8 @@
   const roll = (scope) => $$('.rl', scope).forEach((el, i) => {
     const txt = el.textContent, m = txt.match(/\d+(?:\.\d+)?/); if (!m || reduce) return;
     const to = parseFloat(m[0]), dp = (m[0].split('.')[1] || '').length, t0 = performance.now() + 260 + i * 50, ms = 1200;
-    const step = now => { const k = Math.min(1, Math.max(0, (now - t0) / ms)), e = 1 - Math.pow(1 - k, 4); el.textContent = txt.replace(m[0], (to * e).toFixed(dp)); if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
-    el.textContent = txt.replace(m[0], (0).toFixed(dp)); requestAnimationFrame(step);
+    const step = now => { const k = Math.min(1, Math.max(0, (now - t0) / ms)), e = 1 - Math.pow(1 - k, 4); el.textContent = txt.replace(m[0], (to * (.82 + .18 * e)).toFixed(dp)); if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
+    el.textContent = txt.replace(m[0], (to * .82).toFixed(dp)); requestAnimationFrame(step);
   });
   // Each drawn area is its own `.mk-a`: taking mk-on away and giving it back replays its rings, charts and bars
   function animate(scope) {
@@ -107,8 +107,8 @@
   const DASH = { overview: () => G.overview(1100, 700), weather: G.weather, time: G.time };
   const dockApps = ['files', 'safari', 'messages', 'mail', 'photos', 'music', 'calendar', 'notes', 'settings', 'code', 'terminal'];
   const SCENES = {
-    hero: { dock: true, island: 'split', crop: { m: [255, 0, 1180, 760], s: [545, 0, 600, 600] } },
-    panel: { dock: true, island: 'pill', panel: 'home', crop: { m: [700, 0, 980, 760], s: [1095, 0, 540, 740] } },
+    hero: { dock: true, island: 'split', crop: { m: [520, 0, 660, 600], s: [560, 0, 580, 580] } },
+    panel: { dock: true, island: 'split', panel: 'home', crop: { m: [700, 0, 980, 760], s: [1095, 0, 540, 740] } },
     island: { dock: true, island: 'split', crop: { m: [395, 0, 900, 640], s: [575, 0, 540, 600] } },
     dash: { dock: true, island: 'calm', dash: 'overview', crop: { m: [270, 90, 1150, 780], s: [285, 105, 700, 520] } },
     docks: { dock: false, island: 'split', fullDock: true, crop: { m: [89, 420, 1512, 640], s: [330, 700, 700, 370] } },

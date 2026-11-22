@@ -11,6 +11,7 @@ It's plain HTML, CSS and JavaScript with no build step and no outside scripts; G
 | `privacy/`, `support/`, `404.html` | The other pages |
 | `ui/site.css`, `ui/site.js` | Shared design system and behaviour (appearance, menu, the Mac App Store link, reveals) |
 | `ui/home.css`, `ui/home.js` | The home page's drawn app and its animations |
+| `ui/stage.css` | The App Store look: each feature on the gradient of its Mac App Store image, a white headline card with one accent word, glassy chips |
 | `ui/live.css`, `ui/live.js` | Stay Awake, Evening Mode, Smart clean-up and the shelf, drawn as the app draws them and playing what they do |
 | `ui/tiles.css`, `ui/tiles.js` | The Song finder, Apple Weather's next hour, the screen recorder and share links (kept in step with the Monorail site's copies) |
 | `ui/mac.css`, `ui/mac.js`, `ui/screens.js` | The drawn MacBook with the Island, panel, Dashboard, docks and tour |

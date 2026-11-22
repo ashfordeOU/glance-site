@@ -339,8 +339,8 @@
   const rollAll = st => st.querySelectorAll('.rl').forEach((el, i) => {
     const txt = el.textContent, m = txt.match(/\d+(?:\.\d+)?/); if (!m) return;
     const to = parseFloat(m[0]), dp = (m[0].split('.')[1] || '').length, t0 = performance.now() + 200 + i * 40, ms = 1300;
-    const step = now => { const k = Math.min(1, Math.max(0, (now - t0) / ms)), e = 1 - Math.pow(1 - k, 4); el.textContent = txt.replace(m[0], (to * e).toFixed(dp)); if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
-    el.textContent = txt.replace(m[0], (0).toFixed(dp)); requestAnimationFrame(step);
+    const step = now => { const k = Math.min(1, Math.max(0, (now - t0) / ms)), e = 1 - Math.pow(1 - k, 4); el.textContent = txt.replace(m[0], (to * (.82 + .18 * e)).toFixed(dp)); if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
+    el.textContent = txt.replace(m[0], (to * .82).toFixed(dp)); requestAnimationFrame(step);
   });
   // Each drawing is built when it comes near the screen (the live panel at once: its page wiring needs it), so the
   // page's first paint doesn't wait for drawings far below.

@@ -22,8 +22,9 @@
   const fits = [];
   const fit = f => {
     const inner = f.firstElementChild, w = f.clientWidth, nat = +f.dataset.w;
-    const z = Math.min(1, w / nat);
+    const z = Math.min(+(f.dataset.max || 1), w / nat);
     inner.style.transform = `scale(${z})`;
+    inner.style.marginLeft = Math.max(0, (w - nat * z) / 2) + 'px';
     f.style.height = Math.ceil(inner.offsetHeight * z) + 'px';
   };
   const fitAll = () => fits.forEach(fit);
@@ -317,7 +318,7 @@
     fits.push(el); fit(el); requestAnimationFrame(() => fit(el));
     if (fits.ro) fits.ro.observe(el);
   };
-  els.forEach(el => { const k = el.dataset.glive; el.dataset.w = WIDTH[k]; el.style.height = Math.round(HEIGHT[k] * Math.min(1, (el.clientWidth || WIDTH[k]) / WIDTH[k])) + 'px'; });
+  els.forEach(el => { const k = el.dataset.glive; el.dataset.w = WIDTH[k]; if (el.closest('.stg')) el.dataset.max = 1.3; el.style.height = Math.round(HEIGHT[k] * Math.min(+(el.dataset.max || 1), (el.clientWidth || WIDTH[k]) / WIDTH[k])) + 'px'; });
 
   const runs = new Map();
   const stop = el => { (runs.get(el) || []).forEach(clearTimeout); runs.delete(el); };

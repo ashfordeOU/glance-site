@@ -1,5 +1,5 @@
 /* Glance's own controls drawn and playing (live.js). Built at the app's point size inside .lv-in and scaled to fit. */
-[data-glive] { position: relative; width: 100%; display: flex; justify-content: safe center; align-items: flex-start; }
+[data-glive] { position: relative; width: 100%; display: flex; justify-content: flex-start; align-items: flex-start; }
 .lv-in { position: relative; transform-origin: 0 0; margin: 0; height: auto; flex: none; }
 .lv-in .lv-ptr { position: absolute; left: 0; top: 0; z-index: 9; width: 17px; height: 22px; margin: -2px 0 0 -2px; opacity: 0; pointer-events: none;
   transition-property: transform, opacity; transition-timing-function: cubic-bezier(.45, 0, .2, 1); filter: drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
