@@ -40,7 +40,7 @@
   S.islTop = (live = true) => `<div class="gi-top">${live ? `<span class="l">${ringSvg(22, 2, .75, TINT.blue)}<span style="color:${TINT.blue}">${ic('cup')}</span></span><span class="r fig">1:30</span>` : ''}</div>`;
 
   /* ---------- The tab bar floating just below the open Island (IslandFloatingTabBar): icons only, in groups */
-  const TABS = [['home', 'Home'], '|', ['cal', 'Calendar'], ['timer', 'Timers'], ['checklist', 'Tasks'], '|', ['bars', 'Insights'], ['drive', 'Storage'], ['bat', 'Battery'], '|', ['grid4', 'Tools']];
+  const TABS = [['home', 'Home'], '|', ['cal', 'Calendar'], ['timer', 'Timer'], ['checklist', 'Tasks'], '|', ['bars', 'Insights'], ['drive', 'Storage'], ['bat', 'Battery'], '|', ['grid4', 'Tools']];
   S.TABS = TABS.filter(t => t !== '|');
   S.tabBar = on => `<div class="gi-bar" role="presentation">${TABS.map(t => t === '|' ? '<i class="sep"></i>' : `<span data-gtab="${t[1].toLowerCase()}" class="${t[1] === on ? 'on' : ''}" title="${t[1]}">${ic(t[0])}</span>`).join('')}<i class="sep"></i><span class="pl">${ic('plus')}</span><span class="pl">${ic('wins')}</span></div>`;
 
@@ -139,17 +139,16 @@
     <div class="gi-th"><span class="all">${ic('grid22')}All</span><span class="sp"></span><span class="rb">${ic('list')}</span><span class="more">${g('ell')}More</span></div>
     <div class="gi-tools">${TOOLS.map(t => tool(...t)).join('')}</div></div>`;
 
-  /* ---------- The shelf (1.9.9): files with their actions; Share Link copies a link anyone can open */
-  const shelfItem = (k, n, s, act) => `<div class="gs-it"><i class="${k}"></i><span><b>${n}</b><small>${s}</small></span>${act}</div>`;
+  /* ---------- The shelf (IslandShelfView): the shelf's name with its dot, Share, AirDrop and Clear, then its files in a row.
+     With the tabs hidden, the shelf button opens Home at the shelf. Each file's actions are in its right-click menu. */
+  const shelfFile = (k, n) => `<span class="gs-f ${k}"><i></i><small>${n}</small></span>`;
   const shelf = () => `<div class="gi-pg">
-    <div class="mki-hd"><b>Shelf</b><span class="gs-n">3 files</span></div>
-    <div class="gs-row">${shelfItem('zip', 'Photos.zip', '48 MB', '<em>Unzip</em>')}${shelfItem('vid', 'Walkthrough.mov', '212 MB', '<em>Fit to 25 MB</em>')}${shelfItem('pic', 'Logo.png', '1.2 MB', '<em>Remove Background</em>')}</div>
-    <div class="gs-link"><span class="li">${ic('link')}</span><span><b>Link copied</b><small>3 files · lasts 7 days · no account needed to open it</small></span><em>Share Link</em></div>
-    <p class="gi-hint">Files wait here until you take them. With the tabs hidden, the shelf button shows only while something is on the shelf.</p></div>`;
+    <div class="gs-shelf"><p class="gs-sh"><span class="nm"><i></i>SHELF</span><span class="sp"></span>${ic('share')}<b>AirDrop</b><em>Clear</em></p>
+    <div class="gs-files">${shelfFile('zip', 'Photos.zip')}${shelfFile('img', 'Logo.png')}${shelfFile('mov', 'Walkthrough.mov')}</div></div></div>`;
   S.shelfBar = () => `<div class="gi-bar gi-bar1" role="presentation"><span class="on" title="Shelf">${ic('tray')}<b>3</b></span></div>`;
 
   S.pages = { home: () => home(), music: () => home({ music: true }), calendar: cal, timers, tools, shelf };
-  S.pageTab = { home: 'Home', music: 'Home', calendar: 'Calendar', timers: 'Timers', tools: 'Tools', shelf: null };
+  S.pageTab = { home: 'Home', music: 'Home', calendar: 'Calendar', timers: 'Timer', tools: 'Tools', shelf: null };
 
   /* ---------- The open Island on its own, for the gallery: the Island and its tab bar below it */
   const solo = (page, tab) => `<div class="gi-solo"><div class="gi-card">${S.islTop()}${S.pages[page]()}</div>${S.tabBar(tab)}</div>`;

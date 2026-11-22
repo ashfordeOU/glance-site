@@ -191,6 +191,22 @@
 .gs-kv small { display: block; font-size: 10px; font-weight: 700; letter-spacing: .04em; color: var(--c); }
 .gs-kv b { font-size: 17px; color: var(--p-1); }
 .gs-kv em { font-style: normal; font-size: 11px; font-weight: 500; color: var(--p-3); margin-left: 5px; }
+/* The shelf (IslandShelfView) */
+.gs-shelf { padding: 10px; border-radius: 14px; background: var(--tile); margin-bottom: 4px; }
+.gs-sh { margin: 0 0 8px; display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.gs-sh .sp { flex: 1; }
+.gs-sh .nm { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 600; letter-spacing: .06em; color: rgba(255,255,255,.6); }
+.gs-sh .nm i { width: 7px; height: 7px; border-radius: 50%; background: #40C8E0; }
+.gs-sh .mi { color: rgba(255,255,255,.75); font-size: 11px; } .gs-sh b { color: #40C8E0; } .gs-sh em { font-style: normal; font-size: 11px; color: rgba(255,255,255,.6); }
+.gs-files { display: flex; gap: 10px; }
+.gs-f { width: 64px; display: grid; justify-items: center; gap: 4px; padding: 3px 0; }
+.gs-f i { width: 34px; height: 40px; border-radius: 4px; background: linear-gradient(#fff, #e6e6eb); position: relative; box-shadow: 0 1px 2px rgba(0,0,0,.45); }
+.gs-f.zip i::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 12px; width: 4px; margin-left: -2px; background: repeating-linear-gradient(#8e8e93 0 3px, transparent 3px 6px); }
+.gs-f.zip i::after { content: ""; position: absolute; left: 50%; bottom: 5px; width: 8px; height: 8px; margin-left: -4px; border-radius: 2px; border: 1.5px solid #8e8e93; }
+.gs-f.img i { background: linear-gradient(160deg, #ffb35c, #ff5e7e 55%, #6b5bff); }
+.gs-f.mov i { background: linear-gradient(160deg, #2c2c32, #0e0e10); }
+.gs-f.mov i::after { content: ""; position: absolute; left: 50%; top: 50%; border: 7px solid transparent; border-left: 11px solid #fff; transform: translate(-25%, -50%); }
+.gs-f small { font-size: 9.5px; color: rgba(255,255,255,.8); max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gs-chip { padding: 10px 14px 12px; border-radius: 14px; background: #121214; color: #fff; box-shadow: 0 0 0 3px rgba(0,0,0,.75), inset 0 0 0 .5px rgba(255,255,255,.1); margin: 2px 2px 4px; }
 .gs-chip > b { font-size: 13px; } .gs-chip > small { font-size: 10px; color: rgba(255,255,255,.55); margin-left: 5px; }
 .gs-chip .h6 { display: block; margin: 8px 0 5px; font-size: 8.5px; letter-spacing: .08em; color: rgba(255,255,255,.5); }
@@ -310,19 +326,6 @@
 .gi-gl { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: #fff; }
 .gi-gl .mi { font-size: 17px; color: #30D158; }
 .gi-aw { display: block; margin-top: 4px; font-size: 9px; color: rgba(255,255,255,.5); text-align: right; }
-.gs-n { font-size: 12px; color: rgba(255,255,255,.55); }
-.gs-row { display: grid; gap: 6px; margin-bottom: 10px; }
-.gs-it { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 12px; background: var(--tile); }
-.gs-it i { width: 32px; height: 32px; border-radius: 7px; background: linear-gradient(135deg, #5AC8FA, #0A84FF); }
-.gs-it i.zip { background: repeating-linear-gradient(180deg, #8e8e93 0 3px, #c7c7cc 3px 6px) center / 6px 100% no-repeat, #e5e5ea; }
-.gs-it i.vid { background: linear-gradient(135deg, #FF9E62, #D63A80); }
-.gs-it i.pic { background: radial-gradient(circle at 50% 50%, #FF9F0A 0 30%, transparent 31%), repeating-conic-gradient(#d1d1d6 0 25%, #f2f2f7 0 50%) 0 0 / 8px 8px; }
-.gs-it b { display: block; font-size: 12.5px; } .gs-it small { font-size: 10.5px; color: rgba(255,255,255,.55); }
-.gs-it em, .gs-link em { font-style: normal; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 9px; background: rgba(255,255,255,.12); white-space: nowrap; }
-.gs-link { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: rgba(10,132,255,.18); margin-bottom: 10px; }
-.gs-link .li { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: #0A84FF; font-size: 14px; flex: none; }
-.gs-link > span:nth-child(2) { flex: 1; min-width: 0; } .gs-link b { display: block; font-size: 12.5px; } .gs-link small { font-size: 10.5px; color: rgba(255,255,255,.65); }
-.gs-link em { background: #0A84FF; }
 .gi-bar1 span { width: auto; padding: 0 12px; gap: 6px; display: inline-flex; align-items: center; }
 .gi-bar1 span b { font-size: 12px; }
 

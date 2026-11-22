@@ -68,7 +68,7 @@
       animate(inner);
       el.style.setProperty('--oh', Math.ceil($('.gi-card', inner).offsetHeight) + 'px');
       $$('[data-gtab]', barw).forEach(t => {
-        const to = { home: 'home', calendar: 'calendar', timers: 'timers', tools: 'tools' }[t.dataset.gtab];
+        const to = { home: 'home', calendar: 'calendar', timer: 'timers', tools: 'tools' }[t.dataset.gtab];
         if (to) { t.classList.add('go'); t.addEventListener('click', () => scene.show(to)); }
       });
     };
