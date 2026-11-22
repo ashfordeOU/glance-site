@@ -18,7 +18,7 @@
 
 /* Daylight (the default) */
 :root, :root[data-scheme="light"] {
-  --bg: #FAFBFD; --bg2: #F1F2F7; --bg3: #E6E8F0; --ink: #141833; --ink2: #50546B; --ink3: #82869A;
+  --bg: #FAFBFD; --bg2: #F1F2F7; --bg3: #E6E8F0; --ink: #141833; --ink2: #50546B; --ink3: #666A80;
   --card: #FFFFFF; --glass2: #F3F4F9; --glass-strong: rgba(255,255,255,.88);
   --hair: rgba(10,16,42,.08); --hair2: rgba(10,16,42,.15);
   --btn-bg: #0A102A; --btn-ink: #FFFFFF; --link: #C02A63; --ok: #1E8E3E;
@@ -29,7 +29,7 @@
 }
 /* Night: navy-black rather than pure black, so Glance reads as Glance */
 :root[data-scheme="dark"] {
-  --bg: #05081A; --bg2: #0A0E24; --bg3: #151B3A; --ink: #F3F4FA; --ink2: #A3A7BF; --ink3: #6F7491;
+  --bg: #05081A; --bg2: #0A0E24; --bg3: #151B3A; --ink: #F3F4FA; --ink2: #A3A7BF; --ink3: #8A8FAD;
   --card: #0D1230; --glass2: #161C3F; --glass-strong: rgba(13,18,48,.88);
   --hair: rgba(255,255,255,.09); --hair2: rgba(255,255,255,.17);
   --btn-bg: #F3F4FA; --btn-ink: #0A102A; --link: #FF8FA6; --ok: #30D158;
@@ -40,7 +40,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-scheme]) {
-    --bg: #05081A; --bg2: #0A0E24; --bg3: #151B3A; --ink: #F3F4FA; --ink2: #A3A7BF; --ink3: #6F7491;
+    --bg: #05081A; --bg2: #0A0E24; --bg3: #151B3A; --ink: #F3F4FA; --ink2: #A3A7BF; --ink3: #8A8FAD;
     --card: #0D1230; --glass2: #161C3F; --glass-strong: rgba(13,18,48,.88);
     --hair: rgba(255,255,255,.09); --hair2: rgba(255,255,255,.17);
     --btn-bg: #F3F4FA; --btn-ink: #0A102A; --link: #FF8FA6; --ok: #30D158;
@@ -270,3 +270,6 @@ html.js .sg.in > * { opacity: 1; transform: none; }
   .prose td:nth-child(2)::before { content: "When"; }
   .prose td:nth-child(3)::before { content: "What it receives"; }
 }
+
+/* Links inside running text are underlined, so they don't rely on colour alone. */
+.lede a:not(.btn), .card p a:not(.btn), .prose p a, .prose li a { text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: from-font; }

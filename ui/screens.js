@@ -70,7 +70,7 @@
     for (let d = 1; d <= 30; d++) gg += `<span class="${d === 20 ? 'td' : ''}${evDays.includes(d) ? ' ev' : ''}">${d}</span>`;
     return `<div class="gi-pg">
       <div class="mki-add"><span>Add an event: lunch with Sam tomorrow 13:00</span><em>Add</em>${ic('calplus')}</div>
-      <div class="mki-cal"><div class="mki-ag"><h6>TODAY</h6>${ev('#FF9F0A', 'Team stand-up', '09:30 – 09:45', 'past')}${ev('#0A84FF', 'Design review', '17:30 – 18:00 · in 17 min')}${ev('#30D158', 'Dinner with Sam', '19:30 – 21:00')}<h6>TOMORROW</h6>${ev('#FF453A', 'Flight to Tallinn', '08:15 · LHR Terminal 2')}${ev('#BF5AF2', 'Run in Kadriorg', '17:00 – 18:00')}</div>
+      <div class="mki-cal"><div class="mki-ag"><b class="h6">TODAY</b>${ev('#FF9F0A', 'Team stand-up', '09:30 – 09:45', 'past')}${ev('#0A84FF', 'Design review', '17:30 – 18:00 · in 17 min')}${ev('#30D158', 'Dinner with Sam', '19:30 – 21:00')}<b class="h6">TOMORROW</b>${ev('#FF453A', 'Flight to Tallinn', '08:15 · LHR Terminal 2')}${ev('#BF5AF2', 'Run in Kadriorg', '17:00 – 18:00')}</div>
       <div class="mki-mo"><b>November 2026</b><div class="qg">${gg}</div></div></div></div>`;
   };
 
@@ -164,7 +164,7 @@
           <p style="--c:#30D158"><small>PROCESSOR</small><b class="fig">${roll('18')}%<em>14 cores</em></b></p>
           <p style="--c:#0A84FF"><small>MEMORY</small><b class="fig">${roll('20.5')} GB<em>pressure low</em></b></p>
           <p style="--c:#30D158"><small>HEAT</small><b>Cool</b></p></div></div>
-        <div class="gs-chip"><b>Apple M4 Pro</b><small>load per core</small><h6>CORES</h6><div class="gs-cores">${cores.map((v, i) => `<i style="--v:${v}"><b>${i + 1}</b><small>${v}%</small></i>`).join('')}</div></div>
+        <div class="gs-chip"><b>Apple M4 Pro</b><small>load per core</small><b class="h6">CORES</b><div class="gs-cores">${cores.map((v, i) => `<i style="--v:${v}"><b>${i + 1}</b><small>${v}%</small></i>`).join('')}</div></div>
         <div class="gs-card"><div class="gs-h"><small>MEMORY</small><span>20.5 GB of 48 GB</span></div>${dots(mem.map(([, v, c]) => ({ v, c })), 48, 14, { d: .4 })}
           <div class="gs-leg">${mem.map(([n, v, c]) => `<span><i style="background:${c}"></i>${n}<b>${v} GB</b></span>`).join('')}<span><i style="background:rgba(127,127,127,.35)"></i>Free<b>27.5 GB</b></span></div></div>
         <div class="gs-card"><div class="gs-h"><small>PROCESSOR TIME</small></div><div class="gs-pt"><i style="flex:11;background:#0A84FF"></i><i style="flex:7;background:#FF453A"></i><i style="flex:82" class="e"></i></div>

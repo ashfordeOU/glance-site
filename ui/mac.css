@@ -112,7 +112,7 @@
 .gi-pg { padding-top: 6px; }
 .gi-pg .mki-hd span .mi { font-size: 20px; }
 .gi-sw .c .mi { font-size: 16px; }
-.gi-jot { display: flex; align-items: center; gap: 8px; height: 28px; padding: 0 9px; border-radius: 8px; background: rgba(255,255,255,.1); margin-bottom: 12px; font-size: 12.5px; color: rgba(255,255,255,.42); }
+.gi-jot { display: flex; align-items: center; gap: 8px; height: 28px; padding: 0 9px; border-radius: 8px; background: rgba(255,255,255,.1); margin-bottom: 12px; font-size: 12.5px; color: rgba(255,255,255,.55); }
 .gi-jot span { flex: 1; } .gi-jot .mi { font-size: 14px; stroke-width: 1.8; }
 .gi-chip { margin: 0 auto 14px; display: flex; width: max-content; align-items: center; gap: 8px; height: 28px; padding: 0 4px 0 12px; border-radius: 14px; background: rgba(255,255,255,.1); font-size: 12.5px; font-weight: 600; }
 .gi-chip em { font-style: normal; background: rgba(255,255,255,.16); padding: 4px 10px; border-radius: 10px; font-size: 12px; }
@@ -193,7 +193,7 @@
 .gs-kv em { font-style: normal; font-size: 11px; font-weight: 500; color: var(--p-3); margin-left: 5px; }
 .gs-chip { padding: 10px 14px 12px; border-radius: 14px; background: #121214; color: #fff; box-shadow: 0 0 0 3px rgba(0,0,0,.75), inset 0 0 0 .5px rgba(255,255,255,.1); margin: 2px 2px 4px; }
 .gs-chip > b { font-size: 13px; } .gs-chip > small { font-size: 10px; color: rgba(255,255,255,.55); margin-left: 5px; }
-.gs-chip h6 { margin: 8px 0 5px; font-size: 8.5px; letter-spacing: .08em; color: rgba(255,255,255,.5); }
+.gs-chip .h6 { display: block; margin: 8px 0 5px; font-size: 8.5px; letter-spacing: .08em; color: rgba(255,255,255,.5); }
 .gs-cores { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
 .gs-cores i { height: 30px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: color-mix(in srgb, #30D158 calc(18% + var(--v) * 2%), #0e1a12); font-style: normal; }
 .gs-cores b { font-size: 9px; } .gs-cores small { font-size: 8px; color: rgba(255,255,255,.75); }
@@ -325,3 +325,19 @@
 .gs-link em { background: #0A84FF; }
 .gi-bar1 span { width: auto; padding: 0 12px; gap: 6px; display: inline-flex; align-items: center; }
 .gi-bar1 span b { font-size: 12px; }
+
+/* Each drawn Mac keeps its height before mac.js draws it (the same crops as mac.js's fit), so nothing below moves. */
+.mac-fig { container-type: inline-size; }
+.mac-stage { height: auto; aspect-ratio: 1706 / 1084; }
+@container (max-width: 959.98px) { .mac-stage[data-mac="hero"] { aspect-ratio: 1180 / 760; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="hero"] { aspect-ratio: 600 / 600; } }
+@container (max-width: 959.98px) { .mac-stage[data-mac="panel"] { aspect-ratio: 980 / 760; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="panel"] { aspect-ratio: 540 / 740; } }
+@container (max-width: 959.98px) { .mac-stage[data-mac="island"] { aspect-ratio: 900 / 640; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="island"] { aspect-ratio: 540 / 600; } }
+@container (max-width: 959.98px) { .mac-stage[data-mac="dash"] { aspect-ratio: 1150 / 780; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="dash"] { aspect-ratio: 700 / 520; } }
+@container (max-width: 959.98px) { .mac-stage[data-mac="docks"] { aspect-ratio: 1512 / 640; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="docks"] { aspect-ratio: 700 / 370; } }
+@container (max-width: 959.98px) { .mac-stage[data-mac="tour"] { aspect-ratio: 1030 / 840; } }
+@container (max-width: 559.98px) { .mac-stage[data-mac="tour"] { aspect-ratio: 670 / 712; } }

@@ -306,7 +306,7 @@
     <div class="mks-isl">${ic('tray')}<span>2</span></div>
     <div class="mks-track">
     <div class="mks-w in1" style="left:10px;width:770px">
-      <div class="mks-side"><div class="mks-tl"><i></i><i></i><i></i></div><h6>Favourites</h6><p>${ic('clockr')}Recents</p><p>${ic('app')}Applications</p><p>${ic('desk')}Desktop</p><p class="on">${ic('doc')}Documents</p><p>${ic('dl')}Downloads</p><h6>Locations</h6><p>${ic('cloudline')}iCloud Drive</p><h6>Tags</h6><p><i class="qt" style="--c:#FF453A"></i>Red</p><p><i class="qt" style="--c:#FF9F0A"></i>Orange</p><p><i class="qt" style="--c:#30D158"></i>Green</p><p><i class="qt" style="--c:#0A84FF"></i>Blue</p></div>
+      <div class="mks-side"><div class="mks-tl"><i></i><i></i><i></i></div><b class="h6">Favourites</b><p>${ic('clockr')}Recents</p><p>${ic('app')}Applications</p><p>${ic('desk')}Desktop</p><p class="on">${ic('doc')}Documents</p><p>${ic('dl')}Downloads</p><b class="h6">Locations</b><p>${ic('cloudline')}iCloud Drive</p><b class="h6">Tags</b><p><i class="qt" style="--c:#FF453A"></i>Red</p><p><i class="qt" style="--c:#FF9F0A"></i>Orange</p><p><i class="qt" style="--c:#30D158"></i>Green</p><p><i class="qt" style="--c:#0A84FF"></i>Blue</p></div>
       <div class="mks-main"><div class="mks-bar">${ic('back')}${ic('fwd')}<b>Launch</b><span class="sp"></span><span class="qseg"><i class="on">${ic('grid22')}</i><i>${ic('list')}</i><i>${ic('cols')}</i><i>${ic('gallery')}</i></span>${ic('share')}${ic('tag')}${ic('search')}</div>
         <div class="mks-files"><div><span class="fd"></span>Design</div><div><span class="fd"></span>Press</div><div><span class="fd"></span>Screens</div><div><span class="dc"><b>TXT</b></span>Launch plan.txt</div><div><span class="dc qimg"></span><span class="qsel">Hero.png</span></div><div><span class="dc"><b>MD</b></span>Roadmap.md</div><div><span class="dc"><b>CSV</b></span>Press list.csv</div><div><span class="fd"></span>Archive</div></div></div></div>
     <div class="mks-w mks-pv bg in2" style="left:788px;width:640px">
@@ -314,7 +314,7 @@
       <div class="mks-photo"><div class="pic"></div></div></div>
     <div class="mks-w mks-notes bg" style="left:1436px;width:600px">
       <div class="nl"><div class="mks-tl" style="margin:4px 0 14px 4px"><i></i><i></i><i></i></div><div class="on"><b>Launch checklist</b><small>10:41 · Press list sent</small></div><div><b>Interview notes</b><small>Yesterday</small></div><div><b>Ideas</b><small>Friday</small></div></div>
-      <div class="nb"><h5>Launch checklist</h5>Press list sent<br>Hero image final<br>Screens for the site<br>Release notes, short and plain</div></div>
+      <div class="nb"><b class="h5">Launch checklist</b>Press list sent<br>Hero image final<br>Screens for the site<br>Release notes, short and plain</div></div>
     </div>
     <div class="mks-dock">${['files', 'safari', 'messages', 'mail', 'photos', 'music', 'calendar', 'notes', 'settings'].map((k, i) => app(k, i < 2 || k === 'photos' ? 'run' : '')).join('')}<b></b>${['code', 'terminal'].map(k => app(k, 'run')).join('')}</div></div>`;
 
@@ -342,16 +342,23 @@
     const step = now => { const k = Math.min(1, Math.max(0, (now - t0) / ms)), e = 1 - Math.pow(1 - k, 4); el.textContent = txt.replace(m[0], (to * e).toFixed(dp)); if (k < 1) requestAnimationFrame(step); else el.textContent = txt; };
     el.textContent = txt.replace(m[0], (0).toFixed(dp)); requestAnimationFrame(step);
   });
-  stages.forEach(st => {
+  // Each drawing is built when it comes near the screen (the live panel at once: its page wiring needs it), so the
+  // page's first paint doesn't wait for drawings far below.
+  const make = st => {
+    if (st.dataset.built) return; st.dataset.built = '1';
     const b = BUILD[st.dataset.mock]; if (!b) return;
     st.innerHTML = `<div class="mk mk-fit" data-w="${b[1]}" data-h="${b[2]}" style="width:${b[1]}px;height:${b[2]}px">${b[0]()}</div>`;
     if (window.MR_LOGO && MR_LOGO.fill) MR_LOGO.fill(st);
     fit(st);
-  });
+  };
+  const eager = st => st.dataset.mock === 'panellive' || !('IntersectionObserver' in window);
+  stages.filter(eager).forEach(make);
+  const near = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { near.unobserve(e.target); make(e.target); } }), { rootMargin: '700px 0px' }) : null;
+  if (near) stages.filter(st => !eager(st)).forEach(st => near.observe(st));
   if ('ResizeObserver' in window) { const ro = new ResizeObserver(es => es.forEach(e => fit(e.target))); stages.forEach(st => ro.observe(st)); }
   else addEventListener('resize', () => stages.forEach(fit));
-  if (reduce || !('IntersectionObserver' in window)) { stages.forEach(st => st.classList.add('mk-on')); return; }
-  const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); e.target.classList.add('mk-on'); rollAll(e.target); }), { threshold: .35 });
+  if (reduce || !('IntersectionObserver' in window)) { stages.forEach(st => { make(st); st.classList.add('mk-on'); }); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; io.unobserve(e.target); make(e.target); e.target.classList.add('mk-on'); rollAll(e.target); }), { threshold: .35 });
   stages.forEach(st => io.observe(st));
   // Live drawings rest when you can't see them: anything still moving pauses off screen
   const rest = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('mk-rest', !e.isIntersecting)), { threshold: 0 });
