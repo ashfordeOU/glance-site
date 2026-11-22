@@ -160,3 +160,23 @@
 .t9-grec.p2 .t9-gsw .c { background: #ff3b30; color: #fff; } .t9-grec.p2 .t9-gsw small { color: #ff3b30; }
 .t9-grec.p1 .t9-gsw .c { transform: scale(.92); transition: transform .15s; }
 .t9-grec.p3 .t9-irow.new, .t9-grec.done .t9-irow.new { display: flex; animation: t9in .5s ease both; }
+
+/* Glance fixes (QA 22 Nov): the listening line, no gap under the Song finder, the Record Screen switch on the navy
+   tile, a real waveform glyph, and a steady share card. */
+:is(.t9, .t9-sheet) .t9-listen small.b { display: none; }
+.t9-song.p1 .t9-listen small.a { display: none; } .t9-song.p1 .t9-listen small.b { display: block; }
+.t9-song.p1 .t9-go .st { display: block; font-size: 15px; }
+:where(html.js) .t9-song .t9-card { max-height: 0; margin-top: 0; padding-block: 0; overflow: hidden; }
+.t9-song.done .t9-card, .t9-song.p2 .t9-card { max-height: 120px; margin-top: 10px; padding-block: 8px; transition: max-height .5s ease, margin .5s ease, padding .5s ease, opacity .5s, transform .6s cubic-bezier(.3,1.4,.5,1); }
+.navy .t9-grec .t9-gsw { color: rgba(255,255,255,.7); }
+.navy .t9-grec .t9-gsw .c { background: rgba(255,255,255,.14); color: #fff; }
+.navy .t9-grec.p2 .t9-gsw .c { background: #ff3b30; } .navy .t9-grec.p2 .t9-gsw small { color: #ff6961; }
+:is(.t9, .t9-sheet) .t9-irow i.wv, :is(.t9, .t9-sheet) .t9-row i.wv { border: 0; border-radius: 0; width: 12px;
+  background: linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)) 0 50% / 1.6px 40% no-repeat,
+              linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)) 3.4px 50% / 1.6px 100% no-repeat,
+              linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)) 6.8px 50% / 1.6px 65% no-repeat,
+              linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)) 10.2px 50% / 1.6px 30% no-repeat; }
+.t9-share .g9-share { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+.t9-share .g9-share .rev { width: 100%; max-width: 360px; box-sizing: border-box; }
+.t9-share .t9-pill { margin-block: 6px; }
+.t9-share.done .t9-pill, .t9-share.play.b .t9-pill { margin-block: 0; transition: height .4s, margin .4s; }

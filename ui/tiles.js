@@ -41,8 +41,8 @@
     // Stop counting, then the recording joins the list.
     grec: el => { const t = el.querySelector('[data-rt]'), cap = el.querySelector('[data-gcap]');
       return [[0, () => { t.textContent = '0:00'; cap.textContent = 'Record Screen'; }], [800, () => el.classList.add('p1')], [1100, () => { el.classList.remove('p1'); el.classList.add('p2'); }],
-        ...Array.from({ length: 18 }, (_, k) => [1300 + k * 230, () => { t.textContent = cap.textContent = mmss(k + 1); }]),
-        [5600, () => { el.classList.remove('p2'); el.classList.add('p3'); cap.textContent = 'Record Screen'; }], [10000, null]]; }
+        ...Array.from({ length: 5 }, (_, k) => [2100 + k * 1000, () => { t.textContent = cap.textContent = mmss(k + 1); }]),
+        [6400, () => { el.classList.remove('p2'); el.classList.add('p3'); cap.textContent = 'Record Screen'; }], [11000, null]]; }
   };
   const CLASSES = ['play', 'done', 'b', 'p1', 'p2', 'p3'];
   const finish = el => {
