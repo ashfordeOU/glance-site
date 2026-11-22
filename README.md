@@ -1,6 +1,6 @@
 # glance.ashforde.org
 
-The website for **Glance by Ashforde**, the Mac App Store app: a home page, a privacy policy and a support page.
+The website for **Glance**, the Mac App Store app: a home page, a privacy policy and a support page.
 It's plain HTML, CSS and JavaScript with no build step and no outside scripts; GitHub Pages serves the repository root.
 
 ## Layout
