@@ -1,4 +1,4 @@
-/* Glance 1.9.9's own screens, drawn in HTML and SVG at the app's point sizes (styles in mac.css): the Island's pages
+/* Glance's own screens, drawn in HTML and SVG at the app's point sizes (styles in mac.css): the Island's pages
    with the tab bar floating below, the closed Island's split bubbles, the Tools tab's illustrated icons, the player,
    the panel's System page and the tour. Built from the helpers in mocks.js (window.GM); mac.js puts them on a Mac,
    and the gallery shows some of them up close. Nothing here is a picture of the app: it is all drawn. */

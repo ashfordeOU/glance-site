@@ -319,7 +319,7 @@
 .mkd-card:hover { background: rgba(255,255,255,.1); }
 .mkd-cap { font-size: 11px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.75); text-transform: uppercase; display: flex; justify-content: space-between; }
 .mkd-cap span { text-transform: none; letter-spacing: 0; font-weight: 400; color: rgba(255,255,255,.4); }
-/* 1.9.9: the tabs in groups, each with what's inside it, and the open group's own pages below */
+/* The tabs in groups, each with what's inside it, and the open group's own pages below */
 .mkd-gt { display: flex; align-items: center; gap: 10px; flex: none; }
 .mkd-grp { display: flex; gap: 2px; padding: 3px; border-radius: 14px; background: rgba(255,255,255,.06); }
 .mkd-grp span { height: 38px; padding: 0 12px; border-radius: 11px; display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.88); white-space: nowrap; }
@@ -539,7 +539,7 @@
 .mk-rest *, .mk-rest *::before, .mk-rest *::after { animation-play-state: paused !important; }
 @media (prefers-reduced-motion: reduce) { .mk .mks-track { animation: none; } }
 
-/* Apple Weather on the Weather page (1.9.9): the next hour minute by minute, on the sky, and Apple Weather's credit */
+/* Apple Weather on the Weather page: the next hour minute by minute, on the sky, and Apple Weather's credit */
 .mkd-sky .bigi { right: 380px; }
 .mkd-nh { position: absolute; right: 14px; top: 14px; bottom: 14px; width: 340px; padding: 10px 12px; border-radius: 12px; background: rgba(20,28,60,.42); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); display: flex; flex-direction: column; gap: 6px; }
 .mkd-nh .aw { font-weight: 600; color: rgba(255,255,255,.75); }

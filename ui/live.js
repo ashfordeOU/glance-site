@@ -198,17 +198,126 @@
         cm.style.left = Math.min(x, desk.offsetWidth - cm.offsetWidth - 146) + 'px'; cm.style.top = Math.min(y, desk.offsetHeight - cm.offsetHeight - 6) + 'px';
         cm.classList.add('open'); $('[data-sub]', r).classList.add('open'); $('[data-tf]', r).classList.add('hl'); $('[data-fit]', r).classList.add('hl'); }); }
   };
-  const BUILD = { awake: AWAKE, evening: EVENING, clean: CLEAN, shelf: SHELF };
-  const WIDTH = { awake: 360, evening: 360, clean: 380, shelf: 460 };
+
+  /* ---------- Docks (DockMoves.swift, DockAppItems.swift, DockAppPickerSheet.swift, DocksSettings.swift): an app dragged
+     from one dock onto another; the app's menu with Add to Dock and Move to Dock; "Add <front app> to a Dock…" from the
+     command palette, with its menu of docks at the pointer and the Island's notice; and the searchable app picker. */
+  const NM = { safari: 'Safari', mail: 'Mail', notes: 'Notes', music: 'Music', calendar: 'Calendar', photos: 'Photos', messages: 'Messages' };
+  const di = k => `<span class="lv-di" data-k="${k}">${G.app(k)}</span>`;
+  const dockSym = '<svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M6.5 16.5h11"/></svg>';
+  const desk = (inner, h = 300) => `<div class="lv-dk-desk" style="height:${h}px">${inner}${PTR}</div>`;
+  const DKDRAG = () => desk(`<div class="lv-dock v" data-d="work">${['mail', 'calendar', 'notes'].map(di).join('')}</div>
+    <div class="lv-dock h" data-d="apps">${['safari', 'messages', 'photos', 'music'].map(di).join('')}</div><span class="lv-ghost" data-ghost></span>`);
+  const DKMENU = () => desk(`<div class="lv-dock v" data-d="work">${['safari', 'calendar', 'mail'].map(di).join('')}</div>
+    <div class="lv-dock v r" data-d="design">${['photos', 'notes'].map(di).join('')}</div>
+    <div class="lv-dock h" data-d="apps">${['safari', 'messages', 'music', 'mail'].map(di).join('')}</div>
+    <ul class="lv-mn" data-mn><li>Open</li><li>Hide</li><li class="hr"></li><li>Remove from Dock</li>
+      <li class="sub" data-add>Add to Dock<span>›</span><ul class="lv-mn lv-sub2" data-s1><li class="ck dim">Work</li><li>Design</li></ul></li>
+      <li class="sub" data-move>Move to Dock<span>›</span><ul class="lv-mn lv-sub2" data-s2><li>Work</li><li data-to>Design</li></ul></li>
+      <li>Show in Finder</li><li class="hr"></li><li>Hide Dock</li><li>Turn Off All Docks</li><li class="hr"></li><li class="sub">Position<span>›</span></li><li class="sub">Size<span>›</span></li><li class="hr"></li><li>Remove Dock…</li><li>Dock Settings…</li></ul>`, 340);
+  const DKFRONT = () => desk(`<div class="lv-isl2" data-fl><span class="ic">${dockSym}</span><b data-flt>Added Notes to Work</b></div>
+    <div class="lv-win2"><p><i></i><i></i><i></i><b>Notes</b></p><span></span><span></span><span style="width:55%"></span></div>
+    <div class="lv-dock v" data-d="work">${['mail', 'calendar'].map(di).join('')}</div>
+    <div class="lv-pal" data-pal><p class="q"><span class="cmd">⌘</span><span data-q class="ph">Type a page, a setting, a switch or a sum…</span></p>
+      <div class="rows"><div class="row" data-row><span class="ic">${dockSym}</span><span><b>Add Notes to a Dock…</b><small>Choose one of your docks, or make one</small></span></div></div>
+      <p class="keys"><span><kbd>↑ ↓</kbd> choose</span><span><kbd>return</kbd> run</span><span><kbd>esc</kbd> close</span></p></div>
+    <ul class="lv-mn" data-mn><li class="hd">${G.app('notes')}Add Notes to</li><li data-to>Work</li><li>Design</li><li class="hr"></li><li>New Dock with Notes</li></ul>`, 320);
+  const PICK = ['calendar', 'mail', 'messages', 'music', 'notes', 'photos', 'safari'];
+  const DKPICK = () => `<div class="mkp lv-sheet"><b class="t">Add Apps to Work</b><p class="lv-search"><span data-q class="ph">Search apps</span></p>
+    <div class="lv-list">${PICK.map(k => `<p class="lv-pr${k === 'mail' ? ' in' : ''}" data-k="${k}"><i class="cb"></i>${G.app(k)}<span>${NM[k]}</span>${k === 'mail' ? '<small>In this dock</small>' : ''}</p>`).join('')}<p class="lv-none" data-none></p></div>
+    <p class="lv-sbtn"><span class="b">Other…</span><span class="sp"></span><span class="b">Cancel</span><span class="b dis" data-addb>Add</span></p></div>${PTR}`;
+
+  const typeIn = (el, text, t0, step = 160) => [...text].map((c, i) => [t0 + i * step, () => { el.classList.remove('ph'); el.textContent = text.slice(0, i + 1); }]);
+  const centre = (el, root) => at(el, root);
+  const moveTo = (ptr, root, el, ms, fx = .5, fy = .5) => point(ptr, root, el, fx, fy, ms);
+  // An app leaves one dock and arrives in another, the gap closing and opening as it does
+  const leave = el => { el.classList.add('out'); setTimeout(() => el.remove(), 400); };
+  const arrive = (dock, k, before) => { const n = document.createElement('span'); n.className = 'lv-di out'; n.dataset.k = k; n.innerHTML = G.app(k);
+    dock.insertBefore(n, before || null); requestAnimationFrame(() => requestAnimationFrame(() => n.classList.remove('out'))); return n; };
+  const once = new WeakMap();
+  const resetHTML = (r, build) => { const d = r.querySelector('.lv-dk-desk, .lv-sheet'); if (!once.has(r)) once.set(r, r.innerHTML); else r.innerHTML = once.get(r); };
+
+  Object.assign(SCRIPTS, {
+    dkdrag: r => [
+      [0, () => resetHTML(r)],
+      [10, () => { const ptr = $('.lv-ptr', r); ptr.style.transitionDuration = '0ms'; ptr.style.transform = 'translate(380px, 120px)'; ptr.style.opacity = 1; }],
+      [500, () => moveTo($('.lv-ptr', r), r, $('[data-d="work"] [data-k="notes"]', r), 800)],
+      [1400, () => { const src = $('[data-d="work"] [data-k="notes"]', r), g = $('[data-ghost]', r), [x, y] = centre(src, r);
+        g.innerHTML = G.app('notes'); g.style.transitionDuration = '0ms'; g.style.transform = `translate(${x - 22}px, ${y - 22}px)`; g.style.opacity = 1; src.classList.add('lift'); }],
+      [1600, () => { const tgt = $('[data-d="apps"] [data-k="photos"]', r), [x, y] = centre(tgt, r), g = $('[data-ghost]', r), ptr = $('.lv-ptr', r);
+        g.style.transitionDuration = ptr.style.transitionDuration = '1000ms'; g.style.transform = `translate(${x - 44}px, ${y - 30}px)`; ptr.style.transform = `translate(${x - 22}px, ${y - 8}px)`; }],
+      [2300, () => $('[data-d="apps"] [data-k="photos"]', r).classList.add('gap')],
+      [2900, () => { const g = $('[data-ghost]', r); g.style.opacity = 0; const tgt = $('[data-d="apps"] [data-k="photos"]', r); tgt.classList.remove('gap');
+        leave($('[data-d="work"] [data-k="notes"]', r)); arrive($('[data-d="apps"]', r), 'notes', tgt); }],
+      [3600, () => { $('.lv-ptr', r).style.opacity = 0; }],
+      [7500, null]],
+    dkmenu: r => [
+      [0, () => resetHTML(r)],
+      [10, () => { const ptr = $('.lv-ptr', r); ptr.style.transitionDuration = '0ms'; ptr.style.transform = 'translate(240px, 120px)'; ptr.style.opacity = 1; }],
+      [500, () => moveTo($('.lv-ptr', r), r, $('[data-d="apps"] [data-k="safari"]', r), 800)],
+      [1400, () => { const mn = $('[data-mn]', r), dk = $('.lv-dk-desk', r), [x, y] = centre($('[data-d="apps"] [data-k="safari"]', r), r);
+        mn.style.left = Math.min(x, dk.offsetWidth - mn.offsetWidth - 120) + 'px'; mn.style.top = Math.max(6, y - mn.offsetHeight - 6) + 'px'; mn.classList.add('open'); }],
+      [2000, () => { moveTo($('.lv-ptr', r), r, $('[data-add]', r), 500, .3); }],
+      [2500, () => { $('[data-add]', r).classList.add('hl'); $('[data-s1]', r).classList.add('open'); }],
+      [3500, () => { moveTo($('.lv-ptr', r), r, $('[data-move]', r), 400, .3); }],
+      [3900, () => { $('[data-add]', r).classList.remove('hl'); $('[data-s1]', r).classList.remove('open'); $('[data-move]', r).classList.add('hl'); $('[data-s2]', r).classList.add('open'); }],
+      [4400, () => moveTo($('.lv-ptr', r), r, $('[data-s2] [data-to]', r), 500, .4)],
+      [4900, () => $('[data-s2] [data-to]', r).classList.add('hl')],
+      [5400, () => { $('[data-mn]', r).classList.remove('open'); leave($('[data-d="apps"] [data-k="safari"]', r)); arrive($('[data-d="design"]', r), 'safari'); $('.lv-ptr', r).style.opacity = 0; }],
+      [9000, null]],
+    dkfront: r => {
+      const steps = [
+        [0, () => resetHTML(r)],
+        [10, () => { const ptr = $('.lv-ptr', r); ptr.style.transitionDuration = '0ms'; ptr.style.transform = 'translate(250px, 170px)'; ptr.style.opacity = 0; }],
+        [400, () => $('[data-pal]', r).classList.add('open')],
+        [1800, () => $('[data-row]', r).classList.add('on')],
+        [2800, () => { press($('[data-row]', r)); }],
+        [3100, () => { $('[data-pal]', r).classList.remove('open'); const mn = $('[data-mn]', r); mn.style.left = '250px'; mn.style.top = '170px'; mn.classList.add('open'); $('.lv-ptr', r).style.opacity = 1; }],
+        [3700, () => moveTo($('.lv-ptr', r), r, $('[data-mn] [data-to]', r), 500, .35)],
+        [4200, () => $('[data-mn] [data-to]', r).classList.add('hl')],
+        [4700, () => { $('[data-mn]', r).classList.remove('open'); $('[data-fl]', r).classList.add('on'); arrive($('[data-d="work"]', r), 'notes'); $('.lv-ptr', r).style.opacity = 0; }],
+        [7000, () => $('[data-fl]', r).classList.remove('on')],
+        [9500, null]];
+      return steps.concat(typeIn($('[data-q]', r), 'add', 900)).sort((a, b) => a[0] - b[0]);
+    },
+    dkpick: r => {
+      const q = () => $('[data-q]', r);
+      const filter = text => { $$('.lv-pr', r).forEach(p => p.classList.toggle('gone', !NM[p.dataset.k].toLowerCase().includes(text))); };
+      return [
+        [0, () => resetHTML(r)],
+        [10, () => { const ptr = $('.lv-ptr', r); ptr.style.transitionDuration = '0ms'; ptr.style.transform = 'translate(330px, 300px)'; ptr.style.opacity = 1; }],
+        [500, () => moveTo($('.lv-ptr', r), r, $('.lv-search', r), 600, .3)],
+        [1200, () => { q().classList.remove('ph'); q().textContent = 'm'; filter('m'); }],
+        [1600, () => { q().textContent = 'mu'; filter('mu'); }],
+        [2200, () => moveTo($('.lv-ptr', r), r, $('[data-k="music"] .cb', r), 600)],
+        [2900, () => { $('[data-k="music"]', r).classList.add('on'); const b = $('[data-addb]', r); b.textContent = 'Add 1'; b.classList.remove('dis'); }],
+        [3500, () => moveTo($('.lv-ptr', r), r, $('[data-addb]', r), 600)],
+        [4200, () => press($('[data-addb]', r))],
+        [4800, () => { $('.lv-ptr', r).style.opacity = 0; }],
+        [8000, null]];
+    }
+  });
+  Object.assign(FINAL, {
+    dkdrag: r => { $('[data-d="work"] [data-k="notes"]', r).remove(); const t = $('[data-d="apps"] [data-k="photos"]', r); const n = document.createElement('span'); n.className = 'lv-di'; n.innerHTML = G.app('notes'); t.before(n); },
+    dkmenu: r => { const mn = $('[data-mn]', r); mn.style.left = '150px'; mn.style.top = '6px'; mn.classList.add('open'); $('[data-move]', r).classList.add('hl'); $('[data-s2]', r).classList.add('open'); $('[data-s2] [data-to]', r).classList.add('hl'); },
+    dkfront: r => { const mn = $('[data-mn]', r); mn.style.left = '250px'; mn.style.top = '150px'; mn.classList.add('open'); $('[data-mn] [data-to]', r).classList.add('hl'); },
+    dkpick: r => { const q = $('[data-q]', r); q.classList.remove('ph'); q.textContent = 'mu'; $$('.lv-pr', r).forEach(p => p.classList.toggle('gone', p.dataset.k !== 'music')); $('[data-k="music"]', r).classList.add('on'); const b = $('[data-addb]', r); b.textContent = 'Add 1'; b.classList.remove('dis'); }
+  });
+  const BUILD = { awake: AWAKE, evening: EVENING, clean: CLEAN, shelf: SHELF, dkdrag: DKDRAG, dkmenu: DKMENU, dkfront: DKFRONT, dkpick: DKPICK };
+  const WIDTH = { awake: 360, evening: 360, clean: 380, shelf: 460, dkdrag: 460, dkmenu: 460, dkfront: 460, dkpick: 400 };
 
   const els = $$('[data-glive]');
-  els.forEach(el => {
+  // Each drawing is built as it comes near the screen; until then it keeps about its height, so nothing moves.
+  const HEIGHT = { awake: 396, evening: 415, clean: 365, shelf: 400, dkdrag: 300, dkmenu: 340, dkfront: 320, dkpick: 400 };
+  const built = new Set();
+  const build = el => {
+    if (built.has(el)) return; built.add(el);
     const k = el.dataset.glive;
-    el.dataset.w = WIDTH[k];
     el.innerHTML = `<div class="mk lv-in lv-k-${k}" style="width:${WIDTH[k]}px">${BUILD[k]()}</div>`;
     fits.push(el); fit(el); requestAnimationFrame(() => fit(el));
     if (fits.ro) fits.ro.observe(el);
-  });
+  };
+  els.forEach(el => { const k = el.dataset.glive; el.dataset.w = WIDTH[k]; el.style.height = Math.round(HEIGHT[k] * Math.min(1, (el.clientWidth || WIDTH[k]) / WIDTH[k])) + 'px'; });
 
   const runs = new Map();
   const stop = el => { (runs.get(el) || []).forEach(clearTimeout); runs.delete(el); };
@@ -218,10 +327,15 @@
     steps.forEach(([ms, fn], i) => ids.push(setTimeout(() => { if (fn) fn(); if (i === steps.length - 1) start(el); }, ms)));
     runs.set(el, ids);
   };
-  if (reduce || !('IntersectionObserver' in window)) els.forEach(el => { const r = el.firstElementChild; r.classList.add('lv-still'); FINAL[el.dataset.glive](r); });
+  const still = el => { build(el); const r = el.firstElementChild; r.classList.add('lv-still'); FINAL[el.dataset.glive](r); };
+  if (!('IntersectionObserver' in window)) els.forEach(still);
   else {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { if (!runs.has(e.target)) start(e.target); } else stop(e.target); }), { threshold: .35 });
-    els.forEach(el => io.observe(el));
+    const near = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; near.unobserve(e.target); if (reduce) still(e.target); else build(e.target); }), { rootMargin: '900px 0px' });
+    els.forEach(el => near.observe(el));
+    if (!reduce) {
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { build(e.target); if (!runs.has(e.target)) start(e.target); } else stop(e.target); }), { threshold: .35 });
+      els.forEach(el => io.observe(el));
+    }
   }
 
   /* ---------- The drawn Mac: the running Tea timer counts down, and the panel's Stay Awake switch comes on */

@@ -198,7 +198,7 @@
     <div class="mkp-chk"><i></i>Red light only</div>
     <div class="mkp-hr"></div><span class="mkp-link">More Evening Mode settings…</span></div></div>`;
 
-  /* ---------- The Island's pieces shared with screens.js (which draws the 1.9.9 Island) */
+  /* ---------- The Island's pieces shared with screens.js (which draws the Island) */
   const clk = (sun, city, time, off) => `<div><small>${ic(sun ? 'sunline' : 'moon', sun ? 'sun' : 'moon')}${city}</small><b class="fig">${time}</b><em>${off}</em></div>`;
   const ev = (c, t, s, cls = '') => `<div class="mki-ev ${cls}" style="--c:${c}"><i></i><span><b>${t}</b><small>${s}</small></span></div>`;
 

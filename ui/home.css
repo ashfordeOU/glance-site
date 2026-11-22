@@ -581,7 +581,7 @@ main > section { overflow-x: clip; }
 .mr .ctas { margin-top: 28px; }
 @media (prefers-reduced-motion: reduce) { .mr-bar .gx-gl.dim, .mr-bar .rail { animation: none; } }
 
-/* ---------- Also new in 1.9.9 (#new): tiles drawn in CSS, in Glance's navy and pink */
+/* ---------- Island tools and more (#new): tiles drawn in CSS, in Glance's navy and pink */
 .g9 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .g9-t { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-width: 0; padding: 24px; border-radius: 24px; background: var(--card); border: 1px solid var(--hair); box-shadow: var(--shadow); }
 .g9-t.navy { background: linear-gradient(160deg, var(--n2), var(--n1)); color: #F3F4FA; border-color: rgba(255,255,255,.08); --ink2: #A3A7BF; --ink3: #8A8FAD; }

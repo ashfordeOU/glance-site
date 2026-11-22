@@ -1,4 +1,4 @@
-/* Glance on a drawn Mac (mac.js) and Glance 1.9.9's own screens (screens.js): the MacBook, its wallpaper, menu bar and
+/* Glance on a drawn Mac (mac.js) and Glance's own screens (screens.js): the MacBook, its wallpaper, menu bar and
    Dock; the Island with its split bubbles and floating tab bar; the panel, the Dashboard window, Glance's full-width
    dock and the tour. Everything is drawn at the Mac's point sizes and scaled as a whole, so text stays real and sharp.
    The wallpaper, menu bar, Dock and the panel follow the page's light or dark look, as they follow the Mac's; the
@@ -322,7 +322,7 @@
 /* A crop that starts at the top edge of the screen keeps the screen's own square top */
 .mac-stage.mac-crop.mac-top { border-top-left-radius: 0; border-top-right-radius: 0; }
 
-/* 1.9.9: glances at rest beside the camera, Apple Weather's credit, the shelf page and its lone shelf button */
+/* Glances at rest beside the camera, Apple Weather's credit, the shelf page and its lone shelf button */
 .gi-gl { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: #fff; }
 .gi-gl .mi { font-size: 17px; color: #30D158; }
 .gi-aw { display: block; margin-top: 4px; font-size: 9px; color: rgba(255,255,255,.5); text-align: right; }
