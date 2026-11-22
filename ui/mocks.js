@@ -182,16 +182,16 @@
   const PANEL_H = 650;
   /* ---------- Stay Awake and Evening Mode pages (Glance) */
   const awake = () => `<div class="mkp" style="height:336px"><div class="mkp-ph"><span class="bk">${ic('chevl')}Glance</span><b>Stay Awake</b></div>
-    <div class="mkp-pg"><div class="mkp-trow"><span><b>Stay Awake</b><small>On for ${roll('1')} h 30</small></span><span class="mk-tog on" style="--tint:var(--orange)"></span></div>
+    <div class="mkp-pg"><div class="mkp-trow"><span><b>Stay Awake</b><small>On for ${roll('1')} h 30</small></span><span class="mk-tog on" style="--tint:var(--blue)"></span></div>
     <div class="mkp-cap">Keep this Mac awake</div>
     <div class="mkp-chips mk-hv"><span>15 min</span><span>30 min</span><span>1 hour</span><span>2 hours</span><span>4 hours</span><span>8 hours</span></div>
     <div class="mkp-chips2 mk-hv"><span>Until I end it</span><span>While downloading</span></div>
     <div class="mkp-hr"></div>
-    <div class="mkp-line">Keep the display on <span class="mk-tog on" style="--tint:var(--orange)"></span></div>
+    <div class="mkp-line">Keep the display on <span class="mk-tog on" style="--tint:var(--blue)"></span></div>
     <div class="mkp-line">Keep me Available in Teams and Slack <span class="mk-tog"></span></div>
     <div class="mkp-hr"></div><span class="mkp-link">More Stay Awake settings…</span></div></div>`;
   const evening = () => `<div class="mkp" style="height:262px"><div class="mkp-ph"><span class="bk">${ic('chevl')}Glance</span><b>Evening Mode</b></div>
-    <div class="mkp-pg"><div class="mkp-trow"><span><b>Evening Mode</b><small>On now, until you turn it off</small></span><span class="mk-tog on" style="--tint:var(--orange)"></span></div>
+    <div class="mkp-pg"><div class="mkp-trow"><span><b>Evening Mode</b><small>On now, until you turn it off</small></span><span class="mk-tog on" style="--tint:var(--blue)"></span></div>
     <div class="mkp-warm">Warmth <span>${roll('50%')}</span></div>
     <div class="mkp-wsl">${ic('sunline')}<span class="qtr" style="--v:50%"><i></i><b></b></span>${ic('flame')}</div>
     <div class="mkp-pop">Turn on <span>By hand${ic('updown')}</span></div>
