@@ -210,7 +210,7 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); }
               radial-gradient(70% 130% at 88% 125%, color-mix(in srgb, var(--l3) 22%, transparent), transparent 72%),
               radial-gradient(60% 130% at 52% 140%, color-mix(in srgb, var(--n2) 30%, transparent), transparent 72%); }
 .foot::after { content: ""; position: absolute; z-index: 0; left: 0; bottom: 0; width: 42%; height: min(52vw, 440px); pointer-events: none; will-change: transform;
-  background: radial-gradient(55% 75% at 50% 85%, color-mix(in srgb, var(--l1) 18%, transparent), transparent 70%); filter: blur(24px);
+  background: radial-gradient(55% 75% at 50% 85%, color-mix(in srgb, var(--l1) 18%, transparent), transparent 70%);
   animation: footsweep 19s ease-in-out infinite alternate; }
 @keyframes footsweep { from { transform: translate3d(-18%, 0, 0); } to { transform: translate3d(255%, 0, 0); } }
 .foot > .wrap { position: relative; z-index: 2; }
@@ -221,7 +221,7 @@ a.card:hover { text-decoration: none; transform: translateY(-2px); }
 .foot ul a { color: var(--ink2); font-size: 12.5px; display: inline-block; padding: 5px 0; min-height: 28px; }
 .foot p { color: var(--ink2); font-size: 12.5px; }
 .foot .brand { font-size: 14px; }
-.foot .legal { font-size: 11.5px; color: var(--ink3); padding: 28px 0 32px; margin-top: 32px; border-top: 1px solid var(--hair); line-height: 1.6; }
+.foot .legal { font-size: 12px; color: var(--ink3); padding: 28px 0 32px; margin-top: 32px; border-top: 1px solid var(--hair); line-height: 1.6; }
 .foot .giant { display: block; position: relative; z-index: 1; margin-top: 10px; padding: 0 12px calc(env(safe-area-inset-bottom, 0px) + 0.1em); text-align: center; white-space: nowrap; user-select: none; pointer-events: none;
   font: 800 clamp(64px, 25vw, 400px)/1 var(--display); letter-spacing: -.05em;
   background: linear-gradient(180deg, color-mix(in srgb, var(--ink) 20%, transparent), color-mix(in srgb, var(--ink) 5%, transparent));

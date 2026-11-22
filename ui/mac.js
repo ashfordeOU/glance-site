@@ -190,13 +190,21 @@
   function sync(scene, what) {
     btns.forEach(b => { const [n, v] = b.dataset.macBtn.split(':'); if (n === scene.name) b.setAttribute('aria-pressed', String(v === what)); });
   }
+  // Each Mac is built when it comes near the screen (the hero at once), so the page's first moments stay light;
+  // its stage keeps its height in CSS until then (mac.css), so nothing moves.
   const scenes = {};
-  stages.forEach(st => { const s = build(st); if (s) { scenes[s.name] = s; fit(s); } });
-  if ('ResizeObserver' in window) { const ro = new ResizeObserver(() => Object.values(scenes).forEach(fit)); stages.forEach(st => ro.observe(st)); }
-  else addEventListener('resize', () => Object.values(scenes).forEach(fit));
+  const ro = 'ResizeObserver' in window ? new ResizeObserver(() => Object.values(scenes).forEach(fit)) : null;
+  if (!ro) addEventListener('resize', () => Object.values(scenes).forEach(fit));
+  const ready = st => {
+    if (st._scene) return st._scene;
+    const s = build(st); if (!s) return null;
+    st._scene = s; scenes[s.name] = s; fit(s); if (ro) ro.observe(st);
+    return s;
+  };
+  const byName = n => scenes[n] || ready(stages.find(st => st.dataset.mac === n) || document.createElement('i'));
 
   btns.forEach(b => b.addEventListener('click', () => {
-    const [n, v] = b.dataset.macBtn.split(':'), sc = scenes[n]; if (!sc) return;
+    const [n, v] = b.dataset.macBtn.split(':'), sc = byName(n); if (!sc) return;
     stopAuto(sc);
     if (v === 'split' || v === 'pill' || v === 'glances') { sc.island.close(v); sync(sc, v); return; }
     if (sc.panelShow && PANEL[v]) { sc.panelShow(v); sync(sc, v); return; }
@@ -233,9 +241,12 @@
     }
   };
   const seen = sc => { if (sc.seen) return; sc.seen = true; animate(sc.root); START[sc.name] && START[sc.name](sc); };
-  if (!('IntersectionObserver' in window)) Object.values(scenes).forEach(seen);
+  if (!('IntersectionObserver' in window)) stages.forEach(st => { const sc = ready(st); if (sc) seen(sc); });
   else {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const sc = Object.values(scenes).find(s => s.st === e.target); if (sc) seen(sc); } }), { threshold: .3 });
+    const hero = stages.find(st => st.dataset.mac === 'hero'); if (hero) ready(hero);
+    const near = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { near.unobserve(e.target); ready(e.target); } }), { rootMargin: '700px 0px' });
+    stages.forEach(st => near.observe(st));
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const sc = ready(e.target); if (sc) seen(sc); } }), { threshold: .3 });
     stages.forEach(st => io.observe(st));
     // Live drawings rest when you can't see them
     const rest = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('mac-rest', !e.isIntersecting)), { threshold: 0 });

@@ -2,7 +2,7 @@
 
 /* Glance's Mac App Store page (live since November 2026). With GLANCE_ON_STORE true every [data-appstore] button reads
    "Download on the Mac App Store" and points at GLANCE_APP_STORE_URL; set it to false to show "Coming soon" instead. */
-const GLANCE_APP_STORE_URL = 'https://apps.apple.com/app/glance-by-ashforde/id6832553480';
+const GLANCE_APP_STORE_URL = 'https://apps.apple.com/app/id6832553480';
 const GLANCE_ON_STORE = true;
 
 (() => {
