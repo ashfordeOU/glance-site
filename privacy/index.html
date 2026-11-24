@@ -83,7 +83,7 @@
     <div class="card glass no"><h2>Never leaves your Mac</h2>
       <ul><li>Battery, health and charge cycles, and your accessories’ batteries</li><li>Processor, memory, storage and network readings, and their history</li><li>Your calendar events and reminders</li><li>Meeting Notes recordings, and transcripts and summaries made on your Mac</li><li>Your clipboard history, notes and the files on the Island’s shelf</li><li>What Storage finds in your home folder</li><li>The bookmarks for the folders you choose (your home folder and your .claude folder) and for the files on the shelf, and what Glance reads in them</li><li>What’s playing in Music or Spotify</li><li>Mirror’s camera picture and Privacy Guard’s list of blocked attempts</li></ul></div>
     <div class="card glass yes"><h2>Goes online, straight to the service</h2>
-      <ul><li>Weather for the places you add, from Apple Weather (or Open-Meteo), and the rain radar while you look at it</li><li>Exchange rates, when you convert a currency</li><li>The current track’s artwork from Spotify’s image server, while Spotify is playing</li><li>A speed test, only when you start one</li><li>Your public IP lookup on the Network page (you can turn it off)</li><li>AI services you connect yourself, with your own key</li></ul></div>
+      <ul><li>Weather for the places you add, from Open-Meteo, and the rain radar while you look at it</li><li>Exchange rates, when you convert a currency</li><li>The current track’s artwork from Spotify’s image server, while Spotify is playing</li><li>A speed test, only when you start one</li><li>Your public IP lookup on the Network page (you can turn it off)</li><li>AI services you connect yourself, with your own key</li></ul></div>
   </div>
 
   <div class="prose narrow">
@@ -96,8 +96,7 @@
     <div class="tablewrap"><table>
       <thead><tr><th>Service</th><th>When</th><th>What it receives</th></tr></thead>
       <tbody>
-        <tr><td>Apple Weather<br><small class="faint">Apple’s WeatherKit</small></td><td>When weather is shown: the Dashboard’s Weather page and the weather on the Island’s Home. Glance asks Apple Weather first.</td><td>The coordinates of the places you typed in, handled by Apple under Apple’s privacy policy. Glance never asks for your location.</td></tr>
-        <tr><td>Open-Meteo<br><small class="faint">open-meteo.com</small></td><td>Only when Apple Weather isn’t available, or if you choose Open-Meteo in Settings</td><td>The coordinates of the places you typed in. Glance never asks for your location.</td></tr>
+        <tr><td>Open-Meteo<br><small class="faint">open-meteo.com</small></td><td>When weather is shown: the Dashboard’s Weather page and the weather on the Island’s Home</td><td>The coordinates of the places you typed in. Glance never asks for your location.</td></tr>
         <tr><td>ADS-B network<br><small class="faint">adsb.lol</small></td><td>Only for a flight you add with “live position” turned on: from an hour before departure, at most every 10 minutes</td><td>The flight’s call sign. Nothing about you or your Mac.</td></tr>
         <tr><td>RainViewer<br><small class="faint">rainviewer.com</small></td><td>Only while the rain radar on the Weather page is on screen</td><td>Requests for the public radar pictures of the area shown on the map</td></tr>
         <tr><td>Apple Maps<br><small class="faint">Apple</small></td><td>Only while the rain radar on the Weather page is on screen</td><td>Requests for the map of the area shown, handled by Apple under Apple’s privacy policy</td></tr>
@@ -117,7 +116,7 @@
     <h2 id="crash-reports">Crash reports</h2>
     <p>Glance reads crash details from macOS (MetricKit), on your Mac. If Glance quits unexpectedly, it may offer once to send the crash report: Send opens an email to contact@ashforde.org in your own mail app with the Glance and macOS versions, your Mac’s model and where it crashed, and puts the full report on the clipboard for you to paste in. Nothing is sent unless you send that email. To stop the offer, switch off <strong>Offer to send crash reports</strong> in Glance’s Settings, under General ▸ Privacy.</p>
 
-    <p>Weather from Apple shows the Apple Weather mark with a link to its other data sources; weather from Open-Meteo is credited as “Weather by Open-Meteo.com (CC BY 4.0)”. Links in Glance open in your own browser; Glance has no web view of its own.</p>
+    <p>Weather is credited as “Weather by Open-Meteo.com (CC BY 4.0)”. Links in Glance open in your own browser; Glance has no web view of its own.</p>
 
     <h2>Permissions, and what stays on your Mac</h2>
     <p>Every permission is optional and asked for only when you first use the feature that needs it. You can change any of them in System Settings ▸ Privacy &amp; Security.</p>
