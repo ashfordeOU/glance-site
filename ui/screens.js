@@ -51,7 +51,7 @@
     <div class="mki-sw gi-sw">${[['cup', 'Awake', true], ['moon', 'Evening'], ['scope', 'Focus'], ['clip', 'Clipboard'], ['wave', 'Live']].map(([i, n, on]) => `<span><span class="c${on ? ' on' : ''}">${ic(i)}</span><small>${n}</small></span>`).join('')}</div>
     <div class="gi-jot">${g('jot')}<span>Jot a note, task or sum…</span>${g('calsm')}</div>
     ${o.music ? player() : `<div class="gi-chip"><span style="color:${TINT.blue}">${ic('cup')}</span>Awake for 1 h 30<em>Turn Off</em></div>`}
-    ${o.music ? '' : `<div class="mki-wx gi-wx"><div class="qtop">${wx('cloud')}<span><b>9°  Cloudy</b><small>London · Rain in ~12 min</small></span><span class="sp"></span>${ic('chev', 'cv')}<span class="gi-seg"><i class="on">${g('clockt')}</i><i>${g('map')}</i></span></div>
+    ${o.music ? '' : `<div class="mki-wx gi-wx"><div class="qtop">${wx('cloud')}<span><b>9°  Cloudy</b><small>London · H 11° L 3°</small></span><span class="sp"></span>${ic('chev', 'cv')}<span class="gi-seg"><i class="on">${g('clockt')}</i><i>${g('map')}</i></span></div>
       <div class="mki-hrs">${ic('chevl')}${hours.map(([t, k, d], i) => `<div><small${i ? '' : ' class="qnow"'}>${t}</small>${wx(k)}<b>${d}°</b></div>`).join('')}${ic('chev')}</div></div>`}
     <div class="mki-clk gi-clk">${clk(0, 'London', '17:13', '0h')}${clk(0, 'Tallinn', '19:13', '+2h')}${clk(1, 'New York', '12:13', '−5h')}</div>
     <div class="mki-clk gi-clk gi-clk1">${clk(0, 'Tokyo', '02:13', '<span style="color:#FFB340">+9h · Tomorrow</span>')}<span></span><span></span></div></div>`;
