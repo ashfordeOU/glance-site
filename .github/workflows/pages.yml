@@ -34,6 +34,24 @@ jobs:
         with:
           path: .
 
+      # GitHub sometimes can't find the artifact it was just given ("Fetching artifact metadata failed"):
+      # wait and try again twice before failing the deploy (as the Monorail site does).
       - name: Deploy
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait before trying again
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+      - name: Deploy (second try)
+        id: deployment2
+        if: steps.deployment.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait before the last try
+        if: steps.deployment.outcome == 'failure' && steps.deployment2.outcome == 'failure'
+        run: sleep 120
+      - name: Deploy (last try)
+        id: deployment3
+        if: steps.deployment.outcome == 'failure' && steps.deployment2.outcome == 'failure'
         uses: actions/deploy-pages@v4
