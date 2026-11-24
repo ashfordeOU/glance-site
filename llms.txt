@@ -1,0 +1,30 @@
+# Glance: Island, Widgets, Stats
+
+> A free Mac app on the Mac App Store, made by Ashforde OÜ. Glance puts an Island at the top of the screen, around the MacBook's camera (a pill on Macs without a notch): what's playing in Music or Spotify with synced lyrics, timers, the calendar and reminders, the weather, world clocks, a file shelf and a drawer of tools. It also adds docks on any edge of the screen, widgets anywhere, a menu bar panel with battery health and system readings, a full Dashboard, Stay Awake, Evening Mode, Storage clean-up, a screen recorder with the Mac's own sound and Meeting Notes. No account, no in-app purchases, no ads or analytics. Needs macOS 13 or later.
+
+Glance does not use Accessibility, never moves other apps' windows and never asks for administrator rights. Weather comes from Open-Meteo for places the person types in (48 hours with the chance of rain, ten days, a rain radar); Glance never asks for Location. The only account that can be connected is Dropbox, for share links.
+
+- [Mac App Store listing](https://apps.apple.com/app/id6832553480): "Glance: Island, Widgets, Stats", App Store ID 6832553480
+
+## Features
+
+- [The Island](https://glance.ashforde.org/island/): Glance turns the space around your MacBook’s camera into the Island: what’s playing, timers, your next meeting, the weather and a shelf for files. Free.
+- [The shelf](https://glance.ashforde.org/shelf/): Drop files on the Island at the top of your Mac and keep them on a shelf. Convert, resize, trim or zip them, AirDrop them or share a link. Free for Mac.
+- [Stay Awake](https://glance.ashforde.org/stay-awake/): Keep your Mac awake for 15 minutes to 8 hours, until you end it or while a download finishes, with the time left beside the Island. Free with Glance for Mac.
+- [System monitor and battery](https://glance.ashforde.org/system-monitor/): See your Mac’s CPU, memory, GPU, network, storage, and battery health and cycles from the menu bar, with a Dashboard of every reading. Free with Glance.
+- [Screen recorder and Meeting Notes](https://glance.ashforde.org/screen-recorder/): Record your Mac’s screen, a window or an area with the Mac’s own sound, your microphone or both. Meeting Notes writes a call’s transcript on your Mac. Free.
+- [Storage clean-up](https://glance.ashforde.org/storage-clean-up/): See what’s filling your Mac and clear caches, old logs, Xcode files and old downloads safely. Everything goes to the Bin, so you can put it back. Free.
+- [Weather and world clocks](https://glance.ashforde.org/weather-and-world-clocks/): The places you add, 48 hours ahead with the chance of rain each hour, a 10-day forecast and the rain radar, plus world clocks in the Island. Free with Glance.
+- [Docks and widgets](https://glance.ashforde.org/docks-and-widgets/): Add docks to any edge of your Mac’s screen with apps, folders, files and widgets, and put widgets on the desktop, the Island or the Dashboard. Free with Glance.
+
+## Help
+
+- [Home](https://glance.ashforde.org/): what Glance is, every feature in one page
+- [Support](https://glance.ashforde.org/support/): permissions, folders, Stay Awake with the lid closed, Meeting Notes, updates, starting afresh, contact
+- [Privacy](https://glance.ashforde.org/privacy/): exactly what goes online, where and when
+
+## Related
+
+- [Monorail](https://monorail.ashforde.org/): Glance's sibling from Ashforde, a free download outside the App Store. It does everything Glance does and adds a scrolling window manager. When both are open, Glance steps aside.
+
+Contact: contact@ashforde.org

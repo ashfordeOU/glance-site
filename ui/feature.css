@@ -1,0 +1,19 @@
+/* Glance by Ashforde · the feature pages (/island/, /shelf/ …): breadcrumb, hero, the text, questions and related pages.
+   The drawing on each page is the home page's own band (ui/stage.css and friends). */
+.crumbs { padding-top: clamp(20px, 3vw, 32px); font-size: 14px; color: var(--ink3); }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.crumbs li + li::before { content: "›"; margin-right: 6px; color: var(--ink3); }
+.crumbs a { color: var(--ink2); }
+.fx-hero { padding-top: clamp(28px, 5vw, 64px); }
+.fx-hero h1 { font-size: clamp(38px, 6vw, 72px); line-height: 1.04; max-width: 16ch; margin-inline: auto; }
+.fx-hero .ctas { margin-top: 28px; }
+.fx-hero .release { text-align: center; }
+.fx-body { padding-top: clamp(24px, 4vw, 48px); scroll-margin-top: 64px; }
+.fx-body > h2:first-child { margin-top: 24px; }
+.fx-faq { margin-top: clamp(40px, 6vw, 72px); }
+.fx-faq > h2, .fx-related > h2 { font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 18px; text-align: center; letter-spacing: -.03em; }
+.fx-related { margin-top: clamp(56px, 7vw, 96px); }
+.fx-related .card { display: flex; flex-direction: column; }
+.fx-related .card p { flex: 1; }
+.fx-related .go { margin-top: 14px; font-weight: 600; color: var(--link, var(--ink)); }
+.fx-related + .final { margin-top: clamp(24px, 4vw, 48px); }

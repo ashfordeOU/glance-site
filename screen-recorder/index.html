@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Mac Screen Recorder with System Audio | Glance</title>
+<meta name="description" content="Record your Mac’s screen, a window or an area with the Mac’s own sound, your microphone or both. Meeting Notes writes a call’s transcript on your Mac. Free.">
+<link rel="canonical" href="https://glance.ashforde.org/screen-recorder/">
+<meta property="og:title" content="Mac Screen Recorder with System Audio | Glance">
+<meta property="og:description" content="Record your Mac’s screen, a window or an area with the Mac’s own sound, your microphone or both. Meeting Notes writes a call’s transcript on your Mac. Free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glance">
+<meta property="og:url" content="https://glance.ashforde.org/screen-recorder/">
+<meta property="og:image" content="https://glance.ashforde.org/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glance: Island, widgets, stats. The Island open on Home: switches, a line to jot a note, Stay Awake, the weather and world clocks.">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mac Screen Recorder with System Audio | Glance">
+<meta name="twitter:description" content="Record your Mac’s screen, a window or an area with the Mac’s own sound, your microphone or both. Meeting Notes writes a call’s transcript on your Mac. Free.">
+<meta name="twitter:image" content="https://glance.ashforde.org/img/og.png">
+<meta name="twitter:image:alt" content="Glance: Island, widgets, stats. The Island open on Home: switches, a line to jot a note, Stay Awake, the weather and world clocks.">
+<meta name="apple-itunes-app" content="app-id=6832553480">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#FAFBFD">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/ui/site.css">
+<script>
+/* Before the first paint: the appearance chosen on this browser, so nothing flashes. */
+(() => { const d = document.documentElement; let m = null; d.classList.add('js');
+  try { m = localStorage.getItem('glance-mode'); } catch (e) {}
+  d.dataset.scheme = m === 'light' || m === 'dark' ? m : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();
+</script>
+<script src="/ui/site.js" defer></script>
+<link rel="stylesheet" href="/ui/home.css">
+<link rel="stylesheet" href="/ui/mocks.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/ui/mac.css">
+<link rel="stylesheet" href="/ui/stage.css">
+<link rel="stylesheet" href="/ui/tiles.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/ui/live.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/ui/feature.css">
+<script src="/ui/home.js" defer></script>
+<script src="/ui/mocks.js" defer></script>
+<script src="/ui/screens.js" defer></script>
+<script src="/ui/mac.js" defer></script>
+<script src="/ui/tiles.js" defer></script>
+<script src="/ui/live.js" defer></script>
+<noscript><link rel="stylesheet" href="/ui/mocks.css"><link rel="stylesheet" href="/ui/tiles.css"><link rel="stylesheet" href="/ui/live.css"></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://glance.ashforde.org/screen-recorder/#webpage", "url": "https://glance.ashforde.org/screen-recorder/", "name": "Mac Screen Recorder with System Audio | Glance", "description": "Record your Mac’s screen, a window or an area with the Mac’s own sound, your microphone or both. Meeting Notes writes a call’s transcript on your Mac. Free.", "inLanguage": "en-GB", "isPartOf": {"@id": "https://glance.ashforde.org/#site"}, "about": {"@id": "https://glance.ashforde.org/#app"}, "breadcrumb": {"@id": "https://glance.ashforde.org/screen-recorder/#breadcrumb"}, "primaryImageOfPage": "https://glance.ashforde.org/img/og.png"}, {"@type": "BreadcrumbList", "@id": "https://glance.ashforde.org/screen-recorder/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Glance", "item": "https://glance.ashforde.org/"}, {"@type": "ListItem", "position": 2, "name": "Screen recorder and Meeting Notes", "item": "https://glance.ashforde.org/screen-recorder/"}]}, {"@type": "FAQPage", "@id": "https://glance.ashforde.org/screen-recorder/#faq", "mainEntity": [{"@type": "Question", "name": "Can I record my Mac’s screen with system audio?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose your Mac’s sound, your microphone or both before you start. Glance uses macOS’s Screen & System Audio Recording permission, so you don’t need to install an audio driver."}}, {"@type": "Question", "name": "Can I record just one window or part of the screen?", "acceptedAnswer": {"@type": "Answer", "text": "Yes: the whole screen, one display, a window or an area."}}, {"@type": "Question", "name": "Where is the Meeting Notes transcript made?", "acceptedAnswer": {"@type": "Answer", "text": "On your Mac where macOS supports it; otherwise macOS uses Apple’s speech service. Summaries need macOS 26."}}, {"@type": "Question", "name": "Meeting Notes only hears me. Why?", "acceptedAnswer": {"@type": "Answer", "text": "To hear the other people on a call, Meeting Notes listens to your Mac’s sound, which needs Screen & System Audio Recording. Allow it in System Settings ▸ Privacy & Security. Without it, only your microphone is written down."}}, {"@type": "Question", "name": "How do I share a recording?", "acceptedAnswer": {"@type": "Answer", "text": "Choose Share Link on it. Glance copies a link anyone can open in a browser, kept for 1, 7 or 30 days."}}]}, {"@type": "SoftwareApplication", "@id": "https://glance.ashforde.org/#app", "name": "Glance: Island, Widgets, Stats", "alternateName": "Glance", "applicationCategory": "UtilitiesApplication", "applicationSubCategory": "Menu bar system monitor and widgets", "operatingSystem": "macOS 13 or later", "softwareVersion": "2.0.2", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "url": "https://apps.apple.com/app/id6832553480"}, "url": "https://glance.ashforde.org/", "downloadUrl": "https://apps.apple.com/app/id6832553480", "installUrl": "https://apps.apple.com/app/id6832553480", "image": "https://glance.ashforde.org/assets/icon.png", "screenshot": "https://glance.ashforde.org/img/og.png", "featureList": ["An Island at the top of the screen (at the camera) with a file shelf, timers, music, weather and a song finder", "Menu bar system monitor: battery and health, CPU, memory, network and storage", "A full Dashboard with weather, world clocks and your day", "Widgets and docks on any edge of the screen", "Stay Awake, Evening Mode, Privacy Guard, clipboard history and a screen recorder with sound"], "description": "Glance puts an Island at the top of your Mac (at the camera) with a file shelf, timers, music and weather, plus widgets, docks and a menu bar system monitor with a full Dashboard. No account, nothing collected.", "publisher": {"@id": "https://glance.ashforde.org/#org"}, "author": {"@id": "https://glance.ashforde.org/#org"}}, {"@type": "Organization", "@id": "https://glance.ashforde.org/#org", "name": "Ashforde OÜ", "url": "https://ashforde.org/", "email": "contact@ashforde.org", "address": {"@type": "PostalAddress", "addressCountry": "EE"}}, {"@type": "WebSite", "@id": "https://glance.ashforde.org/#site", "name": "Glance", "url": "https://glance.ashforde.org/", "inLanguage": "en-GB", "publisher": {"@id": "https://glance.ashforde.org/#org"}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="/"><img src="/assets/icon-64.webp" alt="" width="28" height="28">Glance</a>
+    <nav aria-label="Main"><a href="/island/">Island</a><a href="/shelf/">Shelf</a><a href="/weather-and-world-clocks/">Weather</a><a href="/stay-awake/">Stay Awake</a><a href="/system-monitor/">Stats</a><a href="/screen-recorder/" aria-current="page">Recorder</a><a href="/docks-and-widgets/">Docks</a><a href="/storage-clean-up/">Storage</a><a href="/support/">Support</a></nav>
+    <span class="spacer"></span>
+    <button type="button" class="iconbtn" id="theme-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-pop" title="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="sr">Appearance</span></button>
+    <a class="store small" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Get Glance</b></span></a>
+    <button type="button" class="iconbtn menu-btn" id="menu-btn" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+  <div class="theme-pop" id="theme-pop" role="dialog" aria-label="Appearance" hidden>
+    <h2>Appearance</h2>
+    <div class="seg" data-mode-pick role="group" aria-label="Appearance">
+      <button type="button" data-mode="auto">Automatic</button><button type="button" data-mode="light">Light</button><button type="button" data-mode="dark">Dark</button>
+    </div>
+    <p>Kept on this browser only.</p>
+  </div>
+</header>
+<div class="warmth" id="warmth" aria-hidden="true"></div>
+
+<main id="main">
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Glance</a></li><li aria-current="page">Screen recorder and Meeting Notes</li></ol></nav>
+  <section class="page-hero fx-hero">
+    <span class="eyebrow"><i></i>Screen recorder</span>
+    <h1>Record your screen, <span class="light-text">with your Mac’s sound.</span></h1>
+    <p class="lede">Record the whole screen, a window or an area, with the Mac’s own sound and your microphone, then share it as a link. Meeting Notes turns a call into a transcript.</p>
+    <div class="ctas"><a class="store" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Mac App Store</b></span></a><a class="btn text" href="#what">What it does ›</a></div>
+    <p class="release">Free on the Mac App Store · macOS 13 or later · no account</p>
+  </section>
+</div>
+
+<!-- The drawing, as on the home page -->
+<section class="stg" data-g="red" id="record" aria-labelledby="record-h">
+  <div class="wrap stg-grid">
+    <div class="stg-l rv">
+      <div class="hc"><span class="k">Record and share</span><h2 class="h2" id="record-h">Record it. Share a <span class="acc">link</span>.</h2>
+        <p>Record your screen or a call, get a transcript, then share a link anyone can open.</p>
+        <p class="more">Record Screen is on Home and in the Island’s Recordings, with your Mac’s sound, your microphone or both. Meeting Notes records a call and writes the transcript on your Mac where macOS supports it, with a summary on macOS 26. Choose Share Link on a file on the shelf and Glance copies a link anyone can open in a browser, with no account: up to 25 files, kept for 1, 7 or 30 days. Nothing is uploaded until you choose Share Link.</p>
+        <p class="app"><img src="/assets/icon-64.webp" alt="" width="30" height="30" loading="lazy">Glance</p></div>
+      <ul class="chips" aria-label="Highlights"><li>Screen, window or area</li><li>Mac sound &amp; mic</li><li>Meeting Notes transcript</li><li>Share Link</li><li>1, 7 or 30 days</li></ul>
+    </div>
+    <div class="stg-r rv">
+      <div class="stg-pair"><div class="stg-panel navy"><div class="t9 t9-grec" data-t9="grec" aria-hidden="true">
+          <div class="t9-gsw"><span class="c"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5" class="f"/></svg></span><small data-gcap>Record Screen</small></div>
+          <div class="t9-isl">
+            <p class="t9-h"><b>Recordings</b><span class="t9-cs idle"><i>Record Screen</i></span><span class="t9-cs live"><i>Pause</i><i>Stop · <em data-rt>0:00</em></i></span><span class="t9-cs"><i>All</i></span></p>
+            <p class="t9-irow new"><i class="rc"></i><span>Screen recording</span><em>0:05</em></p>
+            <p class="t9-irow"><i class="rc"></i><span>Screen recording</span><em>2:04</em></p>
+            <p class="t9-irow"><i class="wv"></i><span>Design review</span><em>28:15</em></p>
+          </div>
+        </div></div><div class="stg-panel"><div class="t9 t9-share" data-t9="share" aria-hidden="true">
+          <div class="t9-pill"><span class="t9-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><circle class="f" cx="18" cy="18" r="15" pathLength="100"/></svg></span><b>Sharing Demo.mov</b>
+            <span class="t9-ban"><i><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></i><span><small>Share link</small><b>Link copied</b><small>Demo.mov · Expires in 7 days</small></span></span></div>
+          <div class="g9-share"><div class="rev"><div class="frame"><span class="ink"></span></div><div class="tl"><i style="left:18%"></i><i class="on" style="left:46%"></i><i style="left:72%"></i><span></span></div><p><b>0:42</b> Can we hold this shot a little longer?</p></div></div>
+        </div></div></div>
+    </div>
+  </div>
+</section>
+
+<article class="wrap narrow prose fx-body" id="what">
+<h2>Record Screen</h2>
+<p>Start <strong>Record Screen</strong> from the Island’s Home, its Recordings list or the menu bar panel’s switch. Choose what to record: the whole screen, one display, a window or an area. Then choose the sound: your Mac’s own sound, your microphone, both or neither. Pause and stop from the Island, where the time counts up as you record.</p>
+<p>Your Mac’s sound is recorded through macOS’s own Screen &amp; System Audio Recording, so there’s no audio driver to install. macOS asks once for that permission, and for the microphone when you include it.</p>
+<h2>Meeting Notes</h2>
+<p>Meeting Notes records a call and writes the transcript. Where macOS supports it, the transcript is made on your Mac, and on macOS 26 you also get a summary. With <strong>Hear the other people too</strong> on, it listens to your Mac’s sound as well as your microphone, so everyone on the call is written down, not just you. Please make sure everyone is happy to be recorded.</p>
+<h2>Share a link</h2>
+<p>Choose <strong>Share Link</strong> on a recording and Glance copies a link anyone can open in a browser, with no account. Links last 1, 7 or 30 days and can be deleted at any time; nothing is uploaded until you choose Share Link. A video shared for review can take comments from anyone with the link, each at its moment in the video. You can share to your own Dropbox instead.</p>
+<h2>Kept on your Mac</h2>
+<p>Recordings and transcripts stay on your Mac, in the Island’s Recordings, until you choose to share one. Glance has no account and nothing to sign in to.</p>
+</article>
+
+<section class="wrap narrow fx-faq" aria-labelledby="faq-h">
+  <h2 id="faq-h">Questions</h2>
+  <div class="faq">
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Can I record my Mac’s screen with system audio?</summary><div>
+        <p>Yes. Choose your Mac’s sound, your microphone or both before you start. Glance uses macOS’s Screen &amp; System Audio Recording permission, so you don’t need to install an audio driver.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Can I record just one window or part of the screen?</summary><div>
+        <p>Yes: the whole screen, one display, a window or an area.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Where is the Meeting Notes transcript made?</summary><div>
+        <p>On your Mac where macOS supports it; otherwise macOS uses Apple’s speech service. Summaries need macOS 26.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Meeting Notes only hears me. Why?</summary><div>
+        <p>To hear the other people on a call, Meeting Notes listens to your Mac’s sound, which needs Screen &amp; System Audio Recording. Allow it in System Settings ▸ Privacy &amp; Security. Without it, only your microphone is written down.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>How do I share a recording?</summary><div>
+        <p>Choose Share Link on it. Glance copies a link anyone can open in a browser, kept for 1, 7 or 30 days.</p></div></details>
+  </div>
+</section>
+
+<section class="wrap fx-related" aria-labelledby="rel-h">
+  <h2 id="rel-h">More of Glance</h2>
+  <div class="grid g3">
+    <a class="card glass" href="/shelf/"><span class="k">The shelf</span><h3>The shelf</h3><p>Drop files on the Island, change them there, drag them out or share a link.</p><span class="go">Read more ›</span></a>
+    <a class="card glass" href="/island/"><span class="k">The Island</span><h3>The Island</h3><p>What’s playing, timers, your next meeting and the weather, around the camera.</p><span class="go">Read more ›</span></a>
+    <a class="card glass" href="/system-monitor/"><span class="k">System monitor</span><h3>System monitor and battery</h3><p>Battery health and cycles, CPU, memory and network in the menu bar, and a Dashboard.</p><span class="go">Read more ›</span></a>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="halo rv"><img src="/assets/icon-312.webp" alt="" width="150" height="150" loading="lazy"></div>
+    <h2 class="h2">Get Glance, <span class="light-text">free.</span></h2>
+    <p class="lede">On the Mac App Store, with no account and no in-app purchases.</p>
+    <div class="ctas"><a class="store" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Mac App Store</b></span></a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="/"><img src="/assets/icon-64.webp" alt="" width="28" height="28">Glance</a>
+        <p style="margin-top:14px;max-width:36ch">Your Mac at a glance, from the menu bar. Made by Ashforde OÜ, a company in the European Union.</p>
+        <p style="margin-top:18px"><a class="store" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Mac App Store</b></span></a></p></div>
+      <div><h2>Glance</h2><ul><li><a href="/island/">The Island</a></li><li><a href="/shelf/">The shelf</a></li><li><a href="/weather-and-world-clocks/">Weather and world clocks</a></li><li><a href="/stay-awake/">Stay Awake</a></li><li><a href="/system-monitor/">System monitor and battery</a></li><li><a href="/screen-recorder/">Screen recorder</a></li><li><a href="/docks-and-widgets/">Docks and widgets</a></li><li><a href="/storage-clean-up/">Storage clean-up</a></li></ul></div>
+      <div><h2>Help</h2><ul><li><a href="/support/">Support</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="mailto:contact@ashforde.org?subject=Glance">Report a problem</a></li></ul></div>
+      <div><h2>Ashforde</h2><ul><li><a href="https://monorail.ashforde.org">Monorail, for your windows</a></li><li><a href="mailto:contact@ashforde.org">contact@ashforde.org</a></li></ul></div>
+    </div>
+    <p class="legal">© <span data-year>2026</span> Ashforde OÜ. Ashforde® is a registered trademark of Ashforde OÜ. The Glance name and icon are trademarks of Ashforde OÜ. Mac and Mac App Store are trademarks of Apple Inc., registered in the U.S. and other countries. This site sets no cookies and counts nothing; your appearance choice is kept on this browser only.</p>
+  </div>
+  <div class="giant" aria-hidden="true">Glance</div>
+</footer>
+</body>
+</html>

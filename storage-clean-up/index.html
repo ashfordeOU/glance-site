@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Mac Storage Clean-up: Free Up Disk Space Safely | Glance</title>
+<meta name="description" content="See what’s filling your Mac and clear caches, old logs, Xcode files and old downloads safely. Everything goes to the Bin, so you can put it back. Free.">
+<link rel="canonical" href="https://glance.ashforde.org/storage-clean-up/">
+<meta property="og:title" content="Mac Storage Clean-up: Free Up Disk Space Safely | Glance">
+<meta property="og:description" content="See what’s filling your Mac and clear caches, old logs, Xcode files and old downloads safely. Everything goes to the Bin, so you can put it back. Free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Glance">
+<meta property="og:url" content="https://glance.ashforde.org/storage-clean-up/">
+<meta property="og:image" content="https://glance.ashforde.org/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glance: Island, widgets, stats. The Island open on Home: switches, a line to jot a note, Stay Awake, the weather and world clocks.">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mac Storage Clean-up: Free Up Disk Space Safely | Glance">
+<meta name="twitter:description" content="See what’s filling your Mac and clear caches, old logs, Xcode files and old downloads safely. Everything goes to the Bin, so you can put it back. Free.">
+<meta name="twitter:image" content="https://glance.ashforde.org/img/og.png">
+<meta name="twitter:image:alt" content="Glance: Island, widgets, stats. The Island open on Home: switches, a line to jot a note, Stay Awake, the weather and world clocks.">
+<meta name="apple-itunes-app" content="app-id=6832553480">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#FAFBFD">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="/ui/site.css">
+<script>
+/* Before the first paint: the appearance chosen on this browser, so nothing flashes. */
+(() => { const d = document.documentElement; let m = null; d.classList.add('js');
+  try { m = localStorage.getItem('glance-mode'); } catch (e) {}
+  d.dataset.scheme = m === 'light' || m === 'dark' ? m : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })();
+</script>
+<script src="/ui/site.js" defer></script>
+<link rel="stylesheet" href="/ui/home.css">
+<link rel="stylesheet" href="/ui/mocks.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/ui/mac.css">
+<link rel="stylesheet" href="/ui/stage.css">
+<link rel="stylesheet" href="/ui/tiles.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/ui/live.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/ui/feature.css">
+<script src="/ui/home.js" defer></script>
+<script src="/ui/mocks.js" defer></script>
+<script src="/ui/screens.js" defer></script>
+<script src="/ui/mac.js" defer></script>
+<script src="/ui/tiles.js" defer></script>
+<script src="/ui/live.js" defer></script>
+<noscript><link rel="stylesheet" href="/ui/mocks.css"><link rel="stylesheet" href="/ui/tiles.css"><link rel="stylesheet" href="/ui/live.css"></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://glance.ashforde.org/storage-clean-up/#webpage", "url": "https://glance.ashforde.org/storage-clean-up/", "name": "Mac Storage Clean-up: Free Up Disk Space Safely | Glance", "description": "See what’s filling your Mac and clear caches, old logs, Xcode files and old downloads safely. Everything goes to the Bin, so you can put it back. Free.", "inLanguage": "en-GB", "isPartOf": {"@id": "https://glance.ashforde.org/#site"}, "about": {"@id": "https://glance.ashforde.org/#app"}, "breadcrumb": {"@id": "https://glance.ashforde.org/storage-clean-up/#breadcrumb"}, "primaryImageOfPage": "https://glance.ashforde.org/img/og.png"}, {"@type": "BreadcrumbList", "@id": "https://glance.ashforde.org/storage-clean-up/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Glance", "item": "https://glance.ashforde.org/"}, {"@type": "ListItem", "position": 2, "name": "Storage clean-up", "item": "https://glance.ashforde.org/storage-clean-up/"}]}, {"@type": "FAQPage", "@id": "https://glance.ashforde.org/storage-clean-up/#faq", "mainEntity": [{"@type": "Question", "name": "Is it safe to clear caches on a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Caches are copies apps can make again, so clearing them is generally safe; an app may be a little slower the first time it rebuilds them. Smart clean-up says why each kind is safe, and everything goes to the Bin, so you can put it back."}}, {"@type": "Question", "name": "Why does Glance ask me to choose my home folder?", "acceptedAnswer": {"@type": "Answer", "text": "Mac App Store apps can only look inside folders you choose. Choose your home folder once and Glance remembers it."}}, {"@type": "Question", "name": "Does Glance delete files permanently?", "acceptedAnswer": {"@type": "Answer", "text": "No. Clean-ups move items to the Bin. They’re gone only when you empty it."}}, {"@type": "Question", "name": "Does it need Full Disk Access?", "acceptedAnswer": {"@type": "Answer", "text": "No. Glance looks only inside the home folder you choose, and never asks for your password or administrator rights."}}]}, {"@type": "SoftwareApplication", "@id": "https://glance.ashforde.org/#app", "name": "Glance: Island, Widgets, Stats", "alternateName": "Glance", "applicationCategory": "UtilitiesApplication", "applicationSubCategory": "Menu bar system monitor and widgets", "operatingSystem": "macOS 13 or later", "softwareVersion": "2.0.2", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "url": "https://apps.apple.com/app/id6832553480"}, "url": "https://glance.ashforde.org/", "downloadUrl": "https://apps.apple.com/app/id6832553480", "installUrl": "https://apps.apple.com/app/id6832553480", "image": "https://glance.ashforde.org/assets/icon.png", "screenshot": "https://glance.ashforde.org/img/og.png", "featureList": ["An Island at the top of the screen (at the camera) with a file shelf, timers, music, weather and a song finder", "Menu bar system monitor: battery and health, CPU, memory, network and storage", "A full Dashboard with weather, world clocks and your day", "Widgets and docks on any edge of the screen", "Stay Awake, Evening Mode, Privacy Guard, clipboard history and a screen recorder with sound"], "description": "Glance puts an Island at the top of your Mac (at the camera) with a file shelf, timers, music and weather, plus widgets, docks and a menu bar system monitor with a full Dashboard. No account, nothing collected.", "publisher": {"@id": "https://glance.ashforde.org/#org"}, "author": {"@id": "https://glance.ashforde.org/#org"}}, {"@type": "Organization", "@id": "https://glance.ashforde.org/#org", "name": "Ashforde OÜ", "url": "https://ashforde.org/", "email": "contact@ashforde.org", "address": {"@type": "PostalAddress", "addressCountry": "EE"}}, {"@type": "WebSite", "@id": "https://glance.ashforde.org/#site", "name": "Glance", "url": "https://glance.ashforde.org/", "inLanguage": "en-GB", "publisher": {"@id": "https://glance.ashforde.org/#org"}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="/"><img src="/assets/icon-64.webp" alt="" width="28" height="28">Glance</a>
+    <nav aria-label="Main"><a href="/island/">Island</a><a href="/shelf/">Shelf</a><a href="/weather-and-world-clocks/">Weather</a><a href="/stay-awake/">Stay Awake</a><a href="/system-monitor/">Stats</a><a href="/screen-recorder/">Recorder</a><a href="/docks-and-widgets/">Docks</a><a href="/storage-clean-up/" aria-current="page">Storage</a><a href="/support/">Support</a></nav>
+    <span class="spacer"></span>
+    <button type="button" class="iconbtn" id="theme-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-pop" title="Appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg><span class="sr">Appearance</span></button>
+    <a class="store small" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Get Glance</b></span></a>
+    <button type="button" class="iconbtn menu-btn" id="menu-btn" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+  <div class="theme-pop" id="theme-pop" role="dialog" aria-label="Appearance" hidden>
+    <h2>Appearance</h2>
+    <div class="seg" data-mode-pick role="group" aria-label="Appearance">
+      <button type="button" data-mode="auto">Automatic</button><button type="button" data-mode="light">Light</button><button type="button" data-mode="dark">Dark</button>
+    </div>
+    <p>Kept on this browser only.</p>
+  </div>
+</header>
+<div class="warmth" id="warmth" aria-hidden="true"></div>
+
+<main id="main">
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Glance</a></li><li aria-current="page">Storage clean-up</li></ol></nav>
+  <section class="page-hero fx-hero">
+    <span class="eyebrow"><i></i>Storage clean-up</span>
+    <h1>Free up space on your Mac, <span class="light-text">safely.</span></h1>
+    <p class="lede">Smart clean-up finds what your Mac can do without, says why each kind is safe to clear, and moves only what you tick to the Bin.</p>
+    <div class="ctas"><a class="store" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Mac App Store</b></span></a><a class="btn text" href="#what">What it does ›</a></div>
+    <p class="release">Free on the Mac App Store · macOS 13 or later · no account</p>
+  </section>
+</div>
+
+<!-- The drawing, as on the home page -->
+<section class="stg" data-g="night" id="storage" aria-labelledby="storage-h">
+  <div class="wrap stg-grid">
+    <div class="stg-l rv">
+      <div class="hc"><span class="k">Storage</span><h2 class="h2" id="storage-h">Tidy, private, <span class="acc">rested</span>.</h2>
+        <p>Clear space safely, know when an app listens or watches, and take a break now and then.</p>
+        <p class="more">Choose your home folder once, and Smart clean-up finds caches, old logs, Xcode’s files, packages in projects you haven’t touched lately and old downloads. Point at a colour to see why it’s safe, review it all, and it goes to the Bin, so you can put it back. The Microphone switch mutes every microphone and says which app tried to listen; the Camera switch tells you when an app turns a camera on. Breaks remind you to rest your eyes, stretch and drink some water.</p>
+        <p class="app"><img src="/assets/icon-64.webp" alt="" width="30" height="30" loading="lazy">Glance</p></div>
+      <ul class="chips" aria-label="Highlights"><li>Smart clean-up</li><li>Microphone switch</li><li>Camera alerts</li><li>Time tracking</li><li>Insights</li><li>Breaks</li></ul>
+    </div>
+    <div class="stg-r rv">
+      <figure class="glv-fig stor-live" role="img" aria-label="Glance’s Smart clean-up card: Looking…, then a bar of what can be cleared draws in, 15.8 GB to get back: App caches, Xcode build files, Old downloads, Package manager caches and Old logs, each with its size. Pointing at Xcode build files explains why it’s safe to clear, then Review and Clean… is clicked."><div data-glive="clean"></div></figure>
+    </div>
+  </div>
+</section>
+
+<article class="wrap narrow prose fx-body" id="what">
+<h2>See what’s taking up space</h2>
+<p>Mac App Store apps can only look inside folders you choose, so Storage asks once for your home folder in an Open panel and remembers it. The Island’s Storage tab then draws your disk as pixel bars, from Applications and Documents to Photos, Music and System Data. Point at a block to see what it is. The Dashboard’s Storage and Disk pages show more.</p>
+<h2>Smart clean-up</h2>
+<p>Smart clean-up looks for what’s safe to clear:</p>
+<ul>
+<li>App caches.</li>
+<li>Old logs.</li>
+<li>Xcode’s build files.</li>
+<li>Packages in projects you haven’t touched lately.</li>
+<li>Old downloads.</li>
+</ul>
+<p>Each kind gets a colour on one bar, with its size and the total you could get back. Point at a colour to read why it’s safe to clear, then <strong>Review and Clean…</strong> lets you tick exactly what goes.</p>
+<h2>Nothing is deleted outright</h2>
+<p>Clean-ups only ever move items to the Bin, so you can put anything back until you empty it. Glance never asks for your password or administrator rights.</p>
+<h2>Also looking after you</h2>
+<p>Glance has two privacy switches too. The Microphone switch mutes every microphone and says which app tried to listen; the Camera switch tells you when an app turns a camera on. Breaks remind you to rest your eyes, stretch and drink some water.</p>
+</article>
+
+<section class="wrap narrow fx-faq" aria-labelledby="faq-h">
+  <h2 id="faq-h">Questions</h2>
+  <div class="faq">
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Is it safe to clear caches on a Mac?</summary><div>
+        <p>Caches are copies apps can make again, so clearing them is generally safe; an app may be a little slower the first time it rebuilds them. Smart clean-up says why each kind is safe, and everything goes to the Bin, so you can put it back.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Why does Glance ask me to choose my home folder?</summary><div>
+        <p>Mac App Store apps can only look inside folders you choose. Choose your home folder once and Glance remembers it.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Does Glance delete files permanently?</summary><div>
+        <p>No. Clean-ups move items to the Bin. They’re gone only when you empty it.</p></div></details>
+      <details><summary><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></svg></i>Does it need Full Disk Access?</summary><div>
+        <p>No. Glance looks only inside the home folder you choose, and never asks for your password or administrator rights.</p></div></details>
+  </div>
+</section>
+
+<section class="wrap fx-related" aria-labelledby="rel-h">
+  <h2 id="rel-h">More of Glance</h2>
+  <div class="grid g3">
+    <a class="card glass" href="/system-monitor/"><span class="k">System monitor</span><h3>System monitor and battery</h3><p>Battery health and cycles, CPU, memory and network in the menu bar, and a Dashboard.</p><span class="go">Read more ›</span></a>
+    <a class="card glass" href="/shelf/"><span class="k">The shelf</span><h3>The shelf</h3><p>Drop files on the Island, change them there, drag them out or share a link.</p><span class="go">Read more ›</span></a>
+    <a class="card glass" href="/stay-awake/"><span class="k">Stay Awake</span><h3>Stay Awake</h3><p>Keep your Mac awake for a set time, until you end it or while a download runs.</p><span class="go">Read more ›</span></a>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="halo rv"><img src="/assets/icon-312.webp" alt="" width="150" height="150" loading="lazy"></div>
+    <h2 class="h2">Get Glance, <span class="light-text">free.</span></h2>
+    <p class="lede">On the Mac App Store, with no account and no in-app purchases.</p>
+    <div class="ctas"><a class="store" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Mac App Store</b></span></a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="brand" href="/"><img src="/assets/icon-64.webp" alt="" width="28" height="28">Glance</a>
+        <p style="margin-top:14px;max-width:36ch">Your Mac at a glance, from the menu bar. Made by Ashforde OÜ, a company in the European Union.</p>
+        <p style="margin-top:18px"><a class="store" data-appstore href="https://apps.apple.com/app/id6832553480" aria-label="Download Glance on the Mac App Store"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v8m0 0-3.5-3.5M12 15.5l3.5-3.5"/></svg><span><small>Download on the</small><b>Mac App Store</b></span></a></p></div>
+      <div><h2>Glance</h2><ul><li><a href="/island/">The Island</a></li><li><a href="/shelf/">The shelf</a></li><li><a href="/weather-and-world-clocks/">Weather and world clocks</a></li><li><a href="/stay-awake/">Stay Awake</a></li><li><a href="/system-monitor/">System monitor and battery</a></li><li><a href="/screen-recorder/">Screen recorder</a></li><li><a href="/docks-and-widgets/">Docks and widgets</a></li><li><a href="/storage-clean-up/">Storage clean-up</a></li></ul></div>
+      <div><h2>Help</h2><ul><li><a href="/support/">Support</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="mailto:contact@ashforde.org?subject=Glance">Report a problem</a></li></ul></div>
+      <div><h2>Ashforde</h2><ul><li><a href="https://monorail.ashforde.org">Monorail, for your windows</a></li><li><a href="mailto:contact@ashforde.org">contact@ashforde.org</a></li></ul></div>
+    </div>
+    <p class="legal">© <span data-year>2026</span> Ashforde OÜ. Ashforde® is a registered trademark of Ashforde OÜ. The Glance name and icon are trademarks of Ashforde OÜ. Mac and Mac App Store are trademarks of Apple Inc., registered in the U.S. and other countries. This site sets no cookies and counts nothing; your appearance choice is kept on this browser only.</p>
+  </div>
+  <div class="giant" aria-hidden="true">Glance</div>
+</footer>
+</body>
+</html>

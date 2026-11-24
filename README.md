@@ -1,6 +1,6 @@
 # glance.ashforde.org
 
-The website for **Glance**, the Mac App Store app: a home page, a privacy policy and a support page.
+The website for **Glance**, the Mac App Store app: a home page, eight feature pages, a privacy policy and a support page.
 It's plain HTML, CSS and JavaScript with no build step and no outside scripts; GitHub Pages serves the repository root.
 
 ## Layout
@@ -8,7 +8,9 @@ It's plain HTML, CSS and JavaScript with no build step and no outside scripts; G
 | Path | What it is |
 |---|---|
 | `index.html` | Home page: what Glance is, then one band per feature, the details, and the download (order and reasons in `AUDIT-2.0.1.md`) |
+| `island/`, `shelf/`, `stay-awake/`, `system-monitor/`, `screen-recorder/`, `storage-clean-up/`, `weather-and-world-clocks/`, `docks-and-widgets/` | One page per feature, for search: the home page's band for that feature, then the text, questions (FAQPage data), three related pages and the App Store call (`ui/feature.css`). The nav and footer link them; each home band has a "More about …" link |
 | `privacy/`, `support/`, `404.html` | The other pages |
+| `sitemap.xml`, `robots.txt`, `llms.txt` | Every indexable page; a plain summary of Glance and its pages for AI agents |
 | `ui/site.css`, `ui/site.js` | Shared design system and behaviour (appearance, menu, the Mac App Store link, reveals) |
 | `ui/home.css`, `ui/home.js` | The home page's drawn app and its animations |
 | `ui/stage.css` | The App Store look: each feature on the gradient of its Mac App Store image, a white headline card with one accent word, glassy chips |
@@ -24,6 +26,9 @@ It's plain HTML, CSS and JavaScript with no build step and no outside scripts; G
 - **App Store link.** `GLANCE_APP_STORE_URL` in `ui/site.js` holds Glance's listing (id6832553480). While
   `GLANCE_ON_STORE` is false, every Mac App Store button reads "Coming soon to the Mac App Store" and links nowhere;
   set it to true once the app is live and every button reads "Download on the Mac App Store" and links to the listing.
+
+Every page carries `<meta name="apple-itunes-app" content="app-id=6832553480">` for Safari's App Store banner. The nav
+and footer are copied into every page: change them everywhere at once.
 
 ## One-time setup
 

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://glance.ashforde.org/</loc><lastmod>2026-11-22</lastmod><priority>1.0</priority></url>
-  <url><loc>https://glance.ashforde.org/support/</loc><lastmod>2026-11-22</lastmod><priority>0.7</priority></url>
-  <url><loc>https://glance.ashforde.org/privacy/</loc><lastmod>2026-11-22</lastmod><priority>0.6</priority></url>
+  <url><loc>https://glance.ashforde.org/</loc><lastmod>2026-11-24</lastmod><priority>1.0</priority></url>
+  <url><loc>https://glance.ashforde.org/island/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/shelf/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/stay-awake/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/system-monitor/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/screen-recorder/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/storage-clean-up/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/weather-and-world-clocks/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/docks-and-widgets/</loc><lastmod>2026-11-24</lastmod><priority>0.8</priority></url>
+  <url><loc>https://glance.ashforde.org/support/</loc><lastmod>2026-11-24</lastmod><priority>0.6</priority></url>
+  <url><loc>https://glance.ashforde.org/privacy/</loc><lastmod>2026-11-24</lastmod><priority>0.5</priority></url>
 </urlset>
