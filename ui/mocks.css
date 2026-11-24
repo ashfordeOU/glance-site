@@ -552,3 +552,13 @@
 .mkd-nh .cr { margin-top: auto; font-size: 10.5px; color: rgba(255,255,255,.7); }
 .mkd-nh .cr b { color: #fff; font-weight: 600; } .mkd-nh .cr u { text-decoration: none; color: #9ccfff; }
 @media (prefers-reduced-motion: reduce) { .mkd-nh .bars i { transform: none; } }
+/* The 10-day forecast beside the sky (the app's "10-day forecast" card: day, icon, chance of rain, low, range bar, high) */
+.mkd-10 { gap: 2px; justify-content: space-between; }
+.mkd-10 .dr10 { display: grid; grid-template-columns: 44px 22px 34px 26px 1fr 26px; align-items: center; gap: 6px; font-size: 12px; }
+.mkd-10 .dr10 small { color: #fff; font-weight: 600; font-size: 12px; }
+.mkd-10 .dr10 em { font-style: normal; color: #64B5FF; font-size: 11px; }
+.mkd-10 .dr10 span { color: rgba(255,255,255,.6); text-align: right; }
+.mkd-10 .dr10 b { color: #fff; font-weight: 600; }
+.mkd-10 .dr10 i { height: 4px; border-radius: 2px; background: rgba(255,255,255,.18); position: relative; }
+.mkd-10 .dr10 i::after { content: ""; position: absolute; top: 0; bottom: 0; left: var(--a); right: calc(100% - var(--b)); border-radius: 2px; background: linear-gradient(90deg, #64D2C8, #FFD60A); }
+.mkd-10 .dr10 svg, .mkd-10 .dr10 .wx { width: 20px; height: 20px; }

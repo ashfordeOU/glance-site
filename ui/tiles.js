@@ -1,6 +1,6 @@
 /* Monorail by Ashforde® · "The Island and more" tiles: each one plays what the app does (a file dropped on the shelf and
    made smaller, a share link uploading, the screen recorder counting, a screenshot being marked up, the Song finder
-   listening then naming the song, the next hour's rain drawing in, a pod's permissions) when it comes into view, and
+   listening then naming the song, the chance of rain drawing in, a pod's permissions) when it comes into view, and
    stops when it leaves. With Reduce Motion each tile shows its finished state, still. */
 (() => {
   const tiles = [...document.querySelectorAll('[data-t9]')];
@@ -8,19 +8,19 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const mmss = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 
-  // The next hour, minute by minute: dry for 12 minutes, rain for 25 (light, a heavier middle), then dry (RainMinuteBars).
+  // The next 12 hours, hour by hour: the chance of rain (Open-Meteo's precipitation_probability), wet from 50%.
   const rain = el => {
     const box = el.querySelector('.t9-bars'); if (!box || box.childElementCount) return;
-    for (let m = 0; m < 60; m++) {
-      const wet = m >= 12 && m < 37, t = (m - 12 + .5) / 25, v = wet ? Math.max(.12, Math.pow(Math.sin(Math.PI * t), .6) * (.8 + .2 * Math.sin(t * 11))) : .03;
-      const i = document.createElement('i'); if (wet) i.className = 'wet';
-      i.dataset.h = Math.max(2, Math.round(34 * Math.min(1, Math.abs(v))));
+    box.style.gap = '4px';
+    [10, 15, 30, 55, 80, 85, 70, 45, 25, 15, 10, 5].forEach(p => {
+      const i = document.createElement('i'); if (p >= 50) i.className = 'wet';
+      i.dataset.h = Math.max(2, Math.round(34 * p / 100));
       box.appendChild(i);
-    }
+    });
   };
   tiles.filter(t => t.dataset.t9 === 'rain').forEach(rain);
   const drawRain = (el, now) => el.querySelectorAll('.t9-bars i').forEach((i, n) => {
-    if (now) i.style.height = i.dataset.h + 'px'; else { i.style.height = '2px'; i.style.transitionDelay = (n * 22) + 'ms'; requestAnimationFrame(() => requestAnimationFrame(() => { i.style.height = i.dataset.h + 'px'; })); }
+    if (now) i.style.height = i.dataset.h + 'px'; else { i.style.height = '2px'; i.style.transitionDelay = (n * 80) + 'ms'; requestAnimationFrame(() => requestAnimationFrame(() => { i.style.height = i.dataset.h + 'px'; })); }
   });
 
   // Each tile's script: a list of [ms, step]; the last step's time is how long one round takes before it plays again.
