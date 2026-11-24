@@ -36,12 +36,18 @@
   const dock = () => `<div class="gm-dock">${['files', 'safari', 'messages', 'mail', 'photos', 'music', 'calendar', 'notes', 'settings'].map((k, i) => app(k, [0, 1, 4, 5].includes(i) ? 'run' : '')).join('')}<b></b>${['code', 'terminal'].map(k => app(k, 'run')).join('')}</div>`;
 
   /* ---------- The Island: a black shape that grows from the notch, bubbles either side, the tab bar below */
-  // What the closed Island shows. split: what's playing in the pill, timers and Stay Awake as rings on the left,
-  // charging and the microphone light on the right. pill: everything in one pill, the top item's glyph and its value.
+  // What the closed Island shows (Settings ▸ Island ▸ Island style). bubbles, the style for new installs since 2.0.1:
+  // the pill hides behind the camera and each live thing floats in its own round bubble, the most important nearest
+  // the camera. split: what's playing in the pill, Stay Awake and a timer as rings on the left, charging on the right.
+  // pill: everything in one pill, the top item's glyph and its value. Since 2.0.1 the closed Island adds no camera or
+  // microphone "in use" dot (IslandSensors.closedList), so none is drawn here.
   const CLOSED = {
+    bubbles: { w: NOTCH, l: '', r: '',
+      bl: [{ art: true, label: 'Northern Lights, playing' }, { icon: 'cup', tint: 'blue', ring: .75, label: 'Stay Awake, 1:30 left' }],
+      br: [{ icon: 'timer', tint: 'orange', ring: .6, label: 'Tea, 4:18 left' }, { icon: 'bolt', tint: 'green', ring: .86, label: 'Charging, 86%' }] },
     split: { w: NOTCH + 88, l: '<i class="gi-art"></i>', r: '<span class="gi-eq"><i></i><i></i><i></i><i></i></span>',
       bl: [{ icon: 'cup', tint: 'blue', ring: .75, label: 'Stay Awake, 1:30 left' }, { icon: 'timer', tint: 'orange', ring: .6, label: 'Tea, 4:18 left' }],
-      br: [{ icon: 'bolt', tint: 'green', ring: .86, label: 'Charging, 86%' }, { dot: true, tint: 'orange', label: 'The microphone is on' }] },
+      br: [{ icon: 'bolt', tint: 'green', ring: .86, label: 'Charging, 86%' }] },
     pill: { w: NOTCH + 110, l: `<span class="gi-lead">${S.ringSvg(22, 2, .75, S.TINT.blue)}<span style="color:${S.TINT.blue}">${ic('cup')}</span></span>`, r: '<span class="gi-val"><b class="fig">1:30</b><small>+3</small></span>', bl: [], br: [] },
     // glances: nothing going on, so small glances rest either side of the camera (the time, the battery)
     glances: { w: NOTCH + 120, l: '<span class="gi-gl fig">17:13</span>', r: `<span class="gi-gl">${ic('bat')}<b class="fig">86%</b></span>`, bl: [], br: [] },
@@ -52,7 +58,7 @@
 
   function Island(root, scene) {
     const el = $('.gi', root), shape = $('.gi-shape', el), inner = $('.gi-in', el), barw = $('.gi-barw', el);
-    let page = null, closedKind = 'split', timers = [];
+    let page = null, closedKind = 'bubbles', timers = [];
     const later = (ms, f) => timers.push(setTimeout(f, reduce ? 0 : ms));
     const clear = () => { timers.forEach(clearTimeout); timers = []; };
     const setClosed = kind => {
@@ -107,11 +113,11 @@
   const DASH = { overview: () => G.overview(1100, 700), weather: G.weather, time: G.time };
   const dockApps = ['files', 'safari', 'messages', 'mail', 'photos', 'music', 'calendar', 'notes', 'settings', 'code', 'terminal'];
   const SCENES = {
-    hero: { dock: true, island: 'split', crop: { m: [520, 0, 660, 600], s: [560, 0, 580, 580] } },
-    panel: { dock: true, island: 'split', panel: 'home', crop: { m: [700, 0, 980, 760], s: [1095, 0, 540, 740] } },
-    island: { dock: true, island: 'split', crop: { m: [395, 0, 900, 640], s: [575, 0, 540, 600] } },
+    hero: { dock: true, island: 'bubbles', crop: { m: [520, 0, 660, 600], s: [560, 0, 580, 580] } },
+    panel: { dock: true, island: 'bubbles', panel: 'home', crop: { m: [700, 0, 980, 760], s: [1095, 0, 540, 740] } },
+    island: { dock: true, island: 'bubbles', crop: { m: [395, 0, 900, 640], s: [575, 0, 540, 600] } },
     dash: { dock: true, island: 'calm', dash: 'overview', crop: { m: [270, 90, 1150, 780], s: [285, 105, 700, 520] } },
-    docks: { dock: false, island: 'split', fullDock: true, crop: { m: [89, 420, 1512, 640], s: [330, 700, 700, 370] } },
+    docks: { dock: false, island: 'bubbles', fullDock: true, crop: { m: [89, 420, 1512, 640], s: [330, 700, 700, 370] } },
     tour: { dock: true, island: 'calm', tour: 'hello', crop: { m: [330, 80, 1030, 840], s: [510, 108, 670, 712] } }
   };
 
@@ -206,7 +212,7 @@
   btns.forEach(b => b.addEventListener('click', () => {
     const [n, v] = b.dataset.macBtn.split(':'), sc = byName(n); if (!sc) return;
     stopAuto(sc);
-    if (v === 'split' || v === 'pill' || v === 'glances') { sc.island.close(v); sync(sc, v); return; }
+    if (CLOSED[v] && v !== 'calm') { sc.island.close(v); sync(sc, v); return; }
     if (sc.panelShow && PANEL[v]) { sc.panelShow(v); sync(sc, v); return; }
     if (sc.dashShow && DASH[v]) { sc.dashShow(v); sync(sc, v); return; }
     if (sc.tourShow && (v === 'hello' || v === 'chapter')) { sc.tourShow(v); sync(sc, v); return; }
@@ -221,13 +227,13 @@
     // The hero: the Island closed with its bubbles, then it opens on Home, then on Tools, and closes again
     hero: sc => {
       if (reduce) { sc.island.open('home'); return; }
-      const loop = () => { after(sc, 1800, () => sc.island.open('home')); after(sc, 6200, () => sc.island.open('tools')); after(sc, 10400, () => { sc.island.close('split'); loop(); }); };
+      const loop = () => { after(sc, 1800, () => sc.island.open('home')); after(sc, 6200, () => sc.island.open('tools')); after(sc, 10400, () => { sc.island.close('bubbles'); loop(); }); };
       loop();
     },
     panel: sc => { sync(sc, 'home'); },
     // The Island: it peeks on Home a moment after it's seen; hover to peek, the buttons choose
     island: sc => {
-      sync(sc, 'split');
+      sync(sc, 'bubbles');
       if (reduce) return;
       after(sc, 1600, () => sc.show('home'));
       const el = $('.gi-shape', sc.root);

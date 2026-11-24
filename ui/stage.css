@@ -73,8 +73,6 @@
 .stg-hero .hero-mac { width: 100%; margin: 0; }
 .stg-hero .stg-r { align-self: center; }
 .stg-hero .mac-stage { border-radius: 22px; overflow: hidden; box-shadow: 0 40px 90px -30px rgba(20,10,50,.55); }
-.facts-s { padding: clamp(28px, 5vw, 52px) 0; }
-.facts-s .facts { margin-top: 0; border-top: 0; }
 .stg-grid.stack { grid-template-columns: minmax(0, 1fr) !important; }
 .stg-grid.stack .stg-l { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); align-items: end; max-width: none; }
 @media (max-width: 999.98px) { .stg-grid.stack .stg-l { grid-template-columns: minmax(0, 1fr); } }
@@ -84,3 +82,11 @@
 .stg .stg-pair { align-items: start; }
 .stg .stg-wx { border-radius: 18px; overflow: hidden; box-shadow: 0 30px 70px -25px rgba(20,10,50,.55); margin-bottom: 16px; }
 .stg [data-glive="shelf"] .lv-sh-desk { box-shadow: 0 30px 70px -25px rgba(20,10,50,.55); }
+
+/* A band's own tiles under its headline (the Island's other pieces, the docks' four moves): the same cards as
+   Stay Awake and Evening Mode, so every feature is one band */
+.stg .gx-new > div, .stg .g9-t { color: var(--ink); }
+/* The Dashboard's pages, grouped as the app groups them, in a white panel under the drawing */
+.stg .stg-pages { margin-top: 18px; }
+.stg .stg-pages .gx-pages { margin: 0; justify-content: flex-start; max-width: none; gap: 6px; }
+.stg .stg-pages .gx-pages li { background: var(--bg2); border-color: transparent; color: var(--ink2); font-size: 13px; padding: 6px 11px; }

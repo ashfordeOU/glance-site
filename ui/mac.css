@@ -90,6 +90,9 @@
 .gb > * { grid-area: 1 / 1; }
 .gb-ic { display: grid; place-items: center; }
 .gb-ic .mi { display: block; stroke-width: 2.6; }
+/* What's playing as a bubble (Just bubbles): the artwork in a circle, 78% of the bubble, the playing bars over it */
+.gb-art { width: calc(var(--d) * .78); height: calc(var(--d) * .78); border-radius: 50%; }
+.gb-eq { height: 10px; gap: 1.5px; } .gb-eq i { width: 2px; background: #fff; }
 .gb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--t); box-shadow: 0 0 7px var(--t); }
 /* The tab bar floating below */
 .gi-barw { position: absolute; left: 0; top: calc(var(--oh) + 8px); transform: translateX(-50%) translateY(-10px) scale(.7); transform-origin: 50% 0; opacity: 0; pointer-events: none; transition: opacity .15s, transform .2s, top .5s var(--spring); }

@@ -31,7 +31,7 @@
   S.TINT = TINT;
   S.bubble = (b, d = 30) => {
     const t = TINT[b.tint] || b.tint;
-    const face = b.dot ? `<i class="gb-dot" style="--t:${t}"></i>`
+    const face = b.art ? '<i class="gi-art gb-art"></i><span class="gi-eq gb-eq"><i></i><i></i><i></i></span>' : b.dot ? `<i class="gb-dot" style="--t:${t}"></i>`
       : (b.ring != null ? ringSvg(d * .62 + 4, 2.5, b.ring, t) : '') + `<span class="gb-ic" style="color:${t};font-size:${(b.ring != null ? d * .3 : d * .42).toFixed(1)}px">${ic(b.icon)}</span>`;
     return `<span class="gb" style="--d:${d}px" title="${b.label}">${face}</span>`;
   };
